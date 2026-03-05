@@ -41,7 +41,7 @@ export default function Landing() {
         
         <motion.div>
   <img
-    src="images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
+    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
     alt="Product Growth System"
     className="rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
   />
