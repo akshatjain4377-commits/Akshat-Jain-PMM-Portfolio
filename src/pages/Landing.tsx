@@ -41,7 +41,7 @@ export default function Landing() {
         
         <motion.div>
   <img
-    src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/product-growth.png"
+    src="https://github.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/blob/c98f912fe11581e85bc5274ffa13c4836ebd873a/product-growth.png"
     alt="Product Growth System"
     className="rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
   />
