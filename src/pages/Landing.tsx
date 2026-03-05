@@ -39,13 +39,13 @@ export default function Landing() {
           </motion.div>
         </div>
         
-        <motion.div 
-          <img
-  src="Product Growth Positioning.png"
-  alt="Product Growth System"
-  className="rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
-/img>
-        </motion.div>
+        <motion.div>
+  <img
+    src="/Product Growth Positioning.png"
+    alt="Product Growth System"
+    className="rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
+  />
+     </motion.div>
       </section>
 
       {/* How I Think About Growth */}
