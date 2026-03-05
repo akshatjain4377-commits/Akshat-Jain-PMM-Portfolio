@@ -39,13 +39,13 @@ export default function Landing() {
           </motion.div>
         </div>
         
-        <motion.div>
+       <motion.div className="flex h-full items-center justify-center">
   <img
     src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/product-growth.png"
     alt="Product Growth System"
-    className="rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
+    className="w-full max-w-[400px] rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
   />
-     </motion.div>
+</motion.div>
       </section>
 
       {/* How I Think About Growth */}
