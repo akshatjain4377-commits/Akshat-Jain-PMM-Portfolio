@@ -40,33 +40,11 @@ export default function Landing() {
         </div>
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="relative flex h-[400px] w-full max-w-md flex-1 items-center justify-center rounded-3xl bg-brand-card border border-brand-border p-8 lg:h-[500px]"
-        >
-          <div className="relative flex h-full w-full items-center justify-center">
-            <RefreshCw className="h-24 w-24 text-brand-border opacity-50" />
-            
-            <div className="absolute top-[15%] left-[50%] -translate-x-1/2 rounded-full border border-brand-border bg-brand-bg px-4 py-2 text-xs font-medium text-brand-accent">
-              INSIGHT
-            </div>
-            <div className="absolute top-[30%] right-[10%] rounded-full border border-brand-border bg-brand-bg px-4 py-2 text-xs font-medium text-brand-accent">
-              POSITIONING
-            </div>
-            <div className="absolute bottom-[30%] right-[10%] rounded-full border border-brand-border bg-brand-bg px-4 py-2 text-xs font-medium text-brand-accent">
-              GTM
-            </div>
-            <div className="absolute bottom-[15%] left-[50%] -translate-x-1/2 rounded-full border border-brand-border bg-brand-bg px-4 py-2 text-xs font-medium text-brand-accent">
-              RETENTION
-            </div>
-            <div className="absolute bottom-[30%] left-[10%] rounded-full border border-brand-border bg-brand-bg px-4 py-2 text-xs font-medium text-brand-accent">
-              REVENUE
-            </div>
-            <div className="absolute top-[30%] left-[10%] rounded-full border border-brand-border bg-brand-bg px-4 py-2 text-xs font-medium text-brand-accent">
-              SCALE
-            </div>
-          </div>
+          <img
+  src="/Product Growth Positioning.png"
+  alt="Product Growth System"
+  className="rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
+/>
         </motion.div>
       </section>
 
