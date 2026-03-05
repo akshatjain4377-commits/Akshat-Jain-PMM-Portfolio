@@ -56,8 +56,8 @@ export default function Contact() {
                   <div>
                     <h3 className="mb-1 text-sm font-bold uppercase tracking-widest text-brand-muted">Social</h3>
                     <div className="flex gap-4">
-                      <a href="#" className="text-lg font-medium text-brand-text hover:text-brand-accent transition-colors">LinkedIn</a>
-                      <a href="#" className="text-lg font-medium text-brand-text hover:text-brand-accent transition-colors">Twitter</a>
+                      <a href="https://www.linkedin.com/in/akshatjain1102/" className="text-lg font-medium text-brand-text hover:text-brand-accent transition-colors">LinkedIn</a>
+                      <a href="https://x.com/Akshatjain_45" className="text-lg font-medium text-brand-text hover:text-brand-accent transition-colors">Twitter</a>
                     </div>
                   </div>
                 </div>
