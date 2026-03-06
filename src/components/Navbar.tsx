@@ -23,7 +23,6 @@ export default function Navbar() {
           </div>
         ) : (
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
-            <Link to="/" className="hover:text-brand-text transition-colors">Growth Philosophy</Link>
             <Link to="/work" className="hover:text-brand-text transition-colors">Work</Link>
             <Link to="/about" className="hover:text-brand-text transition-colors">About</Link>
             <Link to="/contact" className="hover:text-brand-text transition-colors">Contact</Link>
