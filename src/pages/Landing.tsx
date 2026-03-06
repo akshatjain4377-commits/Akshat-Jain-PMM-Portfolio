@@ -205,7 +205,7 @@ export default function Landing() {
               </p>
             </div>
             <div className="relative h-64 w-64 shrink-0 overflow-hidden rounded-full border-4 border-brand-accent/20 md:h-80 md:w-80">
-              <img src="https://picsum.photos/seed/portrait/400/400" alt="Akshat Jain" className="h-full w-full object-cover" referrerPolicy="no-referrer" />
+              <img src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-about-me.jpeg" alt="Akshat Jain" className="h-full w-full object-cover" referrerPolicy="no-referrer" />
               <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-brand-accent/50"></div>
             </div>
           </div>
