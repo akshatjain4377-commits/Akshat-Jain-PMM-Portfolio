@@ -30,7 +30,15 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li><Link to="/contact" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">@ Contact Me</Link></li>
               <li><a href="https://www.linkedin.com/in/akshatjain1102/" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">🔗 LinkedIn</a></li>
-              <li><a href="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-cv.pdf" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">📥 Download Resume</a></li>
+              <li><a
+  href="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-resume.pdf"
+  download="Akshat-Jain-Product-Marketing-Resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors"
+>
+  📥 Download Resume
+</a></li>
             </ul>
           </div>
         </div>
