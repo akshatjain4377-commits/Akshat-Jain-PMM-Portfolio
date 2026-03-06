@@ -40,8 +40,8 @@ export default function Navbar() {
       onClick={() => {
         const link = document.createElement("a");
         link.href =
-          "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-resume.pdf";
-        link.download = "Akshat-Jain-Resume.pdf";
+          "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-cv.pdf";
+        link.download = "akshat-jain-cv.pdf";
         link.click();
       }}
       className="rounded-full bg-brand-accent px-5 py-2 text-sm font-semibold text-brand-bg hover:bg-brand-accent-hover transition-colors"
