@@ -41,7 +41,7 @@ export default function Landing() {
         
        <motion.div className="flex h-full items-center justify-center">
   <img
-    src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/product-growth.png"
+    src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/product-growth-loop.png"
     alt="Product Growth System"
     className="w-full max-w-[400px] rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
   />
