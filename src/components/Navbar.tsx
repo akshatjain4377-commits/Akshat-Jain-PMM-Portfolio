@@ -31,16 +31,25 @@ export default function Navbar() {
         )}
 
         <div className="flex items-center gap-4">
-          {isCaseStudy ? (
-            <button className="rounded-full bg-brand-accent px-5 py-2 text-sm font-semibold text-brand-bg hover:bg-brand-accent-hover transition-colors">
-              Share
-            </button>
-          ) : (
-            <button className="rounded-full bg-brand-accent px-5 py-2 text-sm font-semibold text-brand-bg hover:bg-brand-accent-hover transition-colors">
-              Resume
-            </button>
-          )}
-        </div>
+  {isCaseStudy ? (
+    <button className="rounded-full bg-brand-accent px-5 py-2 text-sm font-semibold text-brand-bg hover:bg-brand-accent-hover transition-colors">
+      Share
+    </button>
+  ) : (
+    <button
+      onClick={() => {
+        const link = document.createElement("a");
+        link.href =
+          "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-resume.pdf";
+        link.download = "Akshat-Jain-Resume.pdf";
+        link.click();
+      }}
+      className="rounded-full bg-brand-accent px-5 py-2 text-sm font-semibold text-brand-bg hover:bg-brand-accent-hover transition-colors"
+    >
+      Resume
+    </button>
+  )}
+</div>
       </div>
     </nav>
   );
