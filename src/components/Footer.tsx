@@ -30,8 +30,8 @@ export default function Footer() {
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-brand-muted">Connect</h4>
             <ul className="space-y-3 text-sm">
               <li><Link to="/contact" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">@ Contact Me</Link></li>
-              <li><a href="#" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">🔗 LinkedIn</a></li>
-              <li><a href="#" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">📥 Download Resume</a></li>
+              <li><a href="https://www.linkedin.com/in/akshatjain1102/" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">🔗 LinkedIn</a></li>
+              <li><a href="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-resume.pdf" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">📥 Download Resume</a></li>
             </ul>
           </div>
         </div>
@@ -39,10 +39,10 @@ export default function Footer() {
         <div className="mt-16 flex flex-col items-center justify-between border-t border-brand-border pt-8 text-xs text-brand-muted md:flex-row">
           <p>© 2024 Akshat Jain. Built for Growth.</p>
           <div className="mt-4 flex gap-6 md:mt-0">
-            <a href="#" className="hover:text-brand-text transition-colors">Twitter</a>
-            <a href="#" className="hover:text-brand-text transition-colors">LinkedIn</a>
+            <a href="https://x.com/Akshatjain_45" className="hover:text-brand-text transition-colors">Twitter</a>
+            <a href="https://www.linkedin.com/in/akshatjain1102/" className="hover:text-brand-text transition-colors">LinkedIn</a>
             <a href="#" className="hover:text-brand-text transition-colors">Medium</a>
-            <a href="#" className="hover:text-brand-text transition-colors">Newsletter</a>
+            <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" className="hover:text-brand-text transition-colors">Newsletter</a>
           </div>
         </div>
       </div>
