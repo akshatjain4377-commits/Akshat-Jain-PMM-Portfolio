@@ -156,9 +156,9 @@ export default function Landing() {
             </Link>
 
             {/* Project 4 */}
-            <Link to="/work" className="group block overflow-hidden rounded-2xl border border-brand-border bg-brand-card transition-colors hover:border-brand-accent/50">
+            <Link to="/work/digital-pr" className="group block overflow-hidden rounded-2xl border border-brand-border bg-brand-card transition-colors hover:border-brand-accent/50">
               <div className="aspect-[16/9] w-full overflow-hidden bg-brand-bg p-8">
-                <img src="https://picsum.photos/seed/network/800/450" alt="Digital PR Authority Engine" className="h-full w-full object-cover rounded-lg opacity-80 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                <img src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/digital-pr.png" alt="Digital PR Authority Engine" className="h-full w-full object-cover rounded-lg opacity-80 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
               </div>
               <div className="p-8">
                 <div className="mb-4 flex gap-2">
