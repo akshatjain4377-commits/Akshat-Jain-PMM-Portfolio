@@ -20,7 +20,6 @@ export default function Footer() {
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-brand-muted">Navigation</h4>
             <ul className="space-y-3 text-sm">
               <li><Link to="/" className="text-brand-text hover:text-brand-accent transition-colors">Home</Link></li>
-              <li><Link to="/" className="text-brand-text hover:text-brand-accent transition-colors">Growth Philosophy</Link></li>
               <li><Link to="/work" className="text-brand-text hover:text-brand-accent transition-colors">Selected Work</Link></li>
               <li><Link to="/about" className="text-brand-text hover:text-brand-accent transition-colors">The Human Edge</Link></li>
             </ul>
@@ -31,7 +30,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li><Link to="/contact" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">@ Contact Me</Link></li>
               <li><a href="https://www.linkedin.com/in/akshatjain1102/" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">🔗 LinkedIn</a></li>
-              <li><a href="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-resume.pdf" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">📥 Download Resume</a></li>
+              <li><a href="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-cv.pdf" className="flex items-center gap-2 text-brand-text hover:text-brand-accent transition-colors">📥 Download Resume</a></li>
             </ul>
           </div>
         </div>
