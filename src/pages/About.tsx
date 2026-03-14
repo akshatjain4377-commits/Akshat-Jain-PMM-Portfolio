@@ -36,7 +36,7 @@ export default function About() {
             className="relative flex h-[400px] w-full flex-1 items-center justify-center overflow-hidden rounded-3xl bg-brand-card lg:h-[600px]"
           >
             <img 
-              src="https://picsum.photos/seed/akshat-portrait/800/1000" 
+              src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-about.jpg" 
               alt="Akshat Jain" 
               className="h-full w-full object-cover opacity-80 grayscale transition-all duration-700 hover:grayscale-0" 
               referrerPolicy="no-referrer" 
