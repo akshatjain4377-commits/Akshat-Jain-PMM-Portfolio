@@ -97,50 +97,75 @@ export default function About() {
       </section>
 
       {/* Experience Timeline */}
-      <section className="border-t border-brand-border bg-brand-bg py-24">
-        <div className="mx-auto max-w-3xl px-6">
-          <h2 className="mb-16 text-center text-3xl font-bold tracking-tight text-brand-text md:text-4xl">The Journey So Far</h2>
-          
-          <div className="space-y-12">
-            {[
-              {
-                year: "2021 - Present",
-                role: "Product Marketing Lead",
-                company: "High-Growth SaaS",
-                desc: "Leading GTM strategy, positioning, and sales enablement for enterprise products. Scaled ARR by 150% through targeted vertical campaigns."
-              },
-              {
-                year: "2019 - 2021",
-                role: "Senior Marketing Manager",
-                company: "ACKO Insurance",
-                desc: "Drove digital acquisition and retention strategies. Implemented behavioral nudges that increased policy renewals by 40%."
-              },
-              {
-                year: "2017 - 2019",
-                role: "Content Strategy Lead",
-                company: "Business Standard",
-                desc: "Spearheaded the transition from print to digital subscriptions. Optimized paywall funnels resulting in a 25% lift in digital revenue."
-              }
-            ].map((exp, i) => (
-              <div key={i} className="relative pl-8 md:pl-0">
-                <div className="md:flex md:items-baseline md:justify-between">
-                  <div className="mb-2 md:mb-0 md:w-1/4">
-                    <span className="text-sm font-bold text-brand-accent">{exp.year}</span>
-                  </div>
-                  <div className="md:w-3/4 md:pl-8 md:border-l md:border-brand-border">
-                    <h3 className="text-xl font-bold text-brand-text">{exp.role}</h3>
-                    <h4 className="mb-4 font-display text-sm italic text-brand-muted">{exp.company}</h4>
-                    <p className="text-brand-muted leading-relaxed">{exp.desc}</p>
-                  </div>
-                </div>
-                {/* Mobile timeline line */}
-                <div className="absolute left-0 top-2 bottom-[-3rem] w-px bg-brand-border md:hidden last:bottom-0"></div>
-                <div className="absolute left-[-4px] top-2 h-2 w-2 rounded-full bg-brand-accent md:hidden"></div>
-              </div>
-            ))}
+<section className="border-t border-brand-border bg-brand-bg py-24">
+  <div className="mx-auto max-w-3xl px-6">
+
+    <h2 className="mb-16 text-center text-3xl font-bold tracking-tight text-brand-text md:text-4xl">
+      How I Learned to Build Growth Systems
+    </h2>
+
+    <div className="space-y-12">
+      {[
+        {
+          year: "2024 - Present",
+          role: "Founder",
+          company: "The Peak View Stories",
+          desc: "Built and launched a satire news platform end-to-end — from website and editorial positioning to distribution. Scaled organic reach with multiple posts crossing 1.5M+ views while earning PR mentions as the platform’s founder."
+        },
+        {
+          year: "2023 - Present",
+          role: "SEO Executive",
+          company: "Business Standard",
+          desc: "Driving organic growth for the Markets & Companies section by optimizing high-intent financial coverage including IPO stories, earnings, and company pages. Working on improving discoverability and user journeys across financial content."
+        },
+        {
+          year: "2021 - 2022",
+          role: "Digital PR & Content Strategist",
+          company: "RankSoldier",
+          desc: "Built authority and thought leadership for founders through journalist platforms like HARO, Terkel, SourceBottle, and Qwoted. Secured high-authority mentions including Forbes while managing outreach operations and editorial responses."
+        },
+        {
+          year: "2021",
+          role: "Market Research Intern",
+          company: "Explorra Design Institute",
+          desc: "Conducted market research across Tier 1 and Tier 2 colleges by building structured datasets of Deans, HODs, and placement cells to support institutional outreach initiatives."
+        }
+      ].map((exp, i) => (
+        <div key={i} className="relative pl-8 md:pl-0">
+          <div className="md:flex md:items-baseline md:justify-between">
+
+            <div className="mb-2 md:mb-0 md:w-1/4">
+              <span className="text-sm font-bold text-brand-accent">
+                {exp.year}
+              </span>
+            </div>
+
+            <div className="md:w-3/4 md:pl-8 md:border-l md:border-brand-border">
+              <h3 className="text-xl font-bold text-brand-text">
+                {exp.role}
+              </h3>
+
+              <h4 className="mb-4 font-display text-sm italic text-brand-muted">
+                {exp.company}
+              </h4>
+
+              <p className="text-brand-muted leading-relaxed">
+                {exp.desc}
+              </p>
+            </div>
+
           </div>
+
+          {/* Mobile timeline line */}
+          <div className="absolute left-0 top-2 bottom-[-3rem] w-px bg-brand-border md:hidden last:bottom-0"></div>
+          <div className="absolute left-[-4px] top-2 h-2 w-2 rounded-full bg-brand-accent md:hidden"></div>
+
         </div>
-      </section>
+      ))}
+    </div>
+
+  </div>
+</section>
     </div>
   );
 }
