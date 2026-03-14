@@ -1,7 +1,9 @@
 import { motion } from 'motion/react';
 import { Mail, MapPin, MessageSquare, ArrowRight } from 'lucide-react';
+import { useForm, ValidationError } from "@formspree/react";
 
 export default function Contact() {
+  const [state, handleSubmit] = useForm("xdawdywl");
   return (
     <div className="min-h-screen bg-brand-bg">
       <section className="mx-auto max-w-7xl px-6 py-24 lg:py-32">
@@ -65,67 +67,107 @@ export default function Contact() {
             </motion.div>
           </div>
 
-          {/* Right Column: Form */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="rounded-3xl border border-brand-border bg-brand-card p-8 md:p-12"
-          >
-            <h2 className="mb-8 text-2xl font-bold text-brand-text">Send a Message</h2>
-            
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-xs font-bold uppercase tracking-widest text-brand-muted">Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    className="w-full rounded-xl border border-brand-border bg-brand-bg px-4 py-3 text-brand-text focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-colors"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-xs font-bold uppercase tracking-widest text-brand-muted">Email</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    className="w-full rounded-xl border border-brand-border bg-brand-bg px-4 py-3 text-brand-text focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-colors"
-                    placeholder="john@example.com"
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-xs font-bold uppercase tracking-widest text-brand-muted">Subject</label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  className="w-full rounded-xl border border-brand-border bg-brand-bg px-4 py-3 text-brand-text focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-colors"
-                  placeholder="How can we collaborate?"
-                />
-              </div>
+         {/* Right Column: Form */}
+<motion.div 
+  initial={{ opacity: 0, x: 20 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  className="rounded-3xl border border-brand-border bg-brand-card p-8 md:p-12"
+>
+  <h2 className="mb-8 text-2xl font-bold text-brand-text">Send a Message</h2>
 
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-xs font-bold uppercase tracking-widest text-brand-muted">Message</label>
-                <textarea 
-                  id="message" 
-                  rows={6}
-                  className="w-full resize-none rounded-xl border border-brand-border bg-brand-bg px-4 py-3 text-brand-text focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-colors"
-                  placeholder="Tell me about your project..."
-                ></textarea>
-              </div>
+  {state.succeeded ? (
+    <p className="text-brand-accent text-lg font-medium">
+      Thanks! Your message has been sent. I'll get back to you soon.
+    </p>
+  ) : (
 
-              <button 
-                type="submit"
-                className="group flex w-full items-center justify-center gap-2 rounded-xl bg-brand-accent px-8 py-4 text-sm font-bold text-brand-bg hover:bg-brand-accent-hover transition-colors"
-              >
-                Send Message
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </button>
-            </form>
-          </motion.div>
+  <form className="space-y-6" onSubmit={handleSubmit}>
 
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+      <div className="space-y-2">
+        <label className="text-xs font-bold uppercase tracking-widest text-brand-muted">
+          Name
+        </label>
+
+        <input
+          type="text"
+          name="name"
+          required
+          className="w-full rounded-xl border border-brand-border bg-brand-bg px-4 py-3 text-brand-text focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-colors"
+          placeholder="John Doe"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label className="text-xs font-bold uppercase tracking-widest text-brand-muted">
+          Email
+        </label>
+
+        <input
+          type="email"
+          name="email"
+          required
+          className="w-full rounded-xl border border-brand-border bg-brand-bg px-4 py-3 text-brand-text focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-colors"
+          placeholder="john@example.com"
+        />
+
+        <ValidationError 
+          prefix="Email" 
+          field="email"
+          errors={state.errors}
+        />
+      </div>
+
+    </div>
+
+    <div className="space-y-2">
+      <label className="text-xs font-bold uppercase tracking-widest text-brand-muted">
+        Subject
+      </label>
+
+      <input
+        type="text"
+        name="subject"
+        className="w-full rounded-xl border border-brand-border bg-brand-bg px-4 py-3 text-brand-text focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-colors"
+        placeholder="How can we collaborate?"
+      />
+    </div>
+
+    <div className="space-y-2">
+      <label className="text-xs font-bold uppercase tracking-widest text-brand-muted">
+        Message
+      </label>
+
+      <textarea
+        name="message"
+        rows={6}
+        required
+        className="w-full resize-none rounded-xl border border-brand-border bg-brand-bg px-4 py-3 text-brand-text focus:border-brand-accent focus:outline-none focus:ring-1 focus:ring-brand-accent transition-colors"
+        placeholder="Tell me about your project..."
+      ></textarea>
+
+      <ValidationError 
+        prefix="Message" 
+        field="message"
+        errors={state.errors}
+      />
+    </div>
+
+    <button
+      type="submit"
+      disabled={state.submitting}
+      className="group flex w-full items-center justify-center gap-2 rounded-xl bg-brand-accent px-8 py-4 text-sm font-bold text-brand-bg hover:bg-brand-accent-hover transition-colors"
+    >
+      {state.submitting ? "Sending..." : "Send Message"}
+      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+    </button>
+
+  </form>
+
+  )}
+</motion.div>
         </div>
       </section>
     </div>
