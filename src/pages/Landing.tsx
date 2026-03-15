@@ -20,9 +20,10 @@ export default function Landing() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="max-w-2xl text-lg text-brand-muted md:text-xl"
+            className="max-w-2xl text-lg text-brand-muted md:text-xl leading-relaxed"
           >
-            Product marketing built on customer insight, positioning clarity, and distribution systems that turn ideas into product momentum.
+            Product marketing built on customer insight, positioning clarity, and distribution systems that turn ideas into product momentum. <br /> I study how narratives spread, how markets perceive value,
+and why certain products gain traction while others fade.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
