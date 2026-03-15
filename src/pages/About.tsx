@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Search, TargetHit, Rocket, TrendingUp } from 'lucide-react';
+import { Search, Target, Rocket, TrendingUp } from 'lucide-react';
 
 export default function About() {
   return (
@@ -63,7 +63,7 @@ It is about understanding people, narratives, and the systems that make products
                 desc: "Great positioning starts with understanding the customer deeply. Real insight usually sits a few layers beneath what users initially say."
               },
               {
-                icon: <TargetHit className="h-6 w-6 text-brand-accent" />,
+                icon: <Target className="h-6 w-6 text-brand-accent" />,
                 title: "Positioning & Messaging",
                 desc: "Products compete in perception before they compete in features. Clear positioning and messaging define why the product matters and who it is for."
               },
