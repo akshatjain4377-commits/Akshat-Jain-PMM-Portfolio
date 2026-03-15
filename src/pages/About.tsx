@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { BookOpen, Search, Globe, Zap } from 'lucide-react';
+import { Search, Target, Zap, TrendingUp } from 'lucide-react';
 
 export default function About() {
   return (
@@ -51,7 +51,7 @@ It is about understanding people, narratives, and the systems that make products
       <section className="border-t border-brand-border bg-brand-bg py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 max-w-2xl">
-            <h2 className="mb-6 text-3xl font-bold tracking-tight text-brand-text md:text-4xl">How I Think About Growth</h2>
+            <h2 className="mb-6 text-3xl font-bold tracking-tight text-brand-text md:text-4xl">How I Think About Product Growth</h2>
             <p className="text-lg text-brand-muted">The foundational beliefs that guide how I approach markets, positioning, and growth systems.</p>
           </div>
           
@@ -59,23 +59,23 @@ It is about understanding people, narratives, and the systems that make products
             {[
               {
                 icon: <Search className="h-6 w-6 text-brand-accent" />,
-                title: "Curiosity First",
-                desc: "Never accept the first answer. The real insight is usually three 'whys' deep."
+                title: "Customer Insight",
+                desc: "Great positioning starts with understanding the customer deeply. Real insight usually sits a few layers beneath what users initially say."
               },
               {
-                icon: <Globe className="h-6 w-6 text-brand-accent" />,
-                title: "Systemic Thinking",
-                desc: "Marketing isn't isolated. It's a system that connects product, sales, and customer success."
+                icon: <Target className="h-6 w-6 text-brand-accent" />,
+                title: "Positioning & Messaging",
+                desc: "Products compete in perception before they compete in features. Clear positioning and messaging define why the product matters and who it is for."
               },
               {
                 icon: <Zap className="h-6 w-6 text-brand-accent" />,
-                title: "Bias for Action",
-                desc: "A good plan violently executed now is better than a perfect plan executed next week."
+                title: "Go-to-Market Systems",
+                desc: "Growth isn't a campaign. It is a coordinated system connecting product, marketing, sales, and distribution."
               },
               {
-                icon: <BookOpen className="h-6 w-6 text-brand-accent" />,
-                title: "Continuous Learning",
-                desc: "The market changes daily. If you aren't learning, you're becoming obsolete."
+                icon: <TrendingUp className="h-6 w-6 text-brand-accent" />,
+                title: "Distribution & Momentum",
+                desc: "Even great products fail without distribution. The right narrative and channels turn launches into sustained momentum."
               }
             ].map((item, i) => (
               <motion.div 
