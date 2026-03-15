@@ -58,7 +58,7 @@ It is about understanding people, narratives, and the systems that make products
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: <Search className="h-6 w-6 text-brand-accent" />,
+                icon: <Magnifier className="h-6 w-6 text-brand-accent" />,
                 title: "Curiosity First",
                 desc: "Never accept the first answer. The real insight is usually three 'whys' deep."
               },
