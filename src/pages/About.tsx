@@ -51,14 +51,14 @@ It is about understanding people, narratives, and the systems that make products
       <section className="border-t border-brand-border bg-brand-bg py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 max-w-2xl">
-            <h2 className="mb-6 text-3xl font-bold tracking-tight text-brand-text md:text-4xl">My Core Principles</h2>
-            <p className="text-lg text-brand-muted">The foundational beliefs that drive my approach to product marketing, team building, and personal growth.</p>
+            <h2 className="mb-6 text-3xl font-bold tracking-tight text-brand-text md:text-4xl">How I Think About Growth</h2>
+            <p className="text-lg text-brand-muted">The foundational beliefs that guide how I approach markets, positioning, and growth systems.</p>
           </div>
           
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: <Compass className="h-6 w-6 text-brand-accent" />,
+                icon: <Search className="h-6 w-6 text-brand-accent" />,
                 title: "Curiosity First",
                 desc: "Never accept the first answer. The real insight is usually three 'whys' deep."
               },
