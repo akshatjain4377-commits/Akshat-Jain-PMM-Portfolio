@@ -70,8 +70,7 @@ export default function About() {
             </p>
 
             <p>
-              Early in my career, most of my work revolved around understanding audiences, shaping narratives, and figuring out how information moves across the internet.
-              Whether it was researching markets, building digital authority, or improving distribution systems, the same question kept appearing:
+              Early in my career, most of my work revolved around understanding audiences, shaping narratives, and figuring out how information moves across the internet. Whether it was researching markets, building digital authority, or improving distribution systems, the same question kept appearing:
             </p>
 
             <p className="text-brand-text font-medium">
@@ -79,11 +78,11 @@ export default function About() {
             </p>
 
             <p>
-              That curiosity eventually led me to build <span className="text-brand-text font-medium">The Peak View Stories</span> — a satire news platform I launched as an experiment in narrative, audience psychology, and distribution.
+              That curiosity eventually led me to build <span className="text-brand-text font-medium">The Peak View Stories</span> - a satire news platform I launched as an experiment in narrative, audience psychology, and distribution.
             </p>
 
             <p>
-              What started as a creative project quickly became a learning lab. I was thinking about positioning, content loops, audience behavior, and growth systems all at once. Some posts crossed <span className="text-brand-text font-medium">1.5M+ views</span>, and for the first time I could see how the entire growth loop worked — from idea to reach to engagement.
+              What started as a creative project quickly became a learning lab. I was thinking about positioning, content loops, audience behavior, and growth systems all at once. Some posts crossed <span className="text-brand-text font-medium">1.5M+ views</span>, and for the first time I could see how the entire growth loop worked - from idea to reach to engagement.
             </p>
 
             <p>
@@ -91,7 +90,7 @@ export default function About() {
             </p>
 
             <p className="text-brand-text font-medium">
-              That system is exactly what product marketing sits at the center of.
+              That connected system is exactly what product marketing sits at the center of.
             </p>
 
           </div>
