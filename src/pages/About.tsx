@@ -9,7 +9,7 @@ export default function About() {
         <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex-1 space-y-8 lg:pr-12">
             <span className="rounded-full border border-brand-accent/30 bg-brand-accent/10 px-4 py-2 text-xs font-semibold tracking-widest text-brand-accent">
-              THE HUMAN EDGE
+              THE HUMAN LAYER OF PRODUCT MARKETING
             </span>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -17,7 +17,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-5xl font-bold leading-[1.1] tracking-tight text-brand-text md:text-6xl lg:text-7xl"
             >
-              Beyond the <br /> Spreadsheets.
+              Beyond the Spreadsheets. <br /> Understanding the Systems Behind Growth.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -25,7 +25,13 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="max-w-xl text-xl text-brand-muted"
             >
-              I believe growth is a byproduct of diverse experiences. Whether it's playing a high-stakes cricket match or building platforms that challenge the status quo, I look for systems in everything.
+              I believe growth rarely comes from tactics alone. It comes from understanding people, narratives, and the systems that connect them.
+
+From researching markets and building digital authority for founders, to optimizing distribution for one of India's largest financial publications, my work has always centered around one question:
+
+Why do some products grow while others struggle to be understood?
+
+Product marketing sits at the intersection of that answer — where customer insight, positioning, and go-to-market strategy come together to shape how products win in the market.
             </motion.p>
           </div>
           
