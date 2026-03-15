@@ -17,7 +17,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-5xl font-bold leading-[1.1] tracking-tight text-brand-text md:text-6xl lg:text-7xl"
             >
-              Beyond the Spreadsheets. <br /> Understanding the Systems Behind Growth.
+              Beyond the <br /> Spreadsheets. 
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -25,13 +25,8 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="max-w-xl text-xl text-brand-muted"
             >
-              I believe growth rarely comes from tactics alone. It comes from understanding people, narratives, and the systems that connect them.
-
-From researching markets and building digital authority for founders, to optimizing distribution for one of India's largest financial publications, my work has always centered around one question:
-
-Why do some products grow while others struggle to be understood?
-
-Product marketing sits at the intersection of that answer — where customer insight, positioning, and go-to-market strategy come together to shape how products win in the market.
+              I believe growth is rarely just numbers and tactics. 
+It’s about understanding people, narratives, and the systems that connect them.
             </motion.p>
           </div>
           
