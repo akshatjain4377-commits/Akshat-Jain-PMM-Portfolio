@@ -25,8 +25,8 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="max-w-xl text-xl text-brand-muted"
             >
-              I believe growth is rarely just numbers and tactics. 
-It’s about understanding people, narratives, and the systems that connect them.
+              I believe growth is not just analytics and dashboards.. 
+It is about understanding people, narratives, and the systems that make products win.
             </motion.p>
           </div>
           
