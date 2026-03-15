@@ -14,7 +14,7 @@ export default function Landing() {
             transition={{ duration: 0.5 }}
             className="text-5xl font-bold leading-[1.1] tracking-tight text-brand-text md:text-6xl lg:text-7xl"
           >
-            I Build Growth Systems for Products That Want to Win.
+            Understanding Why Some Products Gain Momentum
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,7 @@ export default function Landing() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="max-w-xl text-lg text-brand-muted md:text-xl"
           >
-            Product Marketing focused on positioning clarity, customer insight, disciplined unit economics, and sustainable go-to-market strategy.
+            Product marketing built on customer insight, positioning clarity, and distribution systems.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
