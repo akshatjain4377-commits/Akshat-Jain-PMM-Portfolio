@@ -53,19 +53,21 @@ export default function Projects() {
       <section className="mx-auto max-w-7xl px-6 py-24 lg:py-32">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-            className="relative flex flex-1 items-center justify-center overflow-hidden rounded-3xl bg-brand-accent/20 lg:h-[400px]"
-          >
-           <img 
-        src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/work-section-hero.png"
-        alt="Product Marketing Case Studies"
-        className="w-full max-w-[400px] rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-bg/40 to-transparent"></div>
-    </motion.div>
-          
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.7 }}
+  className="relative flex flex-1 items-center justify-center overflow-hidden rounded-3xl bg-brand-card lg:h-[400px] group"
+>
+           <motion.div 
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.7 }}
+  className="relative flex flex-1 items-center justify-center overflow-hidden rounded-3xl bg-brand-card lg:h-[400px] group"
+>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-bg/30 via-transparent to-brand-bg/20"></div>
+    <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 shadow-[0_0_60px_rgba(20,184,166,0.15)]"></div>
+</motion.div>
+            
           <div className="flex-1 space-y-8 lg:pl-12">
             <span className="rounded-full border border-brand-accent/30 bg-brand-accent/10 px-4 py-2 text-xs font-semibold tracking-widest text-brand-accent">
               PORTFOLIO 2024
