@@ -61,7 +61,7 @@ export default function Projects() {
            <img 
         src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/work-section-hero.png"
         alt="Product Marketing Case Studies"
-        className="h-full w-full object-cover opacity-90"
+        className="w-full max-w-[400px] rounded-2xl shadow-2xl hover:scale-105 transition duration-500"
       />
       <div className="absolute inset-0 bg-gradient-to-br from-brand-bg/40 to-transparent"></div>
     </motion.div>
