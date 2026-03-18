@@ -37,7 +37,6 @@ export default function CaseStudy() {
       "Lifecycle thinking beats channel thinking in high-consideration products.",
       "The best GTM strategy aligns with unit economics, not just demand."
     ]
-  }
 },
     "peak-view": {
       title: "The Peak View Stories",
