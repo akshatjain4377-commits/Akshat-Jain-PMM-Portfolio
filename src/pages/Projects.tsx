@@ -69,7 +69,7 @@ export default function Projects() {
             
           <div className="flex-1 space-y-8 lg:pl-12">
             <span className="rounded-full border border-brand-accent/30 bg-brand-accent/10 px-4 py-2 text-xs font-semibold tracking-widest text-brand-accent">
-              PORTFOLIO 2024
+              SELECTED WORK
             </span>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-5xl font-bold leading-[1.1] tracking-tight text-brand-text md:text-6xl"
             >
-              Strategic Work
+              STRATEGY IN ACTION
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
