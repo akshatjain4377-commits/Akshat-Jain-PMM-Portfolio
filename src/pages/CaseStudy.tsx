@@ -17,10 +17,10 @@ export default function CaseStudy() {
       "ACKO is a digital-first insurer scaling through motor insurance and embedded partnerships. Despite strong revenue (~₹2,160 Cr), the business faced high burn, increasing regulatory pressure (IRDAI expense caps), and dependence on aggregators for discovery. At the same time, motor growth was plateauing while health insurance demand was expanding.",
 
     problem:
-      "ACKO’s growth model was misaligned with sustainability. Health insurance acquisition (~₹14k CAC) was too expensive under regulatory caps, while motor insurance—though scalable—had lower lifetime value. Discovery was controlled by aggregators, limiting pricing power and margins.",
+      "ACKO’s growth model was misaligned with sustainability. Health insurance acquisition (~₹14k CAC) was too expensive under regulatory caps, while motor insurance, though scalable, had lower lifetime value. Discovery was controlled by aggregators, limiting pricing power and margins.",
 
     insight:
-      "Insurance is not a one-time purchase—it’s a trust-building journey. Motor insurance can act as a low-friction entry point, but real value is unlocked through retention and cross-sell. Trust built during claims and renewals can convert users into high-LTV health customers.",
+      "Insurance is not a one-time purchase - It’s a trust-building journey. Motor insurance can act as a low-friction entry point, but real value is unlocked through retention and cross-sell. Trust built during claims and renewals can convert users into high-LTV health customers.",
 
     strategy:
       "Shifted from an acquisition-led model to a retention-first growth engine. Positioned motor insurance as a trust and renewal engine, improved claims experience as the core product promise, and used behavioral triggers (renewals, challans, valuation signals) to drive cross-sell into health. Introduced the concept of a unified insurance control center (ACKO Vault) to increase retention, enable proactive engagement, and build ecosystem lock-in.",
