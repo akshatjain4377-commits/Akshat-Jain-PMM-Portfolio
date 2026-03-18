@@ -10,7 +10,7 @@ export default function Projects() {
       title: "ACKO Insurance",
       subtitle: "General Insurance Disruptor",
       category: "FINTECH",
-      image: "https://picsum.photos/seed/acko/800/450",
+      image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/acko-insurance.png",
       strategicDecision: "Implementation of a highly accurate Risk-based pricing model to optimize premium competitiveness.",
       executionSummary: "Led multi-channel GTM for auto insurance, leveraging telematics data to personalize offerings.",
       outcome: "Reduced customer acquisition cost by 18% while improving risk assessment accuracy."
@@ -20,7 +20,7 @@ export default function Projects() {
       title: "The Peak View Stories",
       subtitle: "Premium Lifestyle Publication",
       category: "MEDIA",
-      image: "https://picsum.photos/seed/mountain/800/450",
+      image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/the-peak-view-stories.jpg",
       strategicDecision: "Pivot from broad lifestyle content to high-intent \"luxury travel\" and \"wealth management\" verticals.",
       executionSummary: "Developed a scalable content engine using semantic SEO and influencer partnerships.",
       outcome: "3.5x increase in organic high-intent traffic within 6 months."
@@ -30,7 +30,7 @@ export default function Projects() {
       title: "Business Standard",
       subtitle: "Legacy Financial Daily",
       category: "LEGACY MEDIA",
-      image: "https://picsum.photos/seed/newspaper2/800/450",
+      image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/business-standard.jpg",
       strategicDecision: "Revamping the subscription tier structure based on user consumption frequency data.",
       executionSummary: "Introduced behavioral triggers in the digital reading experience to prompt renewals.",
       outcome: "Achieved a 25% increase in annual subscription retention rates."
@@ -40,7 +40,7 @@ export default function Projects() {
       title: "Digital PR Authority Engine",
       subtitle: "SaaS Growth Engine",
       category: "SAAS GROWTH",
-      image: "https://picsum.photos/seed/leaves/800/450",
+      image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/digital-pr.png",
       strategicDecision: "Automating authority-building through proprietary data reports and automated outreach.",
       executionSummary: "Built a system to convert internal data into pitchable PR assets for top-tier tech publications.",
       outcome: "Secured 40+ high-authority backlinks in 90 days with zero additional media spend."
