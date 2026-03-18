@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 
 export default function Projects() {
-  const filters = ["All Work", "Positioning", "GTM", "Research", "Unit Economics", "Lifecycle Growth", "0->1 Build"];
+  const filters = ["Positioning", "SEO", "Messaging", "GTM", "Customer Research", "Pricing Strategy", "Unit Economics", "Lifecycle Growth", "0->1 Build"];
 
   const projects = [
     {
@@ -11,6 +11,7 @@ export default function Projects() {
       subtitle: "General Insurance Disruptor",
       category: "FINTECH",
       image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/acko-insurance.png",
+      tags: ["Pricing Strategy", "GTM", "Positioning", "Unit Economics"],
       strategicDecision: "Implementation of a highly accurate Risk-based pricing model to optimize premium competitiveness.",
       executionSummary: "Led multi-channel GTM for auto insurance, leveraging telematics data to personalize offerings.",
       outcome: "Reduced customer acquisition cost by 18% while improving risk assessment accuracy."
@@ -21,6 +22,7 @@ export default function Projects() {
       subtitle: "Premium Lifestyle Publication",
       category: "MEDIA",
       image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/the-peak-view-stories.jpg",
+      tags: ["SEO", "Content Strategy", "Distribution", "Positioning"],
       strategicDecision: "Pivot from broad lifestyle content to high-intent \"luxury travel\" and \"wealth management\" verticals.",
       executionSummary: "Developed a scalable content engine using semantic SEO and influencer partnerships.",
       outcome: "3.5x increase in organic high-intent traffic within 6 months."
@@ -31,6 +33,7 @@ export default function Projects() {
       subtitle: "Legacy Financial Daily",
       category: "LEGACY MEDIA",
       image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/business-standard.jpg",
+      tags: ["SEO", "Content Strategy", "Distribution", "Positioning"],
       strategicDecision: "Revamping the subscription tier structure based on user consumption frequency data.",
       executionSummary: "Introduced behavioral triggers in the digital reading experience to prompt renewals.",
       outcome: "Achieved a 25% increase in annual subscription retention rates."
@@ -41,6 +44,7 @@ export default function Projects() {
       subtitle: "SaaS Growth Engine",
       category: "SAAS GROWTH",
       image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/digital-pr.png",
+      tags: ["Authority Building", "Content-led Growth", "Distribution Systems", "Digital PR", "Organic Acquisition"],
       strategicDecision: "Automating authority-building through proprietary data reports and automated outreach.",
       executionSummary: "Built a system to convert internal data into pitchable PR assets for top-tier tech publications.",
       outcome: "Secured 40+ high-authority backlinks in 90 days with zero additional media spend."
