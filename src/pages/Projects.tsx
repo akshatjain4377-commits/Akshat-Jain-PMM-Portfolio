@@ -58,11 +58,13 @@ export default function Projects() {
             transition={{ duration: 0.7 }}
             className="relative flex h-[300px] w-full flex-1 items-center justify-center overflow-hidden rounded-3xl bg-brand-accent/20 lg:h-[400px]"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/40 to-transparent"></div>
-            <h1 className="relative z-10 text-center font-display text-5xl font-bold uppercase leading-none tracking-tighter text-brand-accent/80 drop-shadow-2xl md:text-7xl lg:text-8xl">
-              Strategic<br />Work<br />Hero
-            </h1>
-          </motion.div>
+           <img 
+        src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/work-section-hero.png"
+        alt="Product Marketing Case Studies"
+        className="h-full w-full object-cover opacity-90"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-bg/40 to-transparent"></div>
+    </motion.div>
           
           <div className="flex-1 space-y-8 lg:pl-12">
             <span className="rounded-full border border-brand-accent/30 bg-brand-accent/10 px-4 py-2 text-xs font-semibold tracking-widest text-brand-accent">
