@@ -7,26 +7,38 @@ export default function CaseStudy() {
 
   // Mock data for case studies based on ID
   const studyData = {
-    acko: {
-      title: "ACKO Insurance",
-      subtitle: "General Insurance Disruptor",
-      category: "FINTECH",
-      heroImage: "https://picsum.photos/seed/acko-hero/1920/1080",
-      context: "ACKO was looking to disrupt the traditional auto insurance market by offering a digital-first, direct-to-consumer model. The challenge was building trust in a high-consideration category without physical agents.",
-      problem: "High customer acquisition costs (CAC) and low initial trust in a purely digital insurance product.",
-      insight: "Millennials value transparency and speed over traditional agent relationships, but they need behavioral nudges to feel secure in their purchase.",
-      strategy: "Implemented a highly accurate Risk-based pricing model to optimize premium competitiveness. Developed a multi-channel GTM strategy leveraging telematics data to personalize offerings and build trust through transparent pricing.",
-      metrics: [
-        { label: "CAC Reduction", value: "18%" },
-        { label: "Policy Renewals", value: "+40%" },
-        { label: "App Engagement", value: "2.5x" }
-      ],
-      learnings: [
-        "Transparency is the new brand loyalty in fintech.",
-        "Behavioral nudges work better than aggressive discounts.",
-        "Data-driven personalization builds trust faster than traditional marketing."
-      ]
-    },
+  acko: {
+    title: "ACKO Insurance",
+    subtitle: "Insurance isn’t bought. It’s trusted over time.",
+    category: "FINTECH",
+    heroImage: "https://picsum.photos/seed/acko-hero/1920/1080",
+
+    context:
+      "ACKO is a digital-first insurer scaling through motor insurance and embedded partnerships. Despite strong revenue (~₹2,160 Cr), the business faced high burn, increasing regulatory pressure (IRDAI expense caps), and dependence on aggregators for discovery. At the same time, motor growth was plateauing while health insurance demand was expanding.",
+
+    problem:
+      "ACKO’s growth model was misaligned with sustainability. Health insurance acquisition (~₹14k CAC) was too expensive under regulatory caps, while motor insurance—though scalable—had lower lifetime value. Discovery was controlled by aggregators, limiting pricing power and margins.",
+
+    insight:
+      "Insurance is not a one-time purchase—it’s a trust-building journey. Motor insurance can act as a low-friction entry point, but real value is unlocked through retention and cross-sell. Trust built during claims and renewals can convert users into high-LTV health customers.",
+
+    strategy:
+      "Shifted from an acquisition-led model to a retention-first growth engine. Positioned motor insurance as a trust and renewal engine, improved claims experience as the core product promise, and used behavioral triggers (renewals, challans, valuation signals) to drive cross-sell into health. Introduced the concept of a unified insurance control center (ACKO Vault) to increase retention, enable proactive engagement, and build ecosystem lock-in.",
+
+    metrics: [
+      { label: "LTV/CAC Potential", value: "4.1x" },
+      { label: "Retention (Cross-sell)", value: "Up to 92%" },
+      { label: "Health CAC Challenge", value: "₹14k → Optimized via Motor" }
+    ],
+
+    learnings: [
+      "Retention is a stronger growth lever than acquisition in regulated markets.",
+      "Trust is built at the moment of claim, not at the moment of purchase.",
+      "Lifecycle thinking beats channel thinking in high-consideration products.",
+      "The best GTM strategy aligns with unit economics, not just demand."
+    ]
+  }
+},
     "peak-view": {
       title: "The Peak View Stories",
       subtitle: "Premium Lifestyle Publication",
