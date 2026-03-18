@@ -56,7 +56,7 @@ export default function Projects() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
-            className="relative flex h-[300px] w-full flex-1 items-center justify-center overflow-hidden rounded-3xl bg-brand-accent/20 lg:h-[400px]"
+            className="relative flex flex-1 items-center justify-center overflow-hidden rounded-3xl bg-brand-accent/20 lg:h-[400px]"
           >
            <img 
         src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/work-section-hero.png"
