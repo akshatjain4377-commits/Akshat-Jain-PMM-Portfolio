@@ -20,7 +20,7 @@ export default function CaseStudy() {
       "ACKO’s growth model was misaligned with sustainability. Health insurance acquisition (~₹14k CAC) was too expensive under regulatory caps, while motor insurance, though scalable, had lower lifetime value. Discovery was controlled by aggregators, limiting pricing power and margins.",
 
     insight:
-  "Customer research revealed that insurance decisions are not transactional—they are driven by trust built over time. Users approach motor insurance as a low-risk, mandatory purchase, but treat health insurance as a high-trust, high-stakes decision. We also observed that moments like claims, renewals, and financial stress events shape long-term perception far more than initial acquisition touchpoints. This highlighted that retention and trust—not acquisition—drive real value.",
+      "Customer research revealed that insurance decisions are not transactional—they are driven by trust built over time. Users approach motor insurance as a low-risk, mandatory purchase, but treat health insurance as a high-trust, high-stakes decision. We also observed that moments like claims, renewals, and financial stress events shape long-term perception far more than initial acquisition touchpoints. This highlighted that retention and trust—not acquisition—drive real value.",
 
     strategy:
       "Shifted from an acquisition-led model to a retention-first growth engine. Positioned motor insurance as a trust and renewal engine, improved claims experience as the core product promise, and used behavioral triggers (renewals, challans, valuation signals) to drive cross-sell into health. These decisions were directly informed by customer behavior patterns observed during research. Introduced the concept of a unified insurance control center (ACKO Vault) to increase retention, enable proactive engagement, and build ecosystem lock-in.",
@@ -37,107 +37,104 @@ export default function CaseStudy() {
       "Lifecycle thinking beats channel thinking in high-consideration products.",
       "The best GTM strategy aligns with unit economics, not just demand."
     ]
-},
-   "peak-view": {
-  title: "The Peak View Stories",
-  subtitle: "Building a shareable, identity-driven media brand from scratch",
-  category: "MEDIA",
-  heroImage: "https://picsum.photos/seed/peak-hero/1920/1080",
+  },
 
-  context:
-    "The lifestyle content space is saturated with broad, low-differentiation content competing on volume. Most platforms lack a distinct voice, optimize for traffic over shareability, and struggle to build loyal audiences. The Peak View Stories was built as an experimental media product to test whether a strong identity and distribution-first approach could break through.",
+  "peak-view": {
+    title: "The Peak View Stories",
+    subtitle: "Building a shareable, identity-driven media brand from scratch",
+    category: "MEDIA",
+    heroImage: "https://picsum.photos/seed/peak-hero/1920/1080",
 
-  problem:
-    "Breaking through in content today is not a supply problem—it’s a distribution and identity problem. Generic content doesn’t get shared, SEO takes time without authority, and new platforms struggle to build recall in a crowded market.",
+    context:
+      "The lifestyle content space is saturated with broad, low-differentiation content competing on volume. Most platforms lack a distinct voice, optimize for traffic over shareability, and struggle to build loyal audiences. The Peak View Stories was built as an experimental media product to test whether a strong identity and distribution-first approach could break through.",
 
-  insight:
-    "People don’t share information—they share identity. Satire and opinion-driven content signal personality, making it more likely to be shared, remembered, and engaged with compared to generic informational content.",
+    problem:
+      "Breaking through in content today is not a supply problem—it’s a distribution and identity problem. Generic content doesn’t get shared, SEO takes time without authority, and new platforms struggle to build recall in a crowded market.",
 
-  strategy:
-    "Built a satire-led media platform with a strong, distinct voice and an AI-assisted content engine to enable rapid production. Prioritized Instagram-first distribution to optimize for virality and shareability over traditional SEO. Layered authority through digital PR by positioning myself as the founder and earning backlinks. Experimented with paid acquisition using small-budget Google Ads to validate additional growth channels.",
+    insight:
+      "People don’t share information—they share identity. Satire and opinion-driven content signal personality, making it more likely to be shared, remembered, and engaged with compared to generic informational content.",
 
-  metrics: [
-    { label: "Organic Search Traffic", value: "10K+ (6 months)" },
-    { label: "Users Acquired", value: "7.6K" },
-    { label: "Viral Reach", value: "1.5M-2M+ per post" },
-    { label: "Repeatable Distribution", value: "10K–100K/post" }
-  ],
+    strategy:
+      "Built a satire-led media platform with a strong, distinct voice and an AI-assisted content engine to enable rapid production. Prioritized Instagram-first distribution to optimize for virality and shareability over traditional SEO. Layered authority through digital PR by positioning myself as the founder and earning backlinks. Experimented with paid acquisition using small-budget Google Ads to validate additional growth channels.",
 
-  learnings: [
-    "Content that signals identity spreads faster than content that delivers information.",
-    "Distribution-first thinking outperforms SEO-first for new media products.",
-    "Consistency in mid-tier performance matters more than one-off virality.",
-    "Founder-led storytelling accelerates authority and trust.",
-    "AI is a production multiplier, but positioning drives performance."
-  ]
-},
-    "business-standard": {
-  title: "Business Standard",
-  subtitle: "Turning financial pages into decision-making products",
-  category: "MEDIA / FINANCE",
-  heroImage: "https://picsum.photos/seed/bs-hero/1920/1080",
+    metrics: [
+      { label: "Organic Search Traffic", value: "10K+ (6 months)" },
+      { label: "Users Acquired", value: "7.6K" },
+      { label: "Viral Reach", value: "1.5M-2M+ per post" },
+      { label: "Repeatable Distribution", value: "10K–100K/post" }
+    ],
 
-  context:
-  "Owned SEO and content growth for Business Standard’s Markets and Companies sections (IPOs, earnings, and corporate coverage). While the platform had strong authority and traffic, key pages were built for information display rather than user decision-making.",
+    learnings: [
+      "Content that signals identity spreads faster than content that delivers information.",
+      "Distribution-first thinking outperforms SEO-first for new media products.",
+      "Consistency in mid-tier performance matters more than one-off virality.",
+      "Founder-led storytelling accelerates authority and trust.",
+      "AI is a production multiplier, but positioning drives performance."
+    ]
+  },
 
-  problem:
-    "High-intent financial pages (IPO trackers and stock pages) acted as information dead-ends. Users would check basic data like price or IPO dates and exit, leading to low engagement, missed SEO opportunities, and weak retention.",
+  "business-standard": {
+    title: "Business Standard",
+    subtitle: "Turning financial pages into decision-making products",
+    category: "MEDIA / FINANCE",
+    heroImage: "https://picsum.photos/seed/bs-hero/1920/1080",
 
-  insight:
-    "Users in financial markets are not just looking for data—they are looking for guidance. Queries like 'Is this IPO worth investing?' or 'Is this stock undervalued?' reflect decision-stage intent. However, existing pages only provided raw data, not interpretation or next steps.",
+    context:
+      "Owned SEO and content growth for Business Standard’s Markets and Companies sections (IPOs, earnings, and corporate coverage). While the platform had strong authority and traffic, key pages were built for information display rather than user decision-making.",
 
-  strategy:
-    "Redesigned key pages from static information hubs into guided research experiences. For IPO pages, introduced structured data, segmentation (Mainboard vs SME), detailed company overviews, and comparison tools to improve discoverability and engagement. For stock pages, proposed a 'research journey' with features like QGVT score (quality, growth, valuation, technicals), SWOT analysis, and sticky navigation to eliminate dead-ends. Shifted SEO approach from keyword targeting to intent-based content, capturing queries around investment decisions rather than just data points.",
+    problem:
+      "High-intent financial pages acted as information dead-ends, leading to low engagement and missed SEO opportunities.",
 
-  metrics: [
-    { label: "Content Coverage", value: "IPO + Earnings + Companies" },
-    { label: "User Journey Fix", value: "Reduced Dead-Ends" },
-    { label: "SEO Approach", value: "Intent-led Strategy" }
-  ],
+    insight:
+      "Users are not just looking for data—they are looking for guidance and decision support.",
 
-  learnings: [
-    "High-intent users need guidance, not just information.",
-    "The biggest growth lever is often fixing user drop-offs, not just acquiring traffic.",
-    "SEO works best when aligned with user decision journeys, not just keywords.",
-    "Turning pages into products significantly improves engagement and retention.",
-    "Financial content is trust-driven—clarity and structure build credibility."
-  ]
-},
-   "digital-pr": {
-  title: "Digital PR Authority Engine",
-  subtitle: "Turning founder expertise into earned media and authority",
-  category: "GROWTH / AUTHORITY",
-  heroImage: "https://picsum.photos/seed/pr-hero/1920/1080",
+    strategy:
+      "Redesigned pages into guided research experiences and shifted SEO from keyword-based to intent-based targeting.",
 
-  context:
-    "Worked at a digital PR agency (RankSoldier) focused on building authority for founders, CEOs, and businesses through earned media placements. Clients across industries needed high-quality backlinks and visibility from trusted publications to improve credibility and search performance.",
+    metrics: [
+      { label: "Coverage", value: "IPO + Earnings" },
+      { label: "UX Fix", value: "Reduced Drop-offs" },
+      { label: "SEO Shift", value: "Intent-led" }
+    ],
 
-  problem:
-    "Most brands struggle to build authority because traditional PR is expensive and content marketing alone doesn’t guarantee visibility. Founders have expertise, but lack the right distribution channels and narrative framing to get featured in top publications.",
+    learnings: [
+      "Fixing user journeys is often more impactful than acquiring traffic.",
+      "High-intent queries require decision-support content.",
+      "SEO works best when aligned with user behavior."
+    ]
+  },
 
-  insight:
-    "Media platforms already have demand—they are constantly looking for expert opinions and credible perspectives. The real challenge is not creating content, but matching the right expertise with the right narrative at the right time. Journalists don’t want pitches—they want ready-to-publish insights.",
+  "digital-pr": {
+    title: "Digital PR Authority Engine",
+    subtitle: "Turning founder expertise into earned media and authority",
+    category: "GROWTH / AUTHORITY",
+    heroImage: "https://picsum.photos/seed/pr-hero/1920/1080",
 
-  strategy:
-    "Built a repeatable system to convert founder expertise into media-ready responses using platforms like HARO, Terkel, Qwoted, and SourceBottle. Focused on crafting concise, insight-driven answers aligned with journalist queries. Prioritized credibility, clarity, and speed of response to increase acceptance rates. Later scaled the process by managing interns, maintaining quality control, and optimizing output across multiple clients. Applied the same method to build founder authority for my own platform (The Peak View Stories), earning placements in multiple publications.",
+    context:
+      "Worked at a digital PR agency focused on building authority for founders through earned media placements.",
 
-  metrics: [
-    { label: "Top-tier Placement", value: "Forbes Feature" },
-    { label: "Authority Links Built", value: "Multiple Publications" },
-    { label: "Platforms Used", value: "HARO, Qwoted, Terkel" },
-    { label: "Role Growth", value: "Intern → Project Manager" }
-  ],
+    problem:
+      "Founders had expertise but lacked distribution and narrative framing to get featured.",
 
-  learnings: [
-    "Authority is built through distribution, not just content creation.",
-    "The best PR is not promotional—it’s perspective-driven.",
-    "Speed and relevance matter more than long-form pitches.",
-    "Founder-led narratives significantly increase credibility and acceptance.",
-    "Media demand already exists—you just need to plug into it effectively."
-  ]
-   
-},
+    insight:
+      "Journalists want ready-to-publish insights, not pitches.",
 
+    strategy:
+      "Converted founder expertise into media-ready responses using HARO and similar platforms.",
+
+    metrics: [
+      { label: "Top-tier", value: "Forbes" },
+      { label: "Links", value: "Multiple" },
+      { label: "Growth", value: "Intern → PM" }
+    ],
+
+    learnings: [
+      "Authority comes from distribution.",
+      "Narrative beats promotion.",
+      "Speed and relevance win in PR."
+    ]
+  }
+};
   const data = studyData[id as keyof typeof studyData] || studyData['acko'];
 
   return (
