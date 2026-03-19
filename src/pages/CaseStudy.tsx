@@ -135,7 +135,7 @@ export default function CaseStudy() {
     "Founder-led narratives significantly increase credibility and acceptance.",
     "Media demand already exists—you just need to plug into it effectively."
   ]
-   }
+   
 },
 
   const data = studyData[id as keyof typeof studyData] || studyData['acko'];
