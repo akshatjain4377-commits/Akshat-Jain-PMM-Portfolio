@@ -72,46 +72,72 @@ export default function CaseStudy() {
   ]
 },
     "business-standard": {
-      title: "Business Standard",
-      subtitle: "Legacy Financial Daily",
-      category: "LEGACY MEDIA",
-      heroImage: "https://picsum.photos/seed/bs-hero/1920/1080",
-      context: "A legacy print giant transitioning to a digital-first, subscription-based revenue model.",
-      problem: "High churn rates on digital subscriptions and low conversion from free to paid tiers.",
-      insight: "Users were hitting the paywall at the wrong moments in their reading journey, causing frustration rather than conversion.",
-      strategy: "Revamped the subscription tier structure based on user consumption frequency data. Introduced behavioral triggers in the digital reading experience to prompt renewals at high-value moments.",
-      metrics: [
-        { label: "Digital Revenue", value: "+25%" },
-        { label: "Annual Retention", value: "+25%" },
-        { label: "Paywall Conversion", value: "1.8x" }
-      ],
-      learnings: [
-        "Timing is everything in paywall conversion.",
-        "Consumption frequency is the best predictor of churn.",
-        "Legacy brands must adapt their UX to digital reading habits."
-      ]
-    },
-    "digital-pr": {
-      title: "Digital PR Authority Engine",
-      subtitle: "SaaS Growth Engine",
-      category: "SAAS GROWTH",
-      heroImage: "https://picsum.photos/seed/pr-hero/1920/1080",
-      context: "A new automated PR tool for high-growth startups needing to build authority quickly.",
-      problem: "Startups lack the budget for traditional PR agencies but need high-quality backlinks for SEO.",
-      insight: "Data-driven reports are the most effective way to secure coverage in top-tier tech publications.",
-      strategy: "Automated authority-building through proprietary data reports and automated outreach. Built a system to convert internal data into pitchable PR assets.",
-      metrics: [
-        { label: "Enterprise Clients", value: "50+" },
-        { label: "High-Auth Backlinks", value: "40+" },
-        { label: "Media Spend", value: "$0" }
-      ],
-      learnings: [
-        "Data is the new currency in digital PR.",
-        "Automation can scale outreach, but the pitch must remain personalized.",
-        "Product-led growth works best when the product creates immediate, tangible value."
-      ]
-    }
-  };
+  title: "Business Standard",
+  subtitle: "Turning financial pages into decision-making products",
+  category: "MEDIA / FINANCE",
+  heroImage: "https://picsum.photos/seed/bs-hero/1920/1080",
+
+  context:
+    "context:
+  "Owned SEO and content growth for Business Standard’s Markets and Companies sections (IPOs, earnings, and corporate coverage). While the platform had strong authority and traffic, key pages were built for information display rather than user decision-making.",",
+
+  problem:
+    "High-intent financial pages (IPO trackers and stock pages) acted as information dead-ends. Users would check basic data like price or IPO dates and exit, leading to low engagement, missed SEO opportunities, and weak retention.",
+
+  insight:
+    "Users in financial markets are not just looking for data—they are looking for guidance. Queries like 'Is this IPO worth investing?' or 'Is this stock undervalued?' reflect decision-stage intent. However, existing pages only provided raw data, not interpretation or next steps.",
+
+  strategy:
+    "Redesigned key pages from static information hubs into guided research experiences. For IPO pages, introduced structured data, segmentation (Mainboard vs SME), detailed company overviews, and comparison tools to improve discoverability and engagement. For stock pages, proposed a 'research journey' with features like QGVT score (quality, growth, valuation, technicals), SWOT analysis, and sticky navigation to eliminate dead-ends. Shifted SEO approach from keyword targeting to intent-based content, capturing queries around investment decisions rather than just data points.",
+
+  metrics: [
+    { label: "Content Coverage", value: "IPO + Earnings + Companies" },
+    { label: "User Journey Fix", value: "Reduced Dead-Ends" },
+    { label: "SEO Approach", value: "Intent-led Strategy" }
+  ],
+
+  learnings: [
+    "High-intent users need guidance, not just information.",
+    "The biggest growth lever is often fixing user drop-offs, not just acquiring traffic.",
+    "SEO works best when aligned with user decision journeys, not just keywords.",
+    "Turning pages into products significantly improves engagement and retention.",
+    "Financial content is trust-driven—clarity and structure build credibility."
+  ]
+},
+   "digital-pr": {
+  title: "Digital PR Authority Engine",
+  subtitle: "Turning founder expertise into earned media and authority",
+  category: "GROWTH / AUTHORITY",
+  heroImage: "https://picsum.photos/seed/pr-hero/1920/1080",
+
+  context:
+    "Worked at a digital PR agency (RankSoldier) focused on building authority for founders, CEOs, and businesses through earned media placements. Clients across industries needed high-quality backlinks and visibility from trusted publications to improve credibility and search performance.",
+
+  problem:
+    "Most brands struggle to build authority because traditional PR is expensive and content marketing alone doesn’t guarantee visibility. Founders have expertise, but lack the right distribution channels and narrative framing to get featured in top publications.",
+
+  insight:
+    "Media platforms already have demand—they are constantly looking for expert opinions and credible perspectives. The real challenge is not creating content, but matching the right expertise with the right narrative at the right time. Journalists don’t want pitches—they want ready-to-publish insights.",
+
+  strategy:
+    "Built a repeatable system to convert founder expertise into media-ready responses using platforms like HARO, Terkel, Qwoted, and SourceBottle. Focused on crafting concise, insight-driven answers aligned with journalist queries. Prioritized credibility, clarity, and speed of response to increase acceptance rates. Later scaled the process by managing interns, maintaining quality control, and optimizing output across multiple clients. Applied the same method to build founder authority for my own platform (The Peak View Stories), earning placements in multiple publications.",
+
+  metrics: [
+    { label: "Top-tier Placement", value: "Forbes Feature" },
+    { label: "Authority Links Built", value: "Multiple Publications" },
+    { label: "Platforms Used", value: "HARO, Qwoted, Terkel" },
+    { label: "Role Growth", value: "Intern → Project Manager" }
+  ],
+
+  learnings: [
+    "Authority is built through distribution, not just content creation.",
+    "The best PR is not promotional—it’s perspective-driven.",
+    "Speed and relevance matter more than long-form pitches.",
+    "Founder-led narratives significantly increase credibility and acceptance.",
+    "Media demand already exists—you just need to plug into it effectively."
+  ]
+   }
+},
 
   const data = studyData[id as keyof typeof studyData] || studyData['acko'];
 
