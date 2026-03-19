@@ -78,8 +78,7 @@ export default function CaseStudy() {
   heroImage: "https://picsum.photos/seed/bs-hero/1920/1080",
 
   context:
-    "context:
-  "Owned SEO and content growth for Business Standard’s Markets and Companies sections (IPOs, earnings, and corporate coverage). While the platform had strong authority and traffic, key pages were built for information display rather than user decision-making.",",
+  "Owned SEO and content growth for Business Standard’s Markets and Companies sections (IPOs, earnings, and corporate coverage). While the platform had strong authority and traffic, key pages were built for information display rather than user decision-making.",
 
   problem:
     "High-intent financial pages (IPO trackers and stock pages) acted as information dead-ends. Users would check basic data like price or IPO dates and exit, leading to low engagement, missed SEO opportunities, and weak retention.",
