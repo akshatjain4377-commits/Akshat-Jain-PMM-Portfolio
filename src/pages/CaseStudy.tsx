@@ -59,7 +59,7 @@ export default function CaseStudy() {
   metrics: [
     { label: "Organic Search Traffic", value: "10K+ (6 months)" },
     { label: "Users Acquired", value: "7.6K" },
-    { label: "Viral Reach", value: "1.5M+ per post" },
+    { label: "Viral Reach", value: "1.5M-2M+ per post" },
     { label: "Repeatable Distribution", value: "10K–100K/post" }
   ],
 
