@@ -20,10 +20,10 @@ export default function CaseStudy() {
       "ACKO’s growth model was misaligned with sustainability. Health insurance acquisition (~₹14k CAC) was too expensive under regulatory caps, while motor insurance, though scalable, had lower lifetime value. Discovery was controlled by aggregators, limiting pricing power and margins.",
 
     insight:
-      "Insurance is not a one-time purchase - It’s a trust-building journey. Motor insurance can act as a low-friction entry point, but real value is unlocked through retention and cross-sell. Trust built during claims and renewals can convert users into high-LTV health customers.",
+  "Customer research revealed that insurance decisions are not transactional—they are driven by trust built over time. Users approach motor insurance as a low-risk, mandatory purchase, but treat health insurance as a high-trust, high-stakes decision. We also observed that moments like claims, renewals, and financial stress events shape long-term perception far more than initial acquisition touchpoints. This highlighted that retention and trust—not acquisition—drive real value.",
 
     strategy:
-      "Shifted from an acquisition-led model to a retention-first growth engine. Positioned motor insurance as a trust and renewal engine, improved claims experience as the core product promise, and used behavioral triggers (renewals, challans, valuation signals) to drive cross-sell into health. Introduced the concept of a unified insurance control center (ACKO Vault) to increase retention, enable proactive engagement, and build ecosystem lock-in.",
+      "Shifted from an acquisition-led model to a retention-first growth engine. Positioned motor insurance as a trust and renewal engine, improved claims experience as the core product promise, and used behavioral triggers (renewals, challans, valuation signals) to drive cross-sell into health. These decisions were directly informed by customer behavior patterns observed during research. Introduced the concept of a unified insurance control center (ACKO Vault) to increase retention, enable proactive engagement, and build ecosystem lock-in.",
 
     metrics: [
       { label: "LTV/CAC Potential", value: "4.1x" },
@@ -38,26 +38,39 @@ export default function CaseStudy() {
       "The best GTM strategy aligns with unit economics, not just demand."
     ]
 },
-    "peak-view": {
-      title: "The Peak View Stories",
-      subtitle: "Premium Lifestyle Publication",
-      category: "MEDIA",
-      heroImage: "https://picsum.photos/seed/peak-hero/1920/1080",
-      context: "An independent news platform struggling to scale in a highly competitive, broad lifestyle content market.",
-      problem: "Low organic traffic and poor monetization due to a lack of niche authority.",
-      insight: "High-net-worth individuals seek curated, high-intent content around luxury travel and wealth management, rather than generic lifestyle news.",
-      strategy: "Pivoted from broad lifestyle content to high-intent 'luxury travel' and 'wealth management' verticals. Developed a scalable content engine using semantic SEO and strategic influencer partnerships.",
-      metrics: [
-        { label: "Organic Traffic", value: "3.5x" },
-        { label: "MAU", value: "1.2M" },
-        { label: "Time on Site", value: "+45%" }
-      ],
-      learnings: [
-        "Niche authority always beats broad reach for monetization.",
-        "Semantic SEO is critical for high-intent content.",
-        "Influencer partnerships must align perfectly with the target audience's aspirations."
-      ]
-    },
+   "peak-view": {
+  title: "The Peak View Stories",
+  subtitle: "Building a shareable, identity-driven media brand from scratch",
+  category: "MEDIA",
+  heroImage: "https://picsum.photos/seed/peak-hero/1920/1080",
+
+  context:
+    "The lifestyle content space is saturated with broad, low-differentiation content competing on volume. Most platforms lack a distinct voice, optimize for traffic over shareability, and struggle to build loyal audiences. The Peak View Stories was built as an experimental media product to test whether a strong identity and distribution-first approach could break through.",
+
+  problem:
+    "Breaking through in content today is not a supply problem—it’s a distribution and identity problem. Generic content doesn’t get shared, SEO takes time without authority, and new platforms struggle to build recall in a crowded market.",
+
+  insight:
+    "People don’t share information—they share identity. Satire and opinion-driven content signal personality, making it more likely to be shared, remembered, and engaged with compared to generic informational content.",
+
+  strategy:
+    "Built a satire-led media platform with a strong, distinct voice and an AI-assisted content engine to enable rapid production. Prioritized Instagram-first distribution to optimize for virality and shareability over traditional SEO. Layered authority through digital PR by positioning myself as the founder and earning backlinks. Experimented with paid acquisition using small-budget Google Ads to validate additional growth channels.",
+
+  metrics: [
+    { label: "Organic Search Traffic", value: "10K+ (6 months)" },
+    { label: "Users Acquired", value: "7.6K" },
+    { label: "Viral Reach", value: "1.5M+ per post" },
+    { label: "Repeatable Distribution", value: "10K–100K/post" }
+  ],
+
+  learnings: [
+    "Content that signals identity spreads faster than content that delivers information.",
+    "Distribution-first thinking outperforms SEO-first for new media products.",
+    "Consistency in mid-tier performance matters more than one-off virality.",
+    "Founder-led storytelling accelerates authority and trust.",
+    "AI is a production multiplier, but positioning drives performance."
+  ]
+},
     "business-standard": {
       title: "Business Standard",
       subtitle: "Legacy Financial Daily",
