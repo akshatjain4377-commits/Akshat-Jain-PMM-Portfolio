@@ -1,269 +1,235 @@
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, CheckCircle2, Target, TrendingUp, Users } from 'lucide-react';
 
-export default function CaseStudy() {
-  const { id } = useParams();
+export default function Projects() {
+  const filters = ["Positioning", "GTM", "Messaging", "0→1 Build", "Customer Research", "Unit Economics", "Competitive Analysis", "Authority Building", "Product Proposals"];
 
-  // Mock data for case studies based on ID
-  const studyData = {
-  acko: {
-    title: "ACKO Insurance",
-    subtitle: "Insurance isn’t bought. It’s trusted over time.",
-    category: "FINTECH",
-    heroImage: "https://picsum.photos/seed/acko-hero/1920/1080",
-
-    context:
-      "ACKO is a digital-first insurer scaling through motor insurance and embedded partnerships. Despite strong revenue (~₹2,160 Cr), the business faced high burn, increasing regulatory pressure (IRDAI expense caps), and dependence on aggregators for discovery. At the same time, motor growth was plateauing while health insurance demand was expanding.",
-
-    problem:
-      "ACKO’s growth model was misaligned with sustainability. Health insurance acquisition (~₹14k CAC) was too expensive under regulatory caps, while motor insurance, though scalable, had lower lifetime value. Discovery was controlled by aggregators, limiting pricing power and margins.",
-
-    insight:
-      "Customer research revealed that insurance decisions are not transactional—they are driven by trust built over time. Users approach motor insurance as a low-risk, mandatory purchase, but treat health insurance as a high-trust, high-stakes decision. We also observed that moments like claims, renewals, and financial stress events shape long-term perception far more than initial acquisition touchpoints. This highlighted that retention and trust—not acquisition—drive real value.",
-
-    strategy:
-      "Shifted from an acquisition-led model to a retention-first growth engine. Positioned motor insurance as a trust and renewal engine, improved claims experience as the core product promise, and used behavioral triggers (renewals, challans, valuation signals) to drive cross-sell into health. These decisions were directly informed by customer behavior patterns observed during research. Introduced the concept of a unified insurance control center (ACKO Vault) to increase retention, enable proactive engagement, and build ecosystem lock-in.",
-
-    metrics: [
-      { label: "LTV/CAC Potential", value: "4.1x" },
-      { label: "Retention (Cross-sell)", value: "Up to 92%" },
-      { label: "Health CAC Challenge", value: "₹14k → Optimized via Motor" }
-    ],
-
-    learnings: [
-      "Retention is a stronger growth lever than acquisition in regulated markets.",
-      "Trust is built at the moment of claim, not at the moment of purchase.",
-      "Lifecycle thinking beats channel thinking in high-consideration products.",
-      "The best GTM strategy aligns with unit economics, not just demand."
-    ]
-  },
-
-  "peak-view": {
-    title: "The Peak View Stories",
-    subtitle: "Building a shareable, identity-driven media brand from scratch",
-    category: "MEDIA",
-    heroImage: "https://picsum.photos/seed/peak-hero/1920/1080",
-
-    context:
-      "The lifestyle content space is saturated with broad, low-differentiation content competing on volume. Most platforms lack a distinct voice, optimize for traffic over shareability, and struggle to build loyal audiences. The Peak View Stories was built as an experimental media product to test whether a strong identity and distribution-first approach could break through.",
-
-    problem:
-      "Breaking through in content today is not a supply problem—it’s a distribution and identity problem. Generic content doesn’t get shared, SEO takes time without authority, and new platforms struggle to build recall in a crowded market.",
-
-    insight:
-      "People don’t share information—they share identity. Satire and opinion-driven content signal personality, making it more likely to be shared, remembered, and engaged with compared to generic informational content.",
-
-    strategy:
-      "Built a satire-led media platform with a strong, distinct voice and an AI-assisted content engine to enable rapid production. Prioritized Instagram-first distribution to optimize for virality and shareability over traditional SEO. Layered authority through digital PR by positioning myself as the founder and earning backlinks. Experimented with paid acquisition using small-budget Google Ads to validate additional growth channels.",
-
-    metrics: [
-      { label: "Organic Search Traffic", value: "10K+ (6 months)" },
-      { label: "Users Acquired", value: "7.6K" },
-      { label: "Viral Reach", value: "1.5M-2M+ per post" },
-      { label: "Repeatable Distribution", value: "10K–100K/post" }
-    ],
-
-    learnings: [
-      "Content that signals identity spreads faster than content that delivers information.",
-      "Distribution-first thinking outperforms SEO-first for new media products.",
-      "Consistency in mid-tier performance matters more than one-off virality.",
-      "Founder-led storytelling accelerates authority and trust.",
-      "AI is a production multiplier, but positioning drives performance."
-    ]
-  },
-
-  "business-standard": {
-    title: "Business Standard",
-    subtitle: "Turning financial pages into decision-making products",
-    category: "MEDIA / FINANCE",
-    heroImage: "https://picsum.photos/seed/bs-hero/1920/1080",
-
-    context:
-      "Owned SEO and content growth for Business Standard’s Markets and Companies sections (IPOs, earnings, and corporate coverage). While the platform had strong authority and traffic, key pages were built for information display rather than user decision-making.",
-
-    problem:
-      "High-intent financial pages acted as information dead-ends, leading to low engagement and missed SEO opportunities.",
-
-    insight:
-      "Users are not just looking for data—they are looking for guidance and decision support.",
-
-    strategy:
-      "Redesigned pages into guided research experiences and shifted SEO from keyword-based to intent-based targeting.",
-
-    metrics: [
-      { label: "Coverage", value: "IPO + Earnings" },
-      { label: "UX Fix", value: "Reduced Drop-offs" },
-      { label: "SEO Shift", value: "Intent-led" }
-    ],
-
-    learnings: [
-      "Fixing user journeys is often more impactful than acquiring traffic.",
-      "High-intent queries require decision-support content.",
-      "SEO works best when aligned with user behavior."
-    ]
-  },
-
-  "digital-pr": {
-    title: "Digital PR Authority Engine",
-    subtitle: "Turning founder expertise into earned media and authority",
-    category: "GROWTH / AUTHORITY",
-    heroImage: "https://picsum.photos/seed/pr-hero/1920/1080",
-
-    context:
-      "Worked at a digital PR agency focused on building authority for founders through earned media placements.",
-
-    problem:
-      "Founders had expertise but lacked distribution and narrative framing to get featured.",
-
-    insight:
-      "Journalists want ready-to-publish insights, not pitches.",
-
-    strategy:
-      "Converted founder expertise into media-ready responses using HARO and similar platforms.",
-
-    metrics: [
-      { label: "Top-tier", value: "Forbes" },
-      { label: "Links", value: "Multiple" },
-      { label: "Growth", value: "Intern → PM" }
-    ],
-
-    learnings: [
-      "Authority comes from distribution.",
-      "Narrative beats promotion.",
-      "Speed and relevance win in PR."
-    ]
-  }
-};
-  const data = studyData[id as keyof typeof studyData] || studyData['acko'];
+  const projects = [
+    {
+      id: "acko",
+      title: "ACKO Insurance",
+      subtitle: "Digital-First Insurance Disruptor",
+      category: "INSURANCE · GTM STRATEGY",
+      image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/acko-insurance.png",
+      tags: ["Positioning", "GTM", "Unit Economics", "Competitive Analysis"],
+      strategicDecision: "ACKO had scaled in motor insurance but hadn't earned the right to win in health. The question: how do you cross-sell into a high-trust, high-stakes category without blowing your CAC budget?",
+      executionSummary: "Developed a trust-centric hybrid GTM framework using motor as the low-friction acquisition layer and health as the long-term LTV engine — mapping the full competitive landscape, market sizing, and messaging hierarchy.",
+      outcome: "Hybrid GTM framework projecting 4.1x LTV/CAC improvement through ecosystem lock-in and Motor→Health cross-sell."
+    },
+    {
+      id: "business-standard",
+      title: "Business Standard",
+      subtitle: "India's Leading Financial Daily",
+      category: "FINANCIAL MEDIA · PRODUCT PROPOSALS",
+      image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/business-standard.jpg",
+      tags: ["Product Proposals", "GTM", "Customer Research", "Positioning"],
+      strategicDecision: "High-intent financial audiences were arriving on IPO and Share Price pages — and immediately leaving. Pages were built for crawlers, not investors. No next step. No retention hook. No reason to come back.",
+      executionSummary: "Independently authored two cross-functional product proposals (IPO Tracker revamp + Share Price page redesign), benchmarking competitor UX across Moneycontrol, Livemint, and Chittorgarh, then presenting phased implementation roadmaps to editorial and product stakeholders.",
+      outcome: "Core market rankings lifted from 8.2 → 5.0 on priority terms. Both proposals currently in the product roadmap pipeline."
+    },
+    {
+      id: "peak-view",
+      title: "The Peak View Stories",
+      subtitle: "Independent Satire News Platform",
+      category: "MEDIA · 0→1 BRAND BUILD",
+      image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/the-peak-view-stories.jpg",
+      tags: ["0→1 Build", "Positioning", "Messaging", "Authority Building"],
+      strategicDecision: "How do you build a media brand from absolute zero — no budget, no audience, no distribution — and still find product-market fit in a crowded niche?",
+      executionSummary: "Defined the positioning and tone-of-voice from scratch. Built the full website using AI-assisted vibe coding. Owned all content production, AI-generated visuals, and Instagram distribution independently. Applied Digital PR playbook to build personal brand authority as Founder.",
+      outcome: "1.5M+ organic reel views with zero paid spend. 7,600 website users via SEO alone. Featured in Under30CEO, TechBullion, and CMO Times as Founder."
+    },
+    {
+      id: "digital-pr",
+      title: "Digital PR Authority Engine",
+      subtitle: "Thought Leadership & Earned Media",
+      category: "MESSAGING · AUTHORITY BUILDING",
+      image: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/digital-pr.png",
+      tags: ["Messaging", "Authority Building", "0→1 Build", "GTM"],
+      strategicDecision: "Founders and CEOs have genuine expertise — but zero third-party credibility outside their own networks. How do you build earned authority at scale without a PR budget or existing brand recognition?",
+      executionSummary: "Built repeatable messaging frameworks and systematic outreach pipelines using HARO, Qwoted, SourceBottle, and Terkel. Matched each founder's point-of-view to the right journalist queries, then packaged responses that earned publication consistently.",
+      outcome: "Secured a Forbes placement for a client — the team's first major earned media win. Personally featured in Under30CEO, TechBullion, and CMO Times as Founder of The Peak View Stories."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-brand-bg">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
-        <div className="absolute inset-0 bg-brand-bg/60 z-10"></div>
-        <img 
-          src={data.heroImage} 
-          alt={data.title} 
-          className="absolute inset-0 h-full w-full object-cover" 
-          referrerPolicy="no-referrer" 
-        />
-        
-        <div className="relative z-20 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-24">
-          <Link to="/work" className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-brand-accent hover:text-brand-accent-hover transition-colors">
-            <ArrowLeft className="h-4 w-4" />
-            Back to Projects
-          </Link>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+
+      {/* ── HERO ── */}
+      <section className="mx-auto max-w-7xl px-6 py-24 lg:py-32">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
+
+          {/* Image — fixed: use aspect ratio container + object-contain so nothing gets cropped */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            className="relative flex flex-1 items-center justify-center overflow-hidden rounded-3xl bg-brand-card group"
+            style={{ minHeight: '320px' }}
           >
-            <div className="mb-4 flex gap-3">
-              <span className="rounded-full border border-brand-accent/30 bg-brand-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-accent backdrop-blur-md">
-                {data.category}
-              </span>
-            </div>
-            <h1 className="mb-4 text-5xl font-bold leading-[1.1] tracking-tight text-brand-text md:text-7xl">
-              {data.title}
-            </h1>
-            <p className="max-w-2xl text-xl font-medium text-brand-muted md:text-2xl">
-              {data.subtitle}
-            </p>
+            <img
+              src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/work-section-hero.png"
+              alt="Product Marketing Case Studies"
+              className="h-full w-full object-contain transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-110 p-4"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-bg/20 via-transparent to-brand-bg/10"></div>
+            <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-brand-border"></div>
           </motion.div>
+
+          {/* Copy */}
+          <div className="flex-1 space-y-8 lg:pl-12">
+            <span className="rounded-full border border-brand-accent/30 bg-brand-accent/10 px-4 py-2 text-xs font-semibold tracking-widest text-brand-accent">
+              SELECTED WORK
+            </span>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-5xl font-bold leading-[1.1] tracking-tight text-brand-text md:text-6xl"
+            >
+              STRATEGY IN ACTION
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="max-w-md text-xl text-brand-muted"
+            >
+              Real positioning problems. Real GTM decisions. Real outcomes —
+              across insurance, financial media, and brands built from scratch.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-wrap items-center gap-4"
+            >
+              <a
+                href="#case-studies"
+                className="rounded-full bg-brand-accent px-8 py-4 text-sm font-semibold text-brand-bg hover:bg-brand-accent-hover transition-colors"
+              >
+                View Case Studies
+              </a>
+              <Link
+                to="/contact"
+                className="rounded-full border border-brand-border bg-brand-card px-8 py-4 text-sm font-semibold text-brand-text hover:bg-brand-border transition-colors"
+              >
+                Get in Touch
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Content Sections */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
-          
-          {/* Main Content */}
-          <div className="lg:col-span-8 space-y-24">
-            
-            {/* Context & Problem */}
-            <div className="space-y-12">
-              <div id="context">
-                <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold text-brand-text">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-card border border-brand-border text-sm text-brand-accent">01</span>
-                  The Context
-                </h2>
-                <p className="text-lg leading-relaxed text-brand-muted">{data.context}</p>
-              </div>
-              
-              <div id="problem">
-                <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold text-brand-text">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-card border border-brand-border text-sm text-brand-accent">02</span>
-                  The Problem
-                </h2>
-                <div className="rounded-2xl border-l-4 border-brand-accent bg-brand-card p-8">
-                  <p className="text-lg font-medium leading-relaxed text-brand-text">{data.problem}</p>
-                </div>
-              </div>
-            </div>
+      {/* ── EXPERTISE FILTERS ── */}
+      <section className="border-t border-brand-border bg-brand-bg/90 py-8 sticky top-16 z-40 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center gap-8 overflow-x-auto px-6 pb-4 md:pb-0 hide-scrollbar">
+          <span className="text-xs font-semibold uppercase tracking-widest text-brand-muted shrink-0">EXPERTISE</span>
+          <div className="flex items-center gap-3">
+            {filters.map((filter, i) => (
+              <button
+                key={i}
+                className={`shrink-0 rounded-full px-4 py-2 text-xs font-medium transition-colors ${
+                  i === 0
+                    ? 'bg-brand-accent text-brand-bg'
+                    : 'border border-brand-border bg-brand-card text-brand-text hover:border-brand-accent/50'
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Insight & Strategy */}
-            <div className="space-y-12">
-              <div id="insight">
-                <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold text-brand-text">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-card border border-brand-border text-sm text-brand-accent">03</span>
-                  The Insight
-                </h2>
-                <p className="text-lg leading-relaxed text-brand-muted">{data.insight}</p>
-              </div>
-              
-              <div id="strategy">
-                <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold text-brand-text">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-card border border-brand-border text-sm text-brand-accent">04</span>
-                  The Strategy
-                </h2>
-                <p className="text-lg leading-relaxed text-brand-muted">{data.strategy}</p>
-              </div>
-            </div>
-
-            {/* Key Learnings */}
-            <div>
-              <h2 className="mb-8 text-2xl font-bold text-brand-text">Key Learnings</h2>
-              <div className="space-y-4">
-                {data.learnings.map((learning, i) => (
-                  <div key={i} className="flex items-start gap-4 rounded-xl border border-brand-border bg-brand-card p-6">
-                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-brand-accent" />
-                    <p className="text-brand-text">{learning}</p>
+      {/* ── CASE STUDIES GRID ── */}
+      <section id="case-studies" className="bg-brand-bg py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {projects.map((project, i) => (
+              <Link
+                key={i}
+                to={`/work/${project.id}`}
+                className="group flex flex-col overflow-hidden rounded-3xl border border-brand-border bg-brand-card transition-colors hover:border-brand-accent/30"
+              >
+                {/* Image */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-brand-bg">
+                  <div className="absolute left-6 top-6 z-10 rounded-sm bg-brand-bg/80 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-accent backdrop-blur-sm">
+                    {project.category}
                   </div>
-                ))}
-              </div>
-            </div>
-            
-          </div>
-
-          {/* Sidebar / Metrics */}
-          <div className="lg:col-span-4">
-            <div className="sticky top-32 space-y-8">
-              <div id="metrics" className="rounded-3xl border border-brand-border bg-brand-card p-8">
-                <h3 className="mb-8 text-sm font-bold uppercase tracking-widest text-brand-muted">Business Impact</h3>
-                <div className="space-y-8">
-                  {data.metrics.map((metric, i) => (
-                    <div key={i} className="border-b border-brand-border pb-6 last:border-0 last:pb-0">
-                      <div className="mb-2 text-4xl font-display font-bold text-brand-accent">{metric.value}</div>
-                      <div className="text-sm font-medium text-brand-muted">{metric.label}</div>
-                    </div>
-                  ))}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
-              </div>
-              
-              <div className="rounded-3xl bg-brand-accent p-8 text-brand-bg">
-                <h3 className="mb-4 text-xl font-bold">Need similar results?</h3>
-                <p className="mb-6 text-sm font-medium opacity-90">Let's discuss how we can apply these growth principles to your product.</p>
-                <button className="w-full rounded-full bg-brand-bg py-3 text-sm font-bold text-brand-accent hover:bg-brand-bg/90 transition-colors">
-                  Get in Touch
-                </button>
-              </div>
-            </div>
+
+                {/* Content */}
+                <div className="flex flex-1 flex-col p-8">
+                  <h3 className="mb-1 text-2xl font-bold text-brand-text">{project.title}</h3>
+                  <p className="mb-8 text-sm italic text-brand-accent">{project.subtitle}</p>
+
+                  {/* Tags */}
+                  <div className="mb-6 flex flex-wrap gap-2">
+                    {project.tags.map((tag, j) => (
+                      <span key={j} className="rounded-full border border-brand-border bg-brand-bg px-3 py-1 text-xs font-medium text-brand-muted">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mb-6 space-y-2">
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-muted">THE PROBLEM</h4>
+                    <p className="text-sm leading-relaxed text-brand-text/90">{project.strategicDecision}</p>
+                  </div>
+
+                  <div className="mb-8 space-y-2">
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-muted">THE APPROACH</h4>
+                    <p className="text-sm leading-relaxed text-brand-text/90">{project.executionSummary}</p>
+                  </div>
+
+                  <div className="mt-auto border-l-2 border-brand-accent bg-brand-bg/50 p-4">
+                    <h4 className="mb-1 text-[10px] font-bold uppercase tracking-widest text-brand-accent">OUTCOME</h4>
+                    <p className="text-sm font-medium text-brand-text">{project.outcome}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
-          
         </div>
       </section>
+
+      {/* ── CTA — rewritten for PMM job seeker, not freelancer ── */}
+      <section className="py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="rounded-[40px] bg-brand-accent p-12 text-center md:p-24">
+            <h2 className="mb-6 text-4xl font-bold tracking-tight text-brand-bg md:text-5xl lg:text-6xl">
+              Looking for a PMM who builds from zero?
+            </h2>
+            <p className="mx-auto mb-10 max-w-2xl text-lg font-medium text-brand-bg/80 md:text-xl">
+              I'm actively exploring Product Marketing roles in fintech, SaaS, and consumer tech —
+              where I can own positioning, GTM strategy, and growth from the ground up.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                to="/contact"
+                className="rounded-full bg-brand-bg px-8 py-4 text-sm font-bold text-brand-accent hover:bg-brand-bg/90 transition-colors"
+              >
+                Get in Touch
+              </Link>
+              <a
+                href="https://www.linkedin.com/in/akshatjain1102/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border-2 border-brand-bg px-8 py-4 text-sm font-bold text-brand-bg hover:bg-brand-bg/10 transition-colors"
+              >
+                View LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
