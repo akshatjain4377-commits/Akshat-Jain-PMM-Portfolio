@@ -1,8 +1,36 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { useState } from 'react';
+
+// Maps each filter tag to the project card it should scroll to
+const filterToProject = {
+  "Positioning":          "acko",
+  "GTM":                  "acko",
+  "Unit Economics":       "acko",
+  "Competitive Analysis": "acko",
+  "Product Proposals":    "business-standard",
+  "Customer Research":    "business-standard",
+  "0→1 Build":            "peak-view",
+  "Messaging":            "peak-view",
+  "Authority Building":   "digital-pr",
+};
 
 export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState("Positioning");
+
   const filters = ["Positioning", "GTM", "Messaging", "0→1 Build", "Customer Research", "Unit Economics", "Competitive Analysis", "Authority Building", "Product Proposals"];
+
+  const handleFilterClick = (filter) => {
+    setActiveFilter(filter);
+    const targetId = filterToProject[filter];
+    if (!targetId) return;
+    const el = document.getElementById(`project-${targetId}`);
+    if (el) {
+      // offset for sticky nav bar (~128px)
+      const top = el.getBoundingClientRect().top + window.scrollY - 128;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
 
   const projects = [
     {
@@ -128,8 +156,9 @@ export default function Projects() {
             {filters.map((filter, i) => (
               <button
                 key={i}
+                onClick={() => handleFilterClick(filter)}
                 className={`shrink-0 rounded-full px-4 py-2 text-xs font-medium transition-colors ${
-                  i === 0
+                  activeFilter === filter
                     ? 'bg-brand-accent text-brand-bg'
                     : 'border border-brand-border bg-brand-card text-brand-text hover:border-brand-accent/50'
                 }`}
@@ -145,11 +174,18 @@ export default function Projects() {
       <section id="case-studies" className="bg-brand-bg py-16">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {projects.map((project, i) => (
+            {projects.map((project, i) => {
+              const isHighlighted = filterToProject[activeFilter] === project.id;
+              return (
               <Link
                 key={i}
+                id={`project-${project.id}`}
                 to={`/work/${project.id}`}
-                className="group flex flex-col overflow-hidden rounded-3xl border border-brand-border bg-brand-card transition-colors hover:border-brand-accent/30"
+                className={`group flex flex-col overflow-hidden rounded-3xl border bg-brand-card transition-all duration-300 scroll-mt-36 ${
+                  isHighlighted
+                    ? 'border-brand-accent shadow-[0_0_0_2px] shadow-brand-accent/40'
+                    : 'border-brand-border hover:border-brand-accent/30'
+                }`}
               >
                 {/* Image */}
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-brand-bg">
@@ -194,7 +230,8 @@ export default function Projects() {
                   </div>
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
