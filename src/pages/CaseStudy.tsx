@@ -168,7 +168,7 @@ export default function CaseStudy() {
 
       heroImage: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/digital-pr.png",
 
-      context: "At RankSoldier Digital, I was part of a team focused on building thought leadership and earned media authority for founders and CEOs. The core service: get clients featured in credible publications by positioning their expertise as media-ready insights rather than self-promotional pitches. I joined as a content writing intern and was promoted to Project Manager within 4 months, eventually managing a 10+ person cross-functional team.",
+      context: "At RankSoldier Digital, I was part of a team focused on building thought leadership and earned media authority for founders and CEOs. The core service: get clients featured in credible publications by positioning their expertise as media-ready insights rather than self-promotional pitches. I joined as a content writing intern and was promoted to Project Manager within 4 months, eventually managing a 30+ person cross-functional team.",
 
       problem: "Founders and CEOs typically have genuine domain expertise — but zero third-party credibility outside their immediate networks. They struggle to get featured not because their knowledge isn't valuable, but because they don't know how to frame it for journalists, which platforms to use, or how to respond to media queries at the speed and relevance journalists need. The result: expertise stays invisible, and authority never compounds.",
 
@@ -184,7 +184,7 @@ export default function CaseStudy() {
 
         { label: "Personal placements as Founder", value: "Under30CEO, TechBullion, CMO Times" },
 
-        { label: "Team managed as Project Manager", value: "10+ people" },
+        { label: "Team managed as Project Manager", value: "30+ people" },
 
         { label: "Promotion timeline", value: "Intern → PM in 4 months" }
 
