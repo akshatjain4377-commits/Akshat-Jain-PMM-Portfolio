@@ -186,7 +186,7 @@ export default function Landing() {
 
             PMM lives at the intersection of the customer, the product, and the market.
 
-            Getting it right means being fluent in all three — simultaneously.
+            Getting it right means being fluent in all three, simultaneously.
 
           </p>
 
@@ -200,7 +200,7 @@ export default function Landing() {
 
                 title: "Customer Insight Before Everything",
 
-                desc: "Positioning built on assumptions fails. I start with search intent, user behaviour, and competitive perception — then work backwards to messaging that actually lands."
+                desc: "Positioning built on assumptions fails. I start with search intent, user behaviour, and competitive perception, then work backwards to messaging that actually lands."
 
               },
 
@@ -210,7 +210,7 @@ export default function Landing() {
 
                 title: "Positioning is a Choice, Not a Tagline",
 
-                desc: "The best positioning isn't the cleverest line — it's the clearest answer to: why this product, for this person, over every alternative. I find that answer first."
+                desc: "The best positioning isn't the cleverest line, it's the clearest answer to: why this product, for this person, over every alternative. I find that answer first."
 
               },
 
@@ -328,7 +328,7 @@ export default function Landing() {
 
                 <div className="space-y-2 text-sm text-brand-muted">
 
-                  <p><strong className="text-brand-text font-medium">Problem:</strong> Scale achieved in motor — but how does ACKO earn the right to win in health?</p>
+                  <p><strong className="text-brand-text font-medium">Problem:</strong> Scale achieved in motor, but how does ACKO earn the right to win in health?</p>
 
                   <p><strong className="text-brand-text font-medium">Approach:</strong> Trust-centric positioning using motor as the acquisition layer and cross-sell into health as the LTV engine.</p>
 
@@ -380,7 +380,7 @@ export default function Landing() {
 
                 <div className="space-y-2 text-sm text-brand-muted">
 
-                  <p><strong className="text-brand-text font-medium">Problem:</strong> High-intent financial audience arriving but not staying — pages built for crawlers, not investors.</p>
+                  <p><strong className="text-brand-text font-medium">Problem:</strong> High-intent financial audience arriving but not staying, pages built for crawlers, not investors.</p>
 
                   <p><strong className="text-brand-text font-medium">Approach:</strong> Authored two cross-functional product proposals (IPO Tracker + Share Price pages), benchmarking competitor UX and presenting phased roadmaps to product and editorial stakeholders.</p>
 
@@ -484,7 +484,7 @@ export default function Landing() {
 
                 <div className="space-y-2 text-sm text-brand-muted">
 
-                  <p><strong className="text-brand-text font-medium">Problem:</strong> Founders have expertise — but no one outside their network knows it. How do you build credibility at scale without paid media?</p>
+                  <p><strong className="text-brand-text font-medium">Problem:</strong> Founders have expertise but no one outside their network knows it. How do you build credibility at scale without paid media?</p>
 
                   <p><strong className="text-brand-text font-medium">Approach:</strong> Built repeatable messaging frameworks and outreach systems using HARO, Qwoted, SourceBottle, and Terkel to earn third-party validation.</p>
 
@@ -550,13 +550,13 @@ export default function Landing() {
 
               <p className="text-lg leading-relaxed text-brand-muted">
 
-                The best PMMs aren't just strategists — they're genuinely curious about people.
+                The best PMMs aren't just strategists, they're genuinely curious about people.
 
                 I come from a background where I had to figure out what audiences actually
 
-                respond to, not what a brief said they should. That instinct — finding the
+                respond to, not what a brief said they should. That instinct, finding the
 
-                real insight before building the narrative — is what I bring to every product.
+                real insight before building the narrative, is what I bring to every product.
 
               </p>
 
@@ -564,7 +564,7 @@ export default function Landing() {
 
                 Whether it's a financial media platform, an insurance product, or a brand
 
-                built from scratch — the question is always the same: what does this person
+                built from scratch, the question is always the same: what does this person
 
                 actually need to hear, and why should they believe it?
 
