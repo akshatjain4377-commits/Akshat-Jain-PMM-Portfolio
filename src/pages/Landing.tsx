@@ -72,7 +72,7 @@ export default function Landing() {
 
             competitive positioning, and GTM execution. I don't just describe what
 
-            a product does — I find the angle that makes the right person stop and say:
+            a product does, I find the angle that makes the right person stop and say:
 
             that's exactly what I need.
 
