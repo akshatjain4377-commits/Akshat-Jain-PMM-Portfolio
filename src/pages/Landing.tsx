@@ -39,7 +39,7 @@ export default function Landing() {
   return (
     <div className="bg-brand-bg text-brand-text">
       <section className="mx-auto max-w-7xl px-6 pb-16 pt-12 md:px-8 md:pb-20 md:pt-20">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+        <div className="grid items-start gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:gap-12">
           <div>
             <p className="mb-6 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">
               <span className="h-px w-8 bg-brand-accent" />
@@ -62,24 +62,8 @@ export default function Landing() {
             <p className="mt-5 text-xs text-brand-muted">The work, the thinking behind it, and the person doing the thinking.</p>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[430px] lg:max-w-none">
-            <div className="absolute -right-3 -top-3 h-28 w-28 rounded-full border border-[#B9C7BB] md:-right-5 md:-top-5 md:h-36 md:w-36" aria-hidden="true" />
-            <div className="relative overflow-hidden rounded-[45%_45%_1.25rem_1.25rem] border border-brand-border bg-[#E5E9E1]">
-              <img
-                src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-about-me.jpeg"
-                alt="Akshat Jain"
-                className="aspect-[4/5] w-full object-cover object-center"
-                fetchPriority="high"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#17251F]/90 via-[#17251F]/30 to-transparent p-6 pt-20 text-white md:p-8 md:pt-24">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">The connecting thread</p>
-                <p className="mt-2 max-w-xs font-display text-2xl leading-tight md:text-3xl">Find the insight. Make the choice. Tell the story.</p>
-              </div>
-            </div>
-            <div className="absolute -bottom-5 -left-4 rounded-2xl border border-brand-border bg-brand-card px-4 py-3 shadow-sm md:-left-8 md:px-5">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-muted">Career arc</p>
-              <p className="mt-1 font-display text-lg">SEO → Growth → PMM</p>
-            </div>
+          <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
+            <FunnelMap />
           </div>
         </div>
 
@@ -98,10 +82,6 @@ export default function Landing() {
           </div>
         </div>
       </section>
-
-      <div className="border-y border-brand-border bg-[#EDEFE8]">
-        <FunnelMap />
-      </div>
 
       <section id="discover" className="scroll-mt-24 border-b border-brand-border">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:px-8 md:py-24 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
