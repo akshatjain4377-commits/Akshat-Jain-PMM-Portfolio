@@ -1,27 +1,30 @@
-import { ArrowRight, BookOpen, Clock3 } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BookOpen, Clock3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const essays = [
   {
+    category: 'MESSAGING · LANDING PAGES',
+    title: 'Before You Rewrite That Landing Page, Ask These Four Questions',
+    summary: 'A practical pause before opening the copy doc: check the problem, audience, promise and evidence first.',
+    meta: 'Published · LinkedIn newsletter',
+    status: 'Published',
+    published: true,
+  },
+  {
     category: 'POSITIONING',
     title: 'Is Your Brand Running Without a Positioning?',
-    summary: 'Not having a positioning statement does not mean customers have no perception of your brand. The risk is that your team may not share the same one.',
-    read: '6 min read',
-    status: 'Featured essay',
+    summary: 'A missing positioning statement does not mean customers have no perception of your brand. The risk is that teams may be telling different stories.',
+    meta: 'In development',
+    status: 'Drafting',
+    published: false,
   },
   {
     category: 'COMPETITIVE STRATEGY',
     title: 'Is Your Positioning Actually Yours, or Did You Borrow It From Your Competitors?',
-    summary: 'Competitor research is useful until it quietly turns into competitor imitation. A note on finding a position customers can recognise as yours.',
-    read: 'Draft in progress',
-    status: 'Coming next',
-  },
-  {
-    category: 'MARKETING JUDGMENT',
-    title: 'Frameworks Don’t Make You Good at Marketing. Judgment Does.',
-    summary: 'A framework can organise your thinking. It cannot make the decision for you.',
-    read: 'Idea in development',
-    status: 'From the idea bank',
+    summary: 'Competitor research is useful until it quietly turns into competitor imitation. How do you find a position customers can recognise as yours?',
+    meta: 'In development',
+    status: 'Idea in progress',
+    published: false,
   },
 ];
 
@@ -34,7 +37,7 @@ export default function Writing() {
           The Second Draft · Writing
         </p>
         <div className="grid gap-8 border-b border-[#D5DCD3] pb-12 md:grid-cols-[1.2fr_0.8fr] md:items-end md:pb-16">
-          <h1 className="font-display text-5xl font-semibold leading-[0.98] tracking-[-0.06em] md:text-7xl">
+          <h1 className="font-display text-5xl leading-[0.98] tracking-[-0.06em] md:text-7xl">
             Marketing ideas,<br /><span className="text-[#71877A]">reconsidered.</span>
           </h1>
           <p className="max-w-lg text-base leading-7 text-[#596861] md:pb-1 md:text-lg">
@@ -52,20 +55,22 @@ export default function Writing() {
           </div>
 
           <div className="space-y-0">
-            {essays.map((essay, index) => (
+            {essays.map((essay) => (
               <article key={essay.title} className="border-t border-[#D5DCD3] py-6 md:py-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#71877A]">{essay.category}</p>
-                  <span className="rounded-full border border-[#D5DCD3] px-3 py-1 text-[11px] text-[#65766D]">{essay.status}</span>
+                  <span className={`rounded-full border px-3 py-1 text-[11px] ${essay.published ? 'border-[#9FB6A4] bg-[#E4EAE1] text-[#344F44]' : 'border-[#D5DCD3] text-[#65766D]'}`}>{essay.status}</span>
                 </div>
-                <h2 className="mt-4 max-w-3xl font-display text-2xl font-semibold leading-tight tracking-[-0.035em] md:text-3xl">{essay.title}</h2>
+                <h2 className="mt-4 max-w-3xl font-display text-2xl leading-tight tracking-[-0.035em] md:text-3xl">{essay.title}</h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#596861] md:text-base">{essay.summary}</p>
-                <div className="mt-5 flex items-center justify-between gap-4 text-xs text-[#718078]">
-                  <span className="flex items-center gap-2"><Clock3 className="h-3.5 w-3.5" aria-hidden="true" />{essay.read}</span>
-                  {index === 0 ? (
-                    <Link to="/writing/brand-positioning" className="inline-flex items-center gap-2 font-semibold text-[#263B32] hover:text-[#71877A]">Read essay <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-4 text-xs text-[#718078]">
+                  <span className="flex items-center gap-2"><Clock3 className="h-3.5 w-3.5" aria-hidden="true" />{essay.meta}</span>
+                  {essay.published ? (
+                    <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-semibold text-[#263B32] hover:text-[#71877A]">
+                      Read edition <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                    </a>
                   ) : (
-                    <span className="text-[#9AA59D]">Editorial roadmap</span>
+                    <span className="text-[#9AA59D]">Not published</span>
                   )}
                 </div>
               </article>
@@ -75,8 +80,8 @@ export default function Writing() {
 
         <div className="rounded-[1.5rem] bg-[#E5E9E1] p-6 md:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#718078]">A note on this publication</p>
-          <h2 className="mt-3 max-w-2xl font-display text-2xl font-semibold leading-tight tracking-[-0.04em] md:text-3xl">The first draft is a thought. The second is the one worth sharing.</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-[#596861]">Essays will be published here as the canonical versions, with shorter adaptations shared on LinkedIn. Some ideas are still being developed; they’re labelled as such rather than presented as finished articles.</p>
+          <h2 className="mt-3 max-w-2xl font-display text-2xl leading-tight tracking-[-0.04em] md:text-3xl">The first draft is a thought. The second is the one worth sharing.</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-[#596861]">This redesign separates published pieces from ideas still in development. The long-term direction is to make the website the canonical home for each essay, then use shorter LinkedIn adaptations to bring readers back here.</p>
           <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#263B32] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#3A5548]">
             Follow The Second Draft on LinkedIn <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
