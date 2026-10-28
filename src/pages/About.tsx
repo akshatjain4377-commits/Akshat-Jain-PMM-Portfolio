@@ -274,13 +274,25 @@ export default function About() {
 
               {
 
-                year: "2023 – Present",
+                year: "CURRENT",
+
+                role: "Product Marketing (PMM)",
+
+                company: "Refrens",
+
+                desc: "Working across the customer funnel for service businesses and traders, connecting positioning, messaging and go-to-market execution to help customers understand and evaluate the product."
+
+              },
+
+              {
+
+                year: "2023 – 2026",
 
                 role: "SEO Executive — Growth & GTM Strategy",
 
                 company: "Business Standard",
 
-                desc: "Owned GTM execution for IPO season and high-intent financial events. Lifted core market rankings from position 8.2 → 5.0. Independently authored two cross-functional product proposals — for the IPO Tracker and Share Price pages — benchmarking competitors and presenting phased roadmaps to product and editorial stakeholders. Both proposals currently in the product pipeline."
+                desc: "Owned GTM execution for IPO season and high-intent financial events. Lifted core market rankings from position 8.2 → 5.0. Independently authored two cross-functional product proposals for the IPO Tracker and Share Price pages, benchmarking competitors and presenting phased roadmaps to product and editorial stakeholders."
 
               },
 
