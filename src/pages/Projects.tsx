@@ -236,31 +236,23 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* ── CTA — rewritten for PMM job seeker, not freelancer ── */}
-      <section className="py-24">
+      {/* A neutral CTA for readers, collaborators and hiring teams. */}
+      <section className="py-20 md:py-24">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="rounded-[40px] bg-brand-accent p-12 text-center md:p-24">
-            <h2 className="mb-6 text-4xl font-bold tracking-tight text-brand-bg md:text-5xl lg:text-6xl">
-              Looking for a PMM who builds from zero?
+          <div className="rounded-[2rem] border border-brand-border bg-[#E2E8E0] p-8 md:p-16">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#718078]">Continue the conversation</p>
+            <h2 className="max-w-3xl font-display text-3xl leading-tight tracking-[-0.045em] text-[#1B2A26] md:text-5xl">
+              Good marketing starts with a better question.
             </h2>
-            <p className="mx-auto mb-10 max-w-2xl text-lg font-medium text-brand-bg/80 md:text-xl">
-              I'm actively exploring Product Marketing roles in fintech, SaaS, and consumer tech —
-              where I can own positioning, GTM strategy, and growth from the ground up.
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#596861] md:mx-0 md:text-lg">
+              Have a question about positioning, a GTM problem you’re working through, or feedback on a case study? I’m always up for a thoughtful conversation.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                to="/contact"
-                className="rounded-full bg-brand-bg px-8 py-4 text-sm font-bold text-brand-accent hover:bg-brand-bg/90 transition-colors"
-              >
-                Get in Touch
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/contact" className="rounded-full bg-[#263B32] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#3A5548]">
+                Start a conversation
               </Link>
-              <a
-                href="https://www.linkedin.com/in/akshatjain1102/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border-2 border-brand-bg px-8 py-4 text-sm font-bold text-brand-bg hover:bg-brand-bg/10 transition-colors"
-              >
-                View LinkedIn
+              <a href="https://www.linkedin.com/in/akshatjain1102/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#B8C8B8] px-6 py-3.5 text-sm font-semibold text-[#263B32] transition hover:bg-white/60">
+                Connect on LinkedIn
               </a>
             </div>
           </div>
