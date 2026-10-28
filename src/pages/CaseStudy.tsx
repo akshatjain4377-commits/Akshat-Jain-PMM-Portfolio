@@ -218,7 +218,7 @@ export default function CaseStudy() {
 
       <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
 
-        <div className="absolute inset-0 bg-brand-bg/70 z-10"></div>
+        <div className="absolute inset-0 bg-[#17251F]/70 z-10"></div>
 
         <img
 
@@ -244,7 +244,7 @@ export default function CaseStudy() {
 
             <ArrowLeft className="h-4 w-4" />
 
-            Back to Projects
+            Back to all work
 
           </Link>
 
@@ -440,32 +440,18 @@ export default function CaseStudy() {
 
               </div>
 
-              {/* CTA */}
-
-              <div className="rounded-3xl bg-brand-accent p-8 text-brand-bg">
-
-                <h3 className="mb-4 text-xl font-bold">Interested in my work?</h3>
-
-                <p className="mb-6 text-sm font-medium opacity-90">
-
-                  I'm actively exploring PMM roles where I can own positioning,
-
-                  GTM strategy, and growth from the ground up.
-
+              {/* Conversation CTA */}
+              <div className="rounded-3xl border border-brand-border bg-[#E2E8E0] p-7 text-[#1B2A26]">
+                <h3 className="font-display text-2xl leading-tight">Want to discuss the thinking?</h3>
+                <p className="mt-3 text-sm leading-6 text-[#596861]">
+                  Questions, counterpoints or a similar problem from your world are welcome.
                 </p>
-
                 <Link
-
                   to="/contact"
-
-                  className="block w-full rounded-full bg-brand-bg py-3 text-center text-sm font-bold text-brand-accent hover:bg-brand-bg/90 transition-colors"
-
+                  className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#263B32] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#3A5548]"
                 >
-
-                  Get in Touch
-
+                  Start a conversation
                 </Link>
-
               </div>
 
             </div>
