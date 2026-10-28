@@ -55,3 +55,45 @@ h1, h2, h3, h4, h5, h6 {
     transition-duration: 0.01ms !important;
   }
 }
+
+.funnel-stage {
+  position: relative;
+  border: 1px solid rgba(52, 79, 68, 0.06);
+  transition:
+    opacity 220ms ease,
+    width 280ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    filter 220ms ease;
+}
+
+.funnel-stage.is-active {
+  opacity: 1;
+  transform: translateX(2px);
+  box-shadow: 0 0 0 2px #344F44, 0 7px 18px rgba(27, 42, 38, 0.08);
+  filter: saturate(1.08);
+}
+
+.funnel-detail {
+  animation: funnel-panel-in 240ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+@keyframes funnel-panel-in {
+  from {
+    opacity: 0.25;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .funnel-stage,
+  .funnel-detail {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
