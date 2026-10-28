@@ -178,7 +178,7 @@ export default function Contact() {
 
                   <div className="space-y-2">
 
-                    <label className="text-xs font-bold uppercase tracking-widest text-brand-muted">
+                    <label htmlFor="name" className="text-xs font-bold uppercase tracking-widest text-brand-muted">
 
                       Name
 
@@ -187,6 +187,8 @@ export default function Contact() {
                     <input
 
                       type="text"
+
+                      id="name"
 
                       name="name"
 
@@ -202,7 +204,7 @@ export default function Contact() {
 
                   <div className="space-y-2">
 
-                    <label className="text-xs font-bold uppercase tracking-widest text-brand-muted">
+                    <label htmlFor="email" className="text-xs font-bold uppercase tracking-widest text-brand-muted">
 
                       Email
 
@@ -211,6 +213,8 @@ export default function Contact() {
                     <input
 
                       type="email"
+
+                      id="email"
 
                       name="email"
 
@@ -238,7 +242,7 @@ export default function Contact() {
 
                 <div className="space-y-2">
 
-                  <label className="text-xs font-bold uppercase tracking-widest text-brand-muted">
+                  <label htmlFor="subject" className="text-xs font-bold uppercase tracking-widest text-brand-muted">
 
                     Subject
 
@@ -260,13 +264,15 @@ export default function Contact() {
 
                 <div className="space-y-2">
 
-                  <label className="text-xs font-bold uppercase tracking-widest text-brand-muted">
+                  <label htmlFor="message" className="text-xs font-bold uppercase tracking-widest text-brand-muted">
 
                     Message
 
                   </label>
 
                   <textarea
+
+                    id="message"
 
                     name="message"
 
