@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 
-import { Mail, MapPin, MessageSquare, ArrowRight } from 'lucide-react';
+import { Mail, MessageSquare, ArrowRight } from 'lucide-react';
 
 import { useForm, ValidationError } from "@formspree/react";
 
@@ -46,13 +46,13 @@ export default function Contact() {
 
               <p className="mb-12 max-w-md text-lg text-brand-muted">
 
-                I'm currently exploring Product Marketing roles where I can own
+                I’m currently working in product marketing at Refrens, and I enjoy conversations about
 
-                positioning, GTM strategy, and growth from the ground up.
+                positioning, messaging, go-to-market and the customer funnel. If you’re building
 
-                If you're building something interesting — or just want to talk
+                something interesting, comparing notes on PMM, or simply have a sharp marketing
 
-                about markets, messaging, or products — I'd love to hear from you.
+                question, I’d love to hear from you.
 
               </p>
 
@@ -83,30 +83,6 @@ export default function Contact() {
                       akshatjain4377@gmail.com
 
                     </a>
-
-                  </div>
-
-                </div>
-
-                {/* Location — UPDATED to match CV */}
-
-                <div className="flex items-start gap-4">
-
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-brand-border bg-brand-card">
-
-                    <MapPin className="h-5 w-5 text-brand-accent" />
-
-                  </div>
-
-                  <div>
-
-                    <h3 className="mb-1 text-sm font-bold uppercase tracking-widest text-brand-muted">Location</h3>
-
-                    <p className="text-lg font-medium text-brand-text">
-
-                      New Delhi · Open to Bangalore
-
-                    </p>
 
                   </div>
 
