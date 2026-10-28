@@ -250,6 +250,8 @@ export default function Contact() {
 
                   <input
 
+                    id="subject"
+
                     type="text"
 
                     name="subject"
