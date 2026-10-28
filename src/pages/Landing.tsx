@@ -46,7 +46,7 @@ export default function Landing() {
               Product marketing · Positioning · GTM
             </p>
             <h1 className="max-w-3xl font-display text-5xl leading-[0.99] tracking-[-0.055em] md:text-6xl lg:text-[5.4rem]">
-              I connect what customers need to what products need to <span className="italic text-[#71877A]">say.</span>
+              I help products explain their value to the <span className="italic text-[#71877A]">right customers.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-7 text-brand-muted md:text-lg md:leading-8">
               I’m a product marketer at Refrens, working across the customer funnel for service businesses and traders. A background in SEO, audience insight and building a media brand from zero shapes how I approach positioning, messaging and go-to-market: start with what people actually do, then build the story and system around it.
