@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowDownRight, ArrowUpRight, BookOpen, BriefcaseBusiness, Compass } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -45,12 +45,41 @@ export default function FunnelMap() {
   const [active, setActive] = useState('evaluate');
   const selected = stages.find((stage) => stage.id === active) ?? stages[1];
 
+  useEffect(() => {
+    const targets = stages
+      .map((stage) => document.getElementById(stage.id))
+      .filter((element): element is HTMLElement => element instanceof HTMLElement);
+
+    if (!('IntersectionObserver' in window) || targets.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: '-22% 0px -58% 0px', threshold: [0, 0.15, 0.4] },
+    );
+
+    targets.forEach((target) => observer.observe(target));
+    return () => observer.disconnect();
+  }, []);
+
+  const exploreStage = (stageId: string) => {
+    setActive(stageId);
+    const section = document.getElementById(stageId);
+    if (!section) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    section.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  };
+
   return (
     <section aria-labelledby="funnel-heading" className="mx-auto max-w-7xl px-6 py-20 md:py-28">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20">
         <div className="max-w-xl">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#718078]">A map of my work</p>
-          <h2 id="funnel-heading" className="font-display text-3xl font-semibold leading-tight tracking-[-0.04em] text-[#1B2A26] md:text-5xl">
+          <h2 id="funnel-heading" className="font-display text-3xl leading-tight tracking-[-0.04em] text-[#1B2A26] md:text-5xl">
             From a useful idea to a clearer decision.
           </h2>
           <p className="mt-5 max-w-lg text-base leading-7 text-[#596861] md:text-lg">
@@ -71,7 +100,7 @@ export default function FunnelMap() {
                 <button
                   key={stage.id}
                   type="button"
-                  onClick={() => setActive(stage.id)}
+                  onClick={() => exploreStage(stage.id)}
                   aria-pressed={isActive}
                   className={`mx-auto flex min-h-[88px] items-center justify-between gap-4 rounded-xl px-4 py-4 text-left transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#344F44] md:px-6 ${stage.tone} ${isActive ? 'ring-2 ring-[#344F44] ring-offset-2 ring-offset-[#FBFAF6]' : 'opacity-80 hover:opacity-100'}`}
                   style={{ width: stage.width }}
@@ -79,7 +108,7 @@ export default function FunnelMap() {
                   <span className="flex min-w-0 items-center gap-3 md:gap-4">
                     <span className="text-xs font-semibold tracking-widest opacity-70">{stage.number}</span>
                     <span className="min-w-0">
-                      <span className="block font-display text-lg font-semibold md:text-xl">{stage.label}</span>
+                      <span className="block font-display text-lg md:text-xl">{stage.label}</span>
                       <span className="mt-1 block text-xs leading-5 opacity-75 md:text-sm">{stage.summary}</span>
                     </span>
                   </span>
@@ -93,7 +122,7 @@ export default function FunnelMap() {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#718078]">Stage {selected.number}</p>
-                <h3 className="mt-2 font-display text-xl font-semibold text-[#1B2A26]">{selected.label}</h3>
+                <h3 className="mt-2 font-display text-xl text-[#1B2A26]">{selected.label}</h3>
                 <p className="mt-2 max-w-xl text-sm leading-6 text-[#596861]">{selected.detail}</p>
               </div>
               <span className="rounded-full bg-[#E9EEE8] p-2 text-[#344F44]">
