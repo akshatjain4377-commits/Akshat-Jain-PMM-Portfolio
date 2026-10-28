@@ -157,6 +157,20 @@ export default function FunnelMap() {
             <div className="mt-4 border-l-2 border-[#71877A] bg-[#F1F3EE] px-4 py-3 text-xs font-medium leading-5 text-[#344F44]">
               {selected.signal}
             </div>
+            {selected.id === 'connect' && (
+              <div className="mt-4 flex items-center gap-3 rounded-xl border border-[#E2E5DE] p-3">
+                <img
+                  src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-about-me.jpeg"
+                  alt="Akshat Jain"
+                  loading="lazy"
+                  className="h-12 w-12 rounded-full border border-[#D5DCD3] object-cover"
+                />
+                <div>
+                  <p className="font-display text-base text-[#1B2A26]">Akshat Jain</p>
+                  <p className="mt-0.5 text-xs text-[#718078]">Product marketing · Refrens</p>
+                </div>
+              </div>
+            )}
             <div className="mt-5 flex flex-wrap gap-2">
               <Link to={selected.destination} className="inline-flex items-center gap-2 rounded-full bg-[#263B32] px-4 py-3 text-xs font-semibold text-white transition hover:bg-[#3A5548] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#344F44]">
                 {selected.destinationLabel} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
