@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FunnelMap from '../components/FunnelMap';
-import ScrollCarProgress from '../components/ScrollCarProgress';
 
 const projects = [
   {
@@ -119,6 +118,36 @@ export default function Landing() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const funnel = document.querySelector<HTMLElement>('.funnel-journey');
+    if (!funnel) return;
+
+    let frame = 0;
+    const updateDepth = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const rect = funnel.getBoundingClientRect();
+        const travel = Math.max(1, rect.height - window.innerHeight * 0.55);
+        const progress = Math.max(0, Math.min(1, (window.innerHeight * 0.28 - rect.top) / travel));
+
+        funnel.style.setProperty('--funnel-progress', String(progress));
+        funnel.style.setProperty('--funnel-depth-z', `${-progress * 180}px`);
+        funnel.style.setProperty('--funnel-floor-shift', `${-progress * 72}px`);
+        funnel.style.setProperty('--funnel-marker-y', `${8 + progress * 82}%`);
+      });
+    };
+
+    updateDepth();
+    window.addEventListener('scroll', updateDepth, { passive: true });
+    window.addEventListener('resize', updateDepth);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', updateDepth);
+      window.removeEventListener('resize', updateDepth);
+    };
+  }, []);
+
   const jumpToStage = (id: FunnelStageId) => {
     setActiveStage(id);
     const section = document.getElementById(id);
@@ -189,21 +218,29 @@ export default function Landing() {
       </section>
 
       <div className="funnel-journey relative isolate overflow-hidden bg-[#EBEDEF]">
-        <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 1000 2400" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M 25 0 L 975 0 L 760 2400 L 240 2400 Z" fill="#E5EAE2" fillOpacity="0.42" />
-          <path d="M 25 0 L 240 2400" fill="none" stroke="#D5DCD3" strokeWidth="2" vectorEffect="non-scaling-stroke" />
-          <path d="M 975 0 L 760 2400" fill="none" stroke="#D5DCD3" strokeWidth="2" vectorEffect="non-scaling-stroke" />
-          <path d="M 70 0 L 285 2400" fill="none" stroke="#C7CBD0" strokeWidth="1" strokeDasharray="4 12" vectorEffect="non-scaling-stroke" />
-          <path d="M 930 0 L 715 2400" fill="none" stroke="#C7CBD0" strokeWidth="1" strokeDasharray="4 12" vectorEffect="non-scaling-stroke" />
-        </svg>
+        <div className="funnel-depth-scene" aria-hidden="true">
+          <div className="funnel-depth-world">
+            <div className="funnel-depth-wall funnel-depth-wall--left" />
+            <div className="funnel-depth-wall funnel-depth-wall--right" />
+            <div className="funnel-depth-floor" />
+            <div className="funnel-depth-edge funnel-depth-edge--left" />
+            <div className="funnel-depth-edge funnel-depth-edge--right" />
+            <div className="funnel-depth-rim funnel-depth-rim--discover" />
+            <div className="funnel-depth-rim funnel-depth-rim--evaluate" />
+            <div className="funnel-depth-rim funnel-depth-rim--connect" />
+            <div className="funnel-depth-marker">
+              <span />
+            </div>
+          </div>
+        </div>
 
-        <div className="relative mx-auto max-w-[1440px] px-3 md:px-6 xl:px-10">
+        <div className="funnel-content-depth relative mx-auto max-w-[1440px] px-3 md:px-6 xl:px-10">
           <div className="grid xl:grid-cols-[150px_minmax(0,1fr)] xl:gap-8">
             <FunnelJourneyRail activeStage={activeStage} onSelect={jumpToStage} />
 
             <div className="min-w-0">
               <section id="discover" className="scroll-mt-24 py-10 md:py-14">
-                <div className={`journey-panel journey-panel--discover mx-auto w-full max-w-[1180px] rounded-[2rem] border bg-[#FBFAF6]/95 p-5 md:p-8 lg:p-10 ${activeStage === 'discover' ? 'journey-panel--active' : ''}`}>
+                <div className={`journey-panel journey-panel--discover mx-auto w-full max-w-[1180px] rounded-[2rem] border bg-[var(--funnel-panel-discover)] p-5 md:p-8 lg:p-10 ${activeStage === 'discover' ? 'journey-panel--active' : ''}`}>
                   <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12">
                     <div>
                       <div className="flex items-center gap-3">
@@ -300,7 +337,7 @@ export default function Landing() {
                     <Link to="/about" className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
                       More about me <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
-                    <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#F4F2EB] px-5 py-3 text-sm font-semibold text-[#1B2A26] transition hover:bg-white">
+                    <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-[var(--funnel-connect-cta-bg)] px-5 py-3 text-sm font-semibold text-[var(--funnel-connect-cta-text)] transition hover:opacity-90">
                       Start a conversation <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
                   </div>
@@ -310,7 +347,6 @@ export default function Landing() {
           </div>
         </div>
       </div>
-      <ScrollCarProgress />
     </div>
   );
 }
