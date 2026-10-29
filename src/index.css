@@ -33,7 +33,7 @@
   --funnel-track: #EBEEE8;
 }
 
-:root[data-theme="dark"] {
+:root[data-mode="reading"] {
   color-scheme: dark;
   --color-brand-bg: #111713;
   --color-brand-card: #19211C;
@@ -194,7 +194,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 12px;
 }
 
-.theme-toggle {
+.mode-toggle {
   display: inline-flex;
   align-items: center;
   gap: 2px;
@@ -204,7 +204,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 3px;
 }
 
-.theme-toggle button {
+.mode-toggle button {
   display: inline-flex;
   min-height: 29px;
   align-items: center;
@@ -220,12 +220,12 @@ h1, h2, h3, h4, h5, h6 {
   transition: background-color 180ms ease, color 180ms ease;
 }
 
-.theme-toggle button svg {
+.mode-toggle button svg {
   width: 12px;
   height: 12px;
 }
 
-.theme-toggle button.is-selected {
+.mode-toggle button.is-selected {
   background: var(--color-brand-accent);
   color: var(--color-brand-bg);
 }
@@ -294,188 +294,129 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
-/* Funnel depth experience: a perspective chamber that shifts with scroll */
+
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--color-brand-border);
+  border-radius: 999px;
+  background: var(--color-brand-card);
+  padding: 3px;
+}
+
+.mode-toggle button {
+  display: inline-flex;
+  min-height: 29px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  padding: 0 8px;
+  color: var(--color-brand-muted);
+  cursor: pointer;
+  font-size: 10px;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.mode-toggle button svg {
+  width: 12px;
+  height: 12px;
+}
+
+.mode-toggle button.is-selected {
+  background: var(--color-brand-accent);
+  color: var(--color-brand-bg);
+}
+
+/* The 3D scene is a sticky environment; content moves through it. */
 .funnel-journey {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   background: var(--color-brand-bg);
-  perspective: 1300px;
-  transform-style: preserve-3d;
-  --funnel-progress: 0;
-  --funnel-depth-z: 0px;
-  --funnel-floor-shift: 0px;
-  --funnel-marker-y: 8%;
 }
 
-.funnel-depth-scene {
-  position: absolute;
+.funnel-3d-scene {
+  position: sticky;
   z-index: 0;
-  inset: 0;
+  top: 76px;
+  height: calc(100vh - 76px);
+  min-height: 500px;
+  margin-bottom: calc(-100vh + 76px);
   overflow: hidden;
   pointer-events: none;
-  perspective: 1100px;
-  perspective-origin: 50% 22%;
-  transform-style: preserve-3d;
+  opacity: 1;
+  transition: opacity 240ms ease;
 }
 
-.funnel-depth-world {
+.funnel-3d-scene__canvas {
   position: absolute;
-  inset: -3% -4% -5%;
-  transform-style: preserve-3d;
-  transform: translate3d(0, var(--funnel-floor-shift), var(--funnel-depth-z));
-  will-change: transform;
-}
-
-.funnel-depth-wall {
-  position: absolute;
-  z-index: 1;
-  top: -4%;
-  bottom: -6%;
-  width: 62%;
-  border: 1px solid color-mix(in srgb, var(--funnel-line) 85%, transparent);
-  opacity: 0.88;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-}
-
-.funnel-depth-wall--left {
-  left: -8%;
-  clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
-  transform: rotateY(21deg) translateZ(-130px);
-  transform-origin: left center;
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--color-brand-accent) 10%, transparent), transparent 78%),
-    repeating-linear-gradient(0deg, transparent 0 62px, color-mix(in srgb, var(--funnel-line) 55%, transparent) 63px, transparent 64px);
-}
-
-.funnel-depth-wall--right {
-  right: -8%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%);
-  transform: rotateY(-21deg) translateZ(-130px);
-  transform-origin: right center;
-  background:
-    linear-gradient(270deg, color-mix(in srgb, var(--color-brand-accent) 10%, transparent), transparent 78%),
-    repeating-linear-gradient(0deg, transparent 0 62px, color-mix(in srgb, var(--funnel-line) 55%, transparent) 63px, transparent 64px);
-}
-
-.funnel-depth-floor {
-  position: absolute;
-  z-index: 0;
-  top: 40%;
-  left: 8%;
-  width: 84%;
-  height: 95%;
-  transform-origin: 50% 0;
-  transform: rotateX(69deg) translate3d(0, var(--funnel-floor-shift), -180px);
-  border: 1px solid color-mix(in srgb, var(--funnel-line) 70%, transparent);
-  background:
-    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--color-brand-accent) 10%, transparent), transparent 60%),
-    repeating-linear-gradient(0deg, transparent 0 47px, var(--funnel-line) 48px, transparent 49px),
-    repeating-linear-gradient(90deg, transparent 0 72px, var(--funnel-line) 73px, transparent 74px),
-    var(--funnel-track);
-  opacity: 0.72;
-  backface-visibility: hidden;
-}
-
-.funnel-depth-edge {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  bottom: -5%;
-  width: 2px;
-  transform-origin: top center;
-  background: linear-gradient(to bottom, var(--funnel-line), color-mix(in srgb, var(--color-brand-accent) 45%, transparent), transparent);
-  opacity: 0.9;
-}
-
-.funnel-depth-edge--left {
-  left: 4%;
-  transform: rotateY(19deg) translateZ(-75px);
-}
-
-.funnel-depth-edge--right {
-  right: 4%;
-  transform: rotateY(-19deg) translateZ(-75px);
-}
-
-.funnel-depth-rim {
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  height: 17%;
-  border: 1px solid color-mix(in srgb, var(--funnel-line) 90%, transparent);
-  clip-path: polygon(0 0, 100% 0, 79% 100%, 21% 100%);
-  transform: translateX(-50%) rotateX(7deg);
-  transform-origin: center top;
-  opacity: 0.45;
-}
-
-.funnel-depth-rim--discover {
-  top: 2%;
-  width: 92%;
-  transform: translateX(-50%) rotateX(5deg) translateZ(42px);
-}
-
-.funnel-depth-rim--evaluate {
-  top: 38%;
-  width: 74%;
-  transform: translateX(-50%) rotateX(7deg) translateZ(-18px);
-}
-
-.funnel-depth-rim--connect {
-  top: 72%;
-  width: 56%;
-  transform: translateX(-50%) rotateX(10deg) translateZ(-76px);
-}
-
-.funnel-depth-marker {
-  position: absolute;
-  z-index: 3;
-  top: var(--funnel-marker-y);
-  left: 50%;
-  width: 14px;
-  height: 14px;
-  transform: translate3d(-50%, -50%, 24px);
-  transition: top 80ms linear;
-}
-
-.funnel-depth-marker span {
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  border: 2px solid var(--color-brand-bg);
-  border-radius: 50%;
-  background: var(--color-brand-accent);
-  box-shadow: 0 0 0 8px color-mix(in srgb, var(--color-brand-accent) 12%, transparent), 0 0 24px color-mix(in srgb, var(--color-brand-accent) 45%, transparent);
 }
 
-.funnel-content-depth,
+.funnel-3d-scene__fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background:
+    radial-gradient(ellipse at 50% 15%, color-mix(in srgb, var(--color-brand-accent) 12%, transparent), transparent 55%),
+    repeating-linear-gradient(90deg, transparent 0 8%, var(--funnel-line) 8.05%, transparent 8.1%),
+    var(--color-brand-bg);
+  clip-path: polygon(0 0, 100% 0, 72% 100%, 28% 100%);
+}
+
+.funnel-3d-scene--fallback .funnel-3d-scene__fallback {
+  display: block;
+}
+
+.funnel-3d-scene--fallback .funnel-3d-scene__canvas {
+  display: none;
+}
+
+.funnel-content-depth {
+  position: relative;
+  z-index: 1;
+}
+
 .funnel-content-depth > .grid,
 .funnel-content-depth > .grid > div,
 .funnel-content-depth section {
   position: relative;
-  z-index: 1;
-  transform-style: preserve-3d;
 }
 
 .journey-panel {
   position: relative;
   backface-visibility: hidden;
-  transform-style: preserve-3d;
   transform: translate3d(0, 0, var(--panel-depth, 0px));
   transition: border-color 260ms ease, box-shadow 300ms ease, transform 300ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  backdrop-filter: blur(7px);
 }
 
-.journey-panel--discover { --panel-depth: 65px; }
+.journey-panel--discover {
+  --panel-depth: 44px;
+  background-color: color-mix(in srgb, var(--funnel-panel-discover) 91%, transparent) !important;
+}
 
-.journey-panel--evaluate { --panel-depth: 0px; }
+.journey-panel--evaluate {
+  --panel-depth: 0px;
+  background-color: color-mix(in srgb, var(--funnel-panel-evaluate) 91%, transparent) !important;
+}
 
-.journey-panel--connect { --panel-depth: -65px; }
+.journey-panel--connect {
+  --panel-depth: -44px;
+  background-color: color-mix(in srgb, var(--funnel-panel-connect) 94%, transparent) !important;
+  color: var(--funnel-connect-text);
+}
 
 .journey-panel--active {
   transform: translate3d(0, -3px, var(--panel-depth, 0px));
-  box-shadow: 0 18px 45px rgba(27, 42, 38, 0.1);
+  box-shadow: 0 18px 48px rgba(27, 42, 38, 0.12);
 }
 
 .journey-panel--discover.journey-panel--active,
@@ -484,7 +425,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .journey-panel--connect.journey-panel--active {
-  box-shadow: 0 20px 48px rgba(27, 42, 38, 0.18), 0 0 0 1px var(--color-brand-accent);
+  box-shadow: 0 22px 52px rgba(27, 42, 38, 0.2), 0 0 0 1px var(--color-brand-accent);
+}
+
+[data-mode="reading"] .funnel-3d-scene {
+  opacity: 0.62;
+}
+
+[data-mode="reading"] .journey-panel--discover,
+[data-mode="reading"] .journey-panel--evaluate {
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+}
+
+[data-mode="reading"] .journey-panel--connect {
+  color: var(--funnel-connect-text);
+}
+
+[data-mode="reading"] .journey-panel--evaluate [class~="text-[#1B2A26]"],
+[data-mode="reading"] .journey-panel--evaluate [class~="text-[#344F44]"],
+[data-mode="reading"] .journey-panel--evaluate [class~="text-[#596861]"] {
+  color: var(--color-brand-text) !important;
+}
+
+[data-mode="reading"] .journey-panel--discover [class~="text-[#1B2A26]"],
+[data-mode="reading"] .journey-panel--discover [class~="text-[#344F44]"],
+[data-mode="reading"] .journey-panel--discover [class~="text-[#596861]"] {
+  color: var(--color-brand-text) !important;
+}
+
+[data-mode="reading"] .journey-panel--connect [class~="text-white"],
+[data-mode="reading"] .journey-panel--connect [class~="text-white/75"],
+[data-mode="reading"] .journey-panel--connect [class~="text-white/65"] {
+  color: var(--funnel-connect-text) !important;
 }
 
 .journey-rail-progress {
@@ -512,112 +485,139 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@media (max-width: 767px) {
+  .funnel-3d-scene {
+    top: 68px;
+    height: calc(100vh - 68px);
+    min-height: 360px;
+    margin-bottom: calc(-100vh + 68px);
+  }
+
+  .funnel-3d-scene__canvas {
+    opacity: 0.78;
+  }
+
+  .journey-panel {
+    transform: none;
+    backdrop-filter: blur(9px);
+  }
+
+  .journey-panel--discover,
+  .journey-panel--evaluate,
+  .journey-panel--connect {
+    --panel-depth: 0px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .funnel-stage,
   .funnel-detail,
   .journey-panel,
   .journey-rail-progress,
-  .funnel-depth-world,
-  .funnel-depth-marker {
+  .funnel-3d-scene {
     animation: none !important;
     transition: none !important;
+  }
+
+  [data-mode="reading"] .funnel-3d-scene {
+    opacity: 0.38;
   }
 }
 
 /* Dark theme adaptation for utility classes used on content pages. */
-[data-theme="dark"] [class~="bg-white"],
-[data-theme="dark"] [class~="bg-white/95"],
-[data-theme="dark"] [class~="bg-[#FFFFFF]"],
-[data-theme="dark"] [class~="bg-[#FBFAF6]"] {
+[data-mode="reading"] [class~="bg-white"],
+[data-mode="reading"] [class~="bg-white/95"],
+[data-mode="reading"] [class~="bg-[#FFFFFF]"],
+[data-mode="reading"] [class~="bg-[#FBFAF6]"] {
   background-color: #19211C !important;
 }
 
-[data-theme="dark"] [class~="bg-[#F4F2EB]"],
-[data-theme="dark"] [class~="bg-[#F3F3F1]"] {
+[data-mode="reading"] [class~="bg-[#F4F2EB]"],
+[data-mode="reading"] [class~="bg-[#F3F3F1]"] {
   background-color: #111713 !important;
 }
 
-[data-theme="dark"] [class~="bg-[#E4E9E3]"],
-[data-theme="dark"] [class~="bg-[#E5E9E1]"],
-[data-theme="dark"] [class~="bg-[#DDE5DC]"],
-[data-theme="dark"] [class~="bg-[#E2E8E0]"] {
+[data-mode="reading"] [class~="bg-[#E4E9E3]"],
+[data-mode="reading"] [class~="bg-[#E5E9E1]"],
+[data-mode="reading"] [class~="bg-[#DDE5DC]"],
+[data-mode="reading"] [class~="bg-[#E2E8E0]"] {
   background-color: #252F28 !important;
 }
 
-[data-theme="dark"] [class~="bg-[#B7C6BD]"],
-[data-theme="dark"] [class~="bg-[#B7C6BB]"] {
+[data-mode="reading"] [class~="bg-[#B7C6BD]"],
+[data-mode="reading"] [class~="bg-[#B7C6BB]"] {
   background-color: #314136 !important;
 }
 
-[data-theme="dark"] [class~="bg-[#F1F3EE]"],
-[data-theme="dark"] [class~="bg-[#EEF0E9]"],
-[data-theme="dark"] [class~="bg-[#EDEFE8]"] {
+[data-mode="reading"] [class~="bg-[#F1F3EE]"],
+[data-mode="reading"] [class~="bg-[#EEF0E9]"],
+[data-mode="reading"] [class~="bg-[#EDEFE8]"] {
   background-color: #151D17 !important;
 }
 
-[data-theme="dark"] [class~="bg-[#344F44]"],
-[data-theme="dark"] [class~="bg-[#263B32]"] {
+[data-mode="reading"] [class~="bg-[#344F44]"],
+[data-mode="reading"] [class~="bg-[#263B32]"] {
   background-color: #AFC6B3 !important;
 }
 
-[data-theme="dark"] [class~="text-[#1B2A26]"],
-[data-theme="dark"] [class~="text-[#263B32]"] {
+[data-mode="reading"] [class~="text-[#1B2A26]"],
+[data-mode="reading"] [class~="text-[#263B32]"] {
   color: #F1F3EE !important;
 }
 
-[data-theme="dark"] [class~="text-[#596861]"],
-[data-theme="dark"] [class~="text-[#718078]"],
-[data-theme="dark"] [class~="text-[#65766D]"] {
+[data-mode="reading"] [class~="text-[#596861]"],
+[data-mode="reading"] [class~="text-[#718078]"],
+[data-mode="reading"] [class~="text-[#65766D]"] {
   color: #B0B9B0 !important;
 }
 
-[data-theme="dark"] [class~="text-[#344F44]"],
-[data-theme="dark"] [class~="text-brand-accent"] {
+[data-mode="reading"] [class~="text-[#344F44]"],
+[data-mode="reading"] [class~="text-brand-accent"] {
   color: #AFC6B3 !important;
 }
 
-[data-theme="dark"] [class~="border-[#D5DCD3]"],
-[data-theme="dark"] [class~="border-brand-border"] {
+[data-mode="reading"] [class~="border-[#D5DCD3]"],
+[data-mode="reading"] [class~="border-brand-border"] {
   border-color: #3B473E !important;
 }
 
-[data-theme="dark"] .funnel-journey {
+[data-mode="reading"] .funnel-journey {
   background: var(--color-brand-bg);
 }
 
-[data-theme="dark"] [class~="bg-[#EBEDEF]"],
-[data-theme="dark"] [class~="bg-[#F8F8F9]"] {
+[data-mode="reading"] [class~="bg-[#EBEDEF]"],
+[data-mode="reading"] [class~="bg-[#F8F8F9]"] {
   background-color: #151D17 !important;
 }
 
-[data-theme="dark"] [class~="bg-[#1B2A26]"] {
+[data-mode="reading"] [class~="bg-[#1B2A26]"] {
   background-color: #0B110D !important;
 }
 
-[data-theme="dark"] [class~="bg-[#D5DCD3]"] {
+[data-mode="reading"] [class~="bg-[#D5DCD3]"] {
   background-color: #26352B !important;
 }
 
-[data-theme="dark"] [class~="text-[#829187]"] {
+[data-mode="reading"] [class~="text-[#829187]"] {
   color: #AFC0B0 !important;
 }
 
-[data-theme="dark"] [class~="text-[#B7C6BD]"] {
+[data-mode="reading"] [class~="text-[#B7C6BD]"] {
   color: #CFDACE !important;
 }
 
-[data-theme="dark"] [class~="border-[#B1B6BF]"],
-[data-theme="dark"] [class~="border-[#BECABE]"],
-[data-theme="dark"] [class~="border-[#9FB6A4]"] {
+[data-mode="reading"] [class~="border-[#B1B6BF]"],
+[data-mode="reading"] [class~="border-[#BECABE]"],
+[data-mode="reading"] [class~="border-[#9FB6A4]"] {
   border-color: #3B473E !important;
 }
 
 
-[data-theme="dark"] [class~="bg-[#F4F2EB]/95"] {
+[data-mode="reading"] [class~="bg-[#F4F2EB]/95"] {
   background-color: #26352B !important;
 }
 
-[data-theme="dark"] [class~="text-[#596F61]"] {
+[data-mode="reading"] [class~="text-[#596F61]"] {
   color: #B0B9B0 !important;
 }
 
@@ -647,13 +647,13 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 8px;
   }
 
-  .theme-toggle button {
+  .mode-toggle button {
     min-height: 27px;
     padding: 0 6px;
     font-size: 9px;
   }
 
-  .theme-toggle button svg {
+  .mode-toggle button svg {
     width: 11px;
     height: 11px;
   }
@@ -694,7 +694,7 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
 
-  .theme-toggle button span {
+  .mode-toggle button span {
     display: none;
   }
 }
@@ -784,35 +784,35 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-brand-accent);
 }
 
-[data-theme="dark"] .editorial-hero {
+[data-mode="reading"] .editorial-hero {
   background:
     radial-gradient(ellipse at 82% 25%, rgba(94, 124, 101, 0.16), transparent 44%),
     var(--color-brand-bg);
 }
 
-[data-theme="dark"] .editorial-hero__texture {
+[data-mode="reading"] .editorial-hero__texture {
   background-image:
     linear-gradient(rgba(175, 198, 179, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(175, 198, 179, 0.06) 1px, transparent 1px);
 }
 
 /* Keep dark mode legible when a legacy content card uses a fixed green surface. */
-[data-theme="dark"] [class~="bg-[#344F44]"],
-[data-theme="dark"] [class~="bg-[#263B32]"] {
+[data-mode="reading"] [class~="bg-[#344F44]"],
+[data-mode="reading"] [class~="bg-[#263B32]"] {
   background-color: #26352B !important;
 }
 
-[data-theme="dark"] [class~="bg-brand-accent"][class~="text-white"] {
+[data-mode="reading"] [class~="bg-brand-accent"][class~="text-white"] {
   color: #111713 !important;
 }
 
-[data-theme="dark"] [class~="text-white/70"],
-[data-theme="dark"] [class~="text-white/75"],
-[data-theme="dark"] [class~="text-white/65"] {
+[data-mode="reading"] [class~="text-white/70"],
+[data-mode="reading"] [class~="text-white/75"],
+[data-mode="reading"] [class~="text-white/65"] {
   color: #C4CEC4 !important;
 }
 
-[data-theme="dark"] [class~="border-white/30"] {
+[data-mode="reading"] [class~="border-white/30"] {
   border-color: #526055 !important;
 }
 
