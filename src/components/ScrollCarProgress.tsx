@@ -25,9 +25,18 @@ function FunnelCar() {
   );
 }
 
+type Stage = 'discover' | 'evaluate' | 'connect';
+type StagePositions = Record<Stage, number>;
+
 export default function ScrollCarProgress() {
   const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(false);
+  const [stage, setStage] = useState<Stage>('discover');
+  const [positions, setPositions] = useState<StagePositions>({
+    discover: 22,
+    evaluate: 52,
+    connect: 82,
+  });
 
   useEffect(() => {
     let frame = 0;
@@ -35,12 +44,28 @@ export default function ScrollCarProgress() {
     const update = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const funnel = document.querySelector<HTMLElement>('.funnel-journey');
-        const funnelTop = funnel ? funnel.getBoundingClientRect().top + window.scrollY : 0;
-        const funnelLength = funnel ? Math.max(1, funnel.offsetHeight - window.innerHeight * 0.65) : Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-        const next = Math.max(0, Math.min(1, (window.scrollY - funnelTop) / funnelLength));
+        const scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const next = Math.max(0, Math.min(1, window.scrollY / scrollable));
+        const cursorY = window.scrollY + window.innerHeight * 0.34;
+
+        const topOf = (id: Stage) => {
+          const element = document.getElementById(id);
+          return element ? element.getBoundingClientRect().top + window.scrollY : 0;
+        };
+
+        const discoverTop = topOf('discover');
+        const evaluateTop = topOf('evaluate');
+        const connectTop = topOf('connect');
+        const toTrack = (top: number) => Math.max(7, Math.min(93, 7 + (top / scrollable) * 86));
+
         setProgress(next);
         setVisible(window.scrollY > 100);
+        setStage(cursorY >= connectTop ? 'connect' : cursorY >= evaluateTop ? 'evaluate' : 'discover');
+        setPositions({
+          discover: toTrack(discoverTop),
+          evaluate: toTrack(evaluateTop),
+          connect: toTrack(connectTop),
+        });
       });
     };
 
@@ -55,7 +80,6 @@ export default function ScrollCarProgress() {
     };
   }, []);
 
-  const stage = progress < 0.36 ? 'Discover' : progress < 0.72 ? 'Evaluate' : 'Connect';
   const position = 7 + progress * 86;
 
   return (
@@ -67,22 +91,21 @@ export default function ScrollCarProgress() {
       aria-valuemax={100}
       aria-valuenow={Math.round(progress * 100)}
       aria-valuetext={`${stage} stage`}
-      data-stage={stage.toLowerCase()}
+      data-stage={stage}
     >
       <div className="scroll-car-progress__inner">
         <div className="scroll-car-progress__track" />
         <div className="scroll-car-progress__fill" style={{ width: `${progress * 86}%` }} />
-        <span className="scroll-car-progress__stop scroll-car-progress__stop--discover" />
-        <span className="scroll-car-progress__stop scroll-car-progress__stop--evaluate" />
-        <span className="scroll-car-progress__stop scroll-car-progress__stop--connect" />
-        <span className="scroll-car-progress__label scroll-car-progress__label--discover">Discover</span>
-        <span className="scroll-car-progress__label scroll-car-progress__label--evaluate">Evaluate</span>
-        <span className="scroll-car-progress__label scroll-car-progress__label--connect">Connect</span>
+        <span className="scroll-car-progress__stop scroll-car-progress__stop--discover" style={{ left: `${positions.discover}%` }} />
+        <span className="scroll-car-progress__stop scroll-car-progress__stop--evaluate" style={{ left: `${positions.evaluate}%` }} />
+        <span className="scroll-car-progress__stop scroll-car-progress__stop--connect" style={{ left: `${positions.connect}%` }} />
+        <span className="scroll-car-progress__label scroll-car-progress__label--discover" style={{ left: `${positions.discover}%` }}>Discover</span>
+        <span className="scroll-car-progress__label scroll-car-progress__label--evaluate" style={{ left: `${positions.evaluate}%` }}>Evaluate</span>
+        <span className="scroll-car-progress__label scroll-car-progress__label--connect" style={{ left: `${positions.connect}%` }}>Connect</span>
         <div className="scroll-car-progress__car" style={{ left: `${position}%` }}>
           <FunnelCar />
         </div>
       </div>
-      <span className="scroll-car-progress__sr-only">Scroll progress: {stage}</span>
     </div>
   );
 }
