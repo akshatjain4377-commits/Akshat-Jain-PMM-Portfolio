@@ -45,7 +45,7 @@
   --funnel-discover-bg: #252F28;
   --funnel-evaluate-bg: #314136;
   --funnel-connect-bg: #AFC6B3;
-  --funnel-connect-text: #111713;
+  --funnel-connect-text: #F1F3EE;
   --funnel-panel-discover: #19211C;
   --funnel-panel-evaluate: #202A23;
   --funnel-panel-connect: #19211C;
@@ -524,6 +524,92 @@ h1, h2, h3, h4, h5, h6 {
   [data-mode="reading"] .funnel-3d-scene {
     opacity: 0.38;
   }
+}
+
+
+/* Keep the tunnel visible: smaller, alternating editorial panels leave room for the 3D world. */
+@media (min-width: 768px) {
+  .journey-panel--discover {
+    width: min(86%, 920px);
+    margin-left: 1.5% !important;
+    margin-right: auto !important;
+  }
+
+  .journey-panel--evaluate {
+    width: min(82%, 880px);
+    margin-left: auto !important;
+    margin-right: 2.5% !important;
+  }
+
+  .journey-panel--connect {
+    width: min(72%, 740px);
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .journey-panel--discover .grid {
+    gap: 1.25rem;
+  }
+
+  .journey-panel--discover article {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .journey-panel--discover,
+  .journey-panel--evaluate,
+  .journey-panel--connect {
+    width: 94%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .journey-panel--discover,
+  .journey-panel--evaluate {
+    background-color: color-mix(in srgb, var(--color-brand-card) 93%, transparent) !important;
+  }
+}
+
+/* Primary filled controls use the correct foreground for the current functional mode. */
+[data-mode="reading"] [class~="bg-brand-accent"][class~="text-white"],
+[data-mode="reading"] [class~="bg-[#344F44]"][class~="text-white"],
+[data-mode="reading"] [class~="bg-[#263B32]"][class~="text-white"] {
+  color: #111713 !important;
+}
+
+/* Theme-aware content colours for the funnel panels. */
+[data-mode="reading"] .journey-panel--discover [class~="text-[#344F44]"],
+[data-mode="reading"] .journey-panel--evaluate [class~="text-[#344F44]"] {
+  color: var(--color-brand-accent) !important;
+}
+
+[data-mode="reading"] .journey-panel--discover [class~="text-[#596861]"],
+[data-mode="reading"] .journey-panel--evaluate [class~="text-[#596861]"] {
+  color: var(--color-brand-muted) !important;
+}
+
+[data-mode="reading"] .journey-panel--discover [class~="text-[#718078]"],
+[data-mode="reading"] .journey-panel--evaluate [class~="text-[#718078]"] {
+  color: var(--color-brand-muted) !important;
+}
+
+[data-mode="reading"] .journey-panel--connect {
+  color: var(--funnel-connect-text);
+}
+
+[data-mode="reading"] .journey-panel--connect [class~="text-white"],
+[data-mode="reading"] .journey-panel--connect [class~="text-white/75"],
+[data-mode="reading"] .journey-panel--connect [class~="text-white/65"] {
+  color: var(--funnel-connect-text) !important;
+}
+
+/* Reading mode makes fixed legacy text colours semantic rather than freezing them in light mode. */
+[data-mode="reading"] .site-header,
+[data-mode="reading"] .site-mobile-menu,
+[data-mode="reading"] .site-header .site-brand,
+[data-mode="reading"] .site-header .site-nav__link {
+  color: var(--color-brand-text);
 }
 
 /* Dark theme adaptation for utility classes used on content pages. */
