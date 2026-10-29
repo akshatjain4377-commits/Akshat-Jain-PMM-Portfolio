@@ -78,7 +78,7 @@ const stagePreviews: Record<FunnelStageId, {
   },
 };
 
-function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: string; onSelect: (id: string) => void }) {
+function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: FunnelStageId; onSelect: (id: FunnelStageId) => void }) {
   const activeIndex = funnelStages.findIndex((stage) => stage.id === activeStage);
   const nextStageId = activeIndex >= 2 ? 'discover' : funnelStages[activeIndex + 1].id;
   const nextAction = activeIndex >= 2 ? 'Climb back up' : 'Continue down';
