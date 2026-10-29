@@ -218,7 +218,7 @@ export default function CaseStudy() {
 
       <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
 
-        <div className="absolute inset-0 bg-[#17251F]/70 z-10"></div>
+        <div className="absolute inset-0 bg-[#17191D]/70 z-10"></div>
 
         <img
 
@@ -441,14 +441,14 @@ export default function CaseStudy() {
               </div>
 
               {/* Conversation CTA */}
-              <div className="rounded-3xl border border-brand-border bg-[#E2E8E0] p-7 text-[#1B2A26]">
+              <div className="rounded-3xl border border-brand-border bg-[#E7E9EC] p-7 text-[#17191D]">
                 <h3 className="font-display text-2xl leading-tight">Want to discuss the thinking?</h3>
-                <p className="mt-3 text-sm leading-6 text-[#596861]">
+                <p className="mt-3 text-sm leading-6 text-[#626973]">
                   Questions, counterpoints or a similar problem from your world are welcome.
                 </p>
                 <Link
                   to="/contact"
-                  className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#263B32] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#3A5548]"
+                  className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#17191D] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#B50021]"
                 >
                   Start a conversation
                 </Link>
