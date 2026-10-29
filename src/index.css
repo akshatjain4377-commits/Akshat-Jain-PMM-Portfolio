@@ -327,7 +327,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .scroll-car-progress__fill {
-  width: calc(var(--scroll-progress) * 86%);
   background: var(--color-brand-accent);
 }
 
