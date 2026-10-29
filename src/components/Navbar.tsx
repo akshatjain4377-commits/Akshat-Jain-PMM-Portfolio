@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowUpRight, Moon, Sun, Menu, X } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Compass, Menu, X } from 'lucide-react';
 
-type Theme = 'light' | 'dark';
+type Mode = 'journey' | 'reading';
 
 const links = [
   { label: 'Work', to: '/work' },
@@ -14,15 +14,15 @@ const links = [
 export default function Navbar() {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'light';
-    return window.localStorage.getItem('aj-portfolio-theme') === 'dark' ? 'dark' : 'light';
+  const [mode, setMode] = useState<Mode>(() => {
+    if (typeof window === 'undefined') return 'journey';
+    return window.localStorage.getItem('aj-portfolio-mode') === 'reading' ? 'reading' : 'journey';
   });
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem('aj-portfolio-theme', theme);
-  }, [theme]);
+    document.documentElement.dataset.mode = mode;
+    window.localStorage.setItem('aj-portfolio-mode', mode);
+  }, [mode]);
 
   const isActive = (to: string) => {
     if (to === '/work') return location.pathname.startsWith('/work');
@@ -57,26 +57,26 @@ export default function Navbar() {
         </div>
 
         <div className="site-header__actions">
-          <div className="theme-toggle" role="group" aria-label="Choose website theme">
+          <div className="mode-toggle" role="group" aria-label="Choose browsing mode">
             <button
               type="button"
-              onClick={() => setTheme('light')}
-              aria-pressed={theme === 'light'}
-              className={theme === 'light' ? 'is-selected' : ''}
-              title="Light theme"
+              onClick={() => setMode('journey')}
+              aria-pressed={mode === 'journey'}
+              className={mode === 'journey' ? 'is-selected' : ''}
+              title="Journey mode, immersive scroll experience"
             >
-              <Sun aria-hidden="true" />
-              <span>Light</span>
+              <Compass aria-hidden="true" />
+              <span>Journey</span>
             </button>
             <button
               type="button"
-              onClick={() => setTheme('dark')}
-              aria-pressed={theme === 'dark'}
-              className={theme === 'dark' ? 'is-selected' : ''}
-              title="Dark theme"
+              onClick={() => setMode('reading')}
+              aria-pressed={mode === 'reading'}
+              className={mode === 'reading' ? 'is-selected' : ''}
+              title="Reading mode, calmer content-first experience"
             >
-              <Moon aria-hidden="true" />
-              <span>Dark</span>
+              <BookOpen aria-hidden="true" />
+              <span>Reading</span>
             </button>
           </div>
 
