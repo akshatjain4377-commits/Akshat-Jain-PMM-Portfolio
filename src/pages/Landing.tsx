@@ -13,7 +13,7 @@ const projects = [
     image: 'https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/business-standard.jpg',
     question: 'How could high-intent financial pages become more useful to investors?',
     signal: 'Priority search terms moved from an average position of 8.2 to 5.0.',
-    className: 'md:col-span-7',
+    className: 'funnel-project-card',
   },
   {
     id: 'acko',
@@ -23,7 +23,7 @@ const projects = [
     image: 'https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/acko-insurance.png',
     question: 'How might motor scale help ACKO earn trust in health insurance?',
     signal: 'A proposed retention-led cross-sell model. The economics are projections, not shipped results.',
-    className: 'md:col-span-5',
+    className: 'funnel-project-card',
   },
   {
     id: 'peak-view',
@@ -33,7 +33,7 @@ const projects = [
     image: 'https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/the-peak-view-stories.jpg',
     question: 'Can a new media brand earn attention with no paid budget or existing audience?',
     signal: '1.5M+ organic reel views and 7,600 website users via SEO.',
-    className: 'md:col-span-12',
+    className: 'funnel-project-card',
   },
 ];
 
@@ -234,16 +234,16 @@ export default function Landing() {
             <FunnelJourneyRail activeStage={activeStage} onSelect={jumpToStage} />
 
             <div className="min-w-0">
-              <section id="discover" className="scroll-mt-24 py-10 md:py-14">
-                <div className={`journey-panel journey-panel--discover mx-auto w-full max-w-[1180px] rounded-[2rem] border bg-[var(--funnel-panel-discover)] p-5 md:p-8 lg:p-10 ${activeStage === 'discover' ? 'journey-panel--active' : ''}`}>
-                  <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12">
+              <section id="discover" className="scroll-mt-24 py-5 md:py-7">
+                <div className={`journey-panel journey-panel--discover mx-auto w-full max-w-[920px] rounded-[1.5rem] border bg-[var(--funnel-panel-discover)] p-4 md:p-6 lg:p-7 ${activeStage === 'discover' ? 'journey-panel--active' : ''}`}>
+                  <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:gap-6">
                     <div>
                       <div className="flex items-center gap-3">
                         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#E4E9E3] font-display text-base text-[#344F44]">01</span>
                         <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#718078]">Discover · Top of funnel</p>
                       </div>
-                      <h2 className="mt-6 max-w-md font-display text-4xl leading-[1.02] tracking-[-0.045em] md:text-5xl">Start with the question, not the answer.</h2>
-                      <p className="mt-5 max-w-md text-sm leading-7 text-brand-muted md:text-base">
+                      <h2 className="mt-4 max-w-md font-display text-3xl leading-[1.03] tracking-[-0.04em] md:text-4xl">Start with the question, not the answer.</h2>
+                      <p className="mt-3 max-w-md text-sm leading-6 text-brand-muted">
                         Articles and newsletter essays help a reader recognise a problem, learn a useful idea and discover how I think about marketing.
                       </p>
                       <Link to="/writing" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-accent transition hover:text-brand-accent-hover">
@@ -251,24 +251,24 @@ export default function Landing() {
                       </Link>
                     </div>
 
-                    <div className="grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
+                    <div className="grid gap-3 md:grid-cols-[1.1fr_0.9fr]">
                       <article className="flex flex-col rounded-2xl border border-brand-border bg-white p-5 md:p-6">
                         <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-muted">
                           <BookOpen className="h-4 w-4" aria-hidden="true" /> The Second Draft
                         </div>
-                        <p className="mt-7 text-[9px] font-bold uppercase tracking-[0.2em] text-[#344F44]">Featured newsletter edition</p>
-                        <h3 className="mt-3 font-display text-2xl leading-tight tracking-[-0.035em] md:text-3xl">Before You Rewrite That Landing Page, Ask These Four Questions</h3>
-                        <p className="mt-4 text-sm leading-6 text-brand-muted">A practical pause before opening the copy document. Check the problem, audience, promise and evidence first.</p>
-                        <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold text-brand-accent">
+                        <p className="mt-4 text-[9px] font-bold uppercase tracking-[0.2em] text-[#344F44]">Featured newsletter edition</p>
+                        <h3 className="mt-2 font-display text-xl leading-tight tracking-[-0.035em] md:text-2xl">Before You Rewrite That Landing Page, Ask These Four Questions</h3>
+                        <p className="mt-3 text-xs leading-5 text-brand-muted">A practical pause before opening the copy document. Check the problem, audience, promise and evidence first.</p>
+                        <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-2 pt-4 text-xs font-semibold text-brand-accent">
                           Read on LinkedIn <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                         </a>
                       </article>
 
                       <article className="flex flex-col rounded-2xl bg-[#FBFAF6] p-5 text-[#1B2A26] md:p-6">
                         <Lightbulb className="h-5 w-5" aria-hidden="true" />
-                        <p className="mt-7 text-[9px] font-bold uppercase tracking-[0.2em] text-[#596861]">Take something useful</p>
+                        <p className="mt-4 text-[9px] font-bold uppercase tracking-[0.2em] text-[#596861]">Take something useful</p>
                         <h3 className="mt-3 font-display text-2xl leading-tight tracking-[-0.035em]">A better question changes the work.</h3>
-                        <p className="mt-4 text-sm leading-6 text-[#596861]">Copyable checklists and prompts for the messy bit between noticing a problem and deciding what to do.</p>
+                        <p className="mt-3 text-xs leading-5 text-[#596861]">Copyable checklists and prompts for the messy bit between noticing a problem and deciding what to do.</p>
                         <Link to="/resources" className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold text-[#1B2A26]">
                           Browse resources <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </Link>
@@ -278,16 +278,16 @@ export default function Landing() {
                 </div>
               </section>
 
-              <section id="evaluate" className="scroll-mt-24 py-6 md:py-10">
-                <div className={`journey-panel journey-panel--evaluate mx-auto w-full md:w-[94%] max-w-[1070px] rounded-[2rem] border border-brand-border bg-[var(--funnel-panel-evaluate)] p-5 md:p-8 lg:p-10 ${activeStage === 'evaluate' ? 'journey-panel--active' : ''}`}>
+              <section id="evaluate" className="scroll-mt-24 py-3 md:py-5">
+                <div className={`journey-panel journey-panel--evaluate mx-auto w-full md:w-[94%] max-w-[880px] rounded-[1.5rem] border border-brand-border bg-[var(--funnel-panel-evaluate)] p-4 md:p-6 lg:p-7 ${activeStage === 'evaluate' ? 'journey-panel--active' : ''}`}>
                   <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
                     <div className="max-w-2xl">
                       <div className="flex items-center gap-3">
                         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B7C6BD] font-display text-base text-[#1B2A26]">02</span>
                         <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#596861]">Evaluate · Middle of funnel</p>
                       </div>
-                      <h2 className="mt-6 font-display text-4xl leading-[1.02] tracking-[-0.045em] md:text-5xl">See the thinking behind the work.</h2>
-                      <p className="mt-5 max-w-xl text-sm leading-7 text-[#596861] md:text-base">
+                      <h2 className="mt-4 font-display text-3xl leading-[1.03] tracking-[-0.04em] md:text-4xl">See the thinking behind the work.</h2>
+                      <p className="mt-3 max-w-xl text-sm leading-6 text-[#596861]">
                         Case studies move from a problem to the insight, strategic choice, execution and evidence. Professional work, capstone thinking and independent projects are clearly labelled.
                       </p>
                     </div>
@@ -296,39 +296,39 @@ export default function Landing() {
                     </Link>
                   </div>
 
-                  <div className="mt-8 grid gap-4 md:grid-cols-12">
+                  <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
                     {projects.map((project) => (
                       <Link key={project.id} to={`/work/${project.id}`} className={`group flex flex-col overflow-hidden rounded-2xl border border-[#D5DCD3] bg-[#FBFAF6] transition duration-200 hover:-translate-y-1 hover:border-[#344F44] ${project.className}`}>
-                        <div className="relative overflow-hidden bg-[#FBFAF6]">
-                          <img src={project.image} alt={project.name} loading="lazy" className="aspect-[16/7] w-full object-cover transition duration-500 group-hover:scale-[1.025]" />
-                          <span className="absolute left-3 top-3 rounded-full bg-[#F4F2EB]/95 px-3 py-1.5 text-[9px] font-bold tracking-[0.13em] text-[#344F44]">{project.kind}</span>
+                        <div className="relative overflow-hidden bg-brand-card">
+                          <img src={project.image} alt={project.name} loading="lazy" className="aspect-[16/6] w-full object-cover transition duration-500 group-hover:scale-[1.025]" />
+                          <span className="absolute left-2 top-2 rounded-full bg-[#F4F2EB]/95 px-2.5 py-1 text-[8px] font-bold tracking-[0.13em] text-[#344F44]">{project.kind}</span>
                         </div>
-                        <div className="flex flex-1 flex-col p-5 md:p-6">
+                        <div className="flex flex-1 flex-col p-3.5 md:p-4">
                           <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#344F44]">{project.discipline}</p>
-                          <h3 className="mt-3 font-display text-2xl leading-tight tracking-[-0.035em] md:text-3xl">{project.name}</h3>
-                          <p className="mt-3 text-sm leading-6 text-[#596861]">{project.question}</p>
-                          <p className="mt-4 border-l-2 border-[#344F44] pl-3 text-xs leading-5 text-[#344F44]">{project.signal}</p>
-                          <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#344F44]">Read the case study <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" /></span>
+                          <h3 className="mt-2 font-display text-xl leading-tight tracking-[-0.035em]">{project.name}</h3>
+                          <p className="mt-2 text-xs leading-5 text-[#596861]">{project.question}</p>
+                          <p className="mt-3 border-l-2 border-brand-accent pl-2.5 text-[11px] leading-4 text-[#344F44]">{project.signal}</p>
+                          <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-[#344F44]">Read the case study <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" /></span>
                         </div>
                       </Link>
                     ))}
                   </div>
-                  <p className="mt-5 text-[10px] leading-5 text-[#596861]">ACKO is a capstone strategy exercise, and its unit-economics figures are projections. Business Standard ranking results are observed; product proposals are described as authored work, not shipped features.</p>
+                  <p className="mt-4 text-[9px] leading-4 text-[#596861]">ACKO is a capstone strategy exercise, and its unit-economics figures are projections. Business Standard ranking results are observed; product proposals are described as authored work, not shipped features.</p>
                 </div>
               </section>
 
-              <section id="connect" className="scroll-mt-24 py-6 pb-16 md:py-10 md:pb-24">
-                <div className={`journey-panel journey-panel--connect mx-auto w-full md:w-[86%] max-w-[930px] rounded-[2rem] border border-brand-border bg-[var(--funnel-panel-connect)] p-5 text-[var(--funnel-connect-text)] md:p-8 lg:p-10 ${activeStage === 'connect' ? 'journey-panel--active' : ''}`}>
+              <section id="connect" className="scroll-mt-24 py-3 pb-10 md:py-5 md:pb-14">
+                <div className={`journey-panel journey-panel--connect mx-auto w-full md:w-[86%] max-w-[740px] rounded-[1.5rem] border border-brand-border bg-[var(--funnel-panel-connect)] p-5 text-[var(--funnel-connect-text)] md:p-7 lg:p-8 ${activeStage === 'connect' ? 'journey-panel--active' : ''}`}>
                   <div className="flex items-center gap-3">
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B7C6BD] font-display text-base text-[#1B2A26]">03</span>
                     <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/65">Connect · Bottom of funnel</p>
                   </div>
-                  <p className="mt-7 text-[10px] font-bold uppercase tracking-[0.18em] text-[#B7C6BD]">The person behind the perspective</p>
-                  <h2 className="mt-3 max-w-2xl font-display text-3xl leading-[1.04] tracking-[-0.04em] md:text-4xl">A career built around one question: why do people choose?</h2>
-                  <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 md:text-base">
+                  <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#B7C6BD]">The person behind the perspective</p>
+                  <h2 className="mt-2 max-w-2xl font-display text-2xl leading-[1.05] tracking-[-0.04em] md:text-3xl">A career built around one question: why do people choose?</h2>
+                  <p className="mt-3 max-w-2xl text-sm leading-6 text-white/75">
                     My route into product marketing crossed audience research, search, earned media and building a media brand from zero. Today, I bring that perspective to positioning, messaging and go-to-market, and keep writing about the decisions behind the discipline.
                   </p>
-                  <div className="mt-7 flex flex-wrap gap-3">
+                  <div className="mt-5 flex flex-wrap gap-3">
                     <Link to="/about" className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
                       More about me <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
