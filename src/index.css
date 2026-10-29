@@ -97,3 +97,63 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.funnel-journey {
+  isolation: isolate;
+}
+
+.journey-panel {
+  position: relative;
+  transform: translateY(0);
+  transition:
+    border-color 260ms ease,
+    box-shadow 300ms ease,
+    transform 300ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    background-color 300ms ease;
+}
+
+.journey-panel--active {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(27, 42, 38, 0.1);
+}
+
+.journey-panel--discover {
+  border-color: #D5DCD3;
+}
+
+.journey-panel--discover.journey-panel--active {
+  border-color: #9BAE9E;
+}
+
+.journey-panel--evaluate {
+  border-color: #CCD7CC;
+}
+
+.journey-panel--evaluate.journey-panel--active {
+  border-color: #839A88;
+}
+
+.journey-panel--connect {
+  border-color: #263B32;
+}
+
+.journey-panel--connect.journey-panel--active {
+  box-shadow: 0 20px 48px rgba(27, 42, 38, 0.2), 0 0 0 1px #71877A;
+}
+
+.journey-rail-progress {
+  transition: height 400ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+@media (max-width: 1279px) {
+  .funnel-journey > svg path:nth-of-type(3),
+  .funnel-journey > svg path:nth-of-type(4) {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-panel,
+  .journey-rail-progress {
+    transition: none !important;
+  }
+}
