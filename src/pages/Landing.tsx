@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import RaceCar from '../components/RaceCar';
+import FunnelMap from '../components/FunnelMap';
+import ScrollCarProgress from '../components/ScrollCarProgress';
 
 const projects = [
   {
@@ -43,40 +44,6 @@ const funnelStages = [
 ] as const;
 
 type FunnelStageId = typeof funnelStages[number]['id'];
-
-const stagePreviews: Record<FunnelStageId, {
-  code: string;
-  title: string;
-  detail: string;
-  primaryTo: string;
-  primaryLabel: string;
-  sectionLabel: string;
-}> = {
-  discover: {
-    code: 'TOFU / DISCOVER',
-    title: 'Ideas that earn attention.',
-    detail: 'Newsletter essays and practical resources for people who want to think more clearly about positioning, messaging and growth.',
-    primaryTo: '/writing',
-    primaryLabel: 'Read The Second Draft',
-    sectionLabel: 'Enter Discover',
-  },
-  evaluate: {
-    code: 'MOFU / EVALUATE',
-    title: 'Show the thinking behind the work.',
-    detail: 'Case studies that explain the problem, the insight, the choices made and the evidence behind the result.',
-    primaryTo: '/work',
-    primaryLabel: 'Explore case studies',
-    sectionLabel: 'Enter Evaluate',
-  },
-  connect: {
-    code: 'BOFU / CONNECT',
-    title: 'Make the next step easy.',
-    detail: 'A clear view of my experience, how I approach product marketing and the quickest route to a conversation.',
-    primaryTo: '/about',
-    primaryLabel: 'Meet the person behind the work',
-    sectionLabel: 'Enter Connect',
-  },
-};
 
 function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: FunnelStageId; onSelect: (id: FunnelStageId) => void }) {
   const activeIndex = funnelStages.findIndex((stage) => stage.id === activeStage);
@@ -162,98 +129,61 @@ export default function Landing() {
 
   return (
     <div className="bg-brand-bg text-brand-text">
-      <section className="race-hero relative overflow-hidden">
-        <div className="race-hero__grain pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div className="relative mx-auto max-w-[1440px] px-5 pb-7 pt-10 md:px-8 md:pt-14 xl:px-12">
-          <div className="grid items-start gap-10 xl:grid-cols-[0.9fr_1.1fr] xl:items-center xl:gap-12">
-            <div className="race-hero__copy">
-              <p className="race-micro flex items-center gap-3 text-brand-accent">
+      <section className="editorial-hero relative overflow-hidden">
+        <div className="editorial-hero__texture pointer-events-none absolute inset-0" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-6 pb-12 pt-12 md:px-8 md:pb-16 md:pt-20">
+          <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.92fr] lg:items-center lg:gap-14">
+            <div className="relative z-10">
+              <p className="mb-6 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-accent">
                 <span className="h-px w-8 bg-brand-accent" />
-                AJ/07 · PRODUCT MARKETING CIRCUIT
+                Product marketing · Positioning · Product stories
               </p>
-              <h1 className="race-heading mt-7 max-w-3xl text-6xl leading-[0.86] tracking-[-0.04em] md:text-7xl lg:text-[6.1rem]">
-                I work on whether products are <span className="race-hero__highlight">worth finding.</span>
+              <h1 className="max-w-3xl font-display text-5xl leading-[0.99] tracking-[-0.055em] md:text-6xl lg:text-[5.2rem]">
+                I work on whether products are <span className="editorial-hero__emphasis">worth finding.</span>
               </h1>
-              <p className="mt-7 max-w-xl font-display text-2xl font-semibold leading-tight tracking-[-0.01em] md:text-3xl">
+              <p className="mt-6 max-w-2xl font-display text-xl leading-snug text-brand-accent md:text-2xl">
                 I spent years understanding how buyers find products. Now I write about the stories that make the difference.
               </p>
               <p className="mt-5 max-w-xl text-sm leading-7 text-brand-muted md:text-base">
                 Today, I work in product marketing at Refrens. My background in SEO and building a media brand from zero shapes how I approach positioning, messaging and go-to-market.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <button type="button" onClick={() => jumpToStage('discover')} className="race-action race-action--primary">
-                  Start the race <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                <button type="button" onClick={() => jumpToStage('discover')} className="inline-flex items-center gap-2 rounded-full bg-brand-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">
+                  Explore the funnel <ArrowDown className="h-4 w-4" aria-hidden="true" />
                 </button>
-                <Link to="/work" className="race-action race-action--secondary">
-                  View the work <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                <Link to="/work" className="inline-flex items-center gap-2 rounded-full border border-brand-border px-6 py-3.5 text-sm font-semibold text-brand-text transition hover:border-brand-accent">
+                  Browse case studies <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </div>
-              <div className="race-hero__hint mt-6 flex items-center gap-3">
-                <span className="race-hero__hint-arrow" aria-hidden="true">↓</span>
-                <span className="race-micro">SCROLL TO DESCEND THE FUNNEL</span>
-              </div>
-            </div>
+              <p className="mt-5 text-xs text-brand-muted">Ideas first. Evidence next. Conversation when it makes sense.</p>
 
-            <div className="min-w-0">
-              <RaceCar />
-
-              <div className="race-stage-selector mt-4">
-                <div className="race-stage-selector__head">
-                  <div>
-                    <p className="race-micro">ROUTE PLANNER // MARKETING FUNNEL</p>
-                    <h2 className="mt-1 font-display text-2xl font-extrabold uppercase leading-none">Choose your line.</h2>
-                  </div>
-                  <span className="race-stage-selector__progress">{funnelStages.findIndex((stage) => stage.id === activeStage) + 1} / 03</span>
+              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-brand-border pt-6">
+                <div>
+                  <p className="font-display text-3xl text-brand-text md:text-4xl">1.5M+</p>
+                  <p className="mt-1 max-w-[135px] text-xs leading-5 text-brand-muted">organic reel views on an independent brand</p>
                 </div>
-
-                <div className="race-stage-selector__steps" role="group" aria-label="Choose a funnel stage">
-                  {funnelStages.map((stage, index) => (
-                    <button
-                      key={stage.id}
-                      type="button"
-                      onClick={() => setActiveStage(stage.id)}
-                      aria-pressed={activeStage === stage.id}
-                      className={`race-stage-selector__step ${activeStage === stage.id ? 'is-selected' : ''}`}
-                      style={{ width: `${100 - index * 16}%` }}
-                    >
-                      <span className="race-stage-selector__number">{stage.number}</span>
-                      <span className="race-stage-selector__name">{stage.label}</span>
-                      <span className="race-stage-selector__descriptor">{stage.descriptor}</span>
-                    </button>
-                  ))}
+                <div>
+                  <p className="font-display text-3xl text-brand-text md:text-4xl">8.2 <span className="text-brand-accent">→</span> 5.0</p>
+                  <p className="mt-1 max-w-[135px] text-xs leading-5 text-brand-muted">average ranking on priority search terms</p>
                 </div>
-
-                <div key={activeStage} className="race-stage-selector__detail" aria-live="polite">
-                  <p className="race-micro">{stagePreviews[activeStage].code}</p>
-                  <h3 className="mt-2 font-display text-2xl font-extrabold uppercase leading-[0.98] md:text-3xl">{stagePreviews[activeStage].title}</h3>
-                  <p className="mt-2 max-w-2xl text-sm leading-6 text-brand-muted">{stagePreviews[activeStage].detail}</p>
-                  <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-                    <Link to={stagePreviews[activeStage].primaryTo} className="inline-flex items-center gap-2 text-sm font-bold text-brand-accent hover:underline">
-                      {stagePreviews[activeStage].primaryLabel} <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
-                    <button type="button" onClick={() => jumpToStage(activeStage)} className="race-stage-selector__jump">
-                      {stagePreviews[activeStage].sectionLabel} <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
-                    </button>
-                  </div>
+                <div>
+                  <p className="font-display text-3xl text-brand-text md:text-4xl">02</p>
+                  <p className="mt-1 max-w-[135px] text-xs leading-5 text-brand-muted">cross-functional product proposals authored</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="race-scoreboard mt-10 md:mt-14">
-            <div className="race-scoreboard__item">
-              <strong>1.5M<span>+</span></strong>
-              <div><p className="race-micro">ORGANIC REACH</p><p>Reel views on an independent brand</p></div>
+            <div className="relative mx-auto w-full max-w-[620px] lg:max-w-none">
+              <div className="editorial-hero__orbit editorial-hero__orbit--one" aria-hidden="true" />
+              <div className="editorial-hero__orbit editorial-hero__orbit--two" aria-hidden="true" />
+              <div className="relative z-10">
+                <FunnelMap />
+              </div>
+              <div className="editorial-hero__caption">
+                <span className="editorial-hero__caption-dot" aria-hidden="true" />
+                <p>Explore by intent, not in a fixed order.</p>
+              </div>
             </div>
-            <div className="race-scoreboard__item">
-              <strong>8.2 <span>→</span> 5.0</strong>
-              <div><p className="race-micro">SEARCH POSITION</p><p>Average ranking on priority terms</p></div>
-            </div>
-            <div className="race-scoreboard__item">
-              <strong>02</strong>
-              <div><p className="race-micro">PRODUCT PROPOSALS</p><p>Cross-functional proposals authored</p></div>
-            </div>
-            <div className="race-scoreboard__note race-micro">CRAFT. STRATEGY. MOMENTUM.</div>
           </div>
         </div>
       </section>
@@ -380,6 +310,7 @@ export default function Landing() {
           </div>
         </div>
       </div>
+      <ScrollCarProgress />
     </div>
   );
 }
