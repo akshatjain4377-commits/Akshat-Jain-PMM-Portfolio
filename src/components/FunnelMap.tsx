@@ -11,7 +11,7 @@ const stages = [
     eyebrow: 'IDEAS · WRITING · RESOURCES',
     featureLabel: 'FROM THE SECOND DRAFT',
     featureTitle: 'Before you rewrite that landing page, ask these four questions.',
-    featureBody: 'Start with the customer, the problem and the proof—not the headline.',
+    featureBody: 'Start with the customer, the problem and the proof, not the headline.',
     signal: 'A point of view you can put to work.',
     destination: '/writing',
     destinationLabel: 'Explore the writing',
