@@ -335,7 +335,7 @@ h1, h2, h3, h4, h5, h6 {
 .funnel-journey {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
+  overflow: clip;
   background: var(--color-brand-bg);
 }
 
