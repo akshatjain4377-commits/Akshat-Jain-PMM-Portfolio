@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-bg: #F4F2EB;
-  --color-brand-card: #FBFAF6;
-  --color-brand-accent: #344F44;
-  --color-brand-accent-hover: #263B32;
-  --color-brand-text: #1B2A26;
-  --color-brand-muted: #596861;
-  --color-brand-border: #D5DCD3;
+  --color-brand-bg: #F3F3F1;
+  --color-brand-card: #FFFFFF;
+  --color-brand-accent: #D90429;
+  --color-brand-accent-hover: #B50021;
+  --color-brand-text: #17191D;
+  --color-brand-muted: #626973;
+  --color-brand-border: #D4D7DB;
 
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "DM Serif Display", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Barlow Condensed", Impact, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 }
 
 :root {
@@ -18,6 +19,28 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  background: var(--color-brand-bg);
+  --race-accent: #D90429;
+  --race-ink: #17191D;
+  --race-muted: #626973;
+  --race-grid: rgba(23, 25, 29, 0.055);
+  --race-line: rgba(217, 4, 41, 0.2);
+}
+
+:root[data-theme="night"] {
+  color-scheme: dark;
+  --color-brand-bg: #0B0D12;
+  --color-brand-card: #151920;
+  --color-brand-accent: #E9B949;
+  --color-brand-accent-hover: #D6A52F;
+  --color-brand-text: #F3F4F6;
+  --color-brand-muted: #A3ABB6;
+  --color-brand-border: #303640;
+  --race-accent: #E9B949;
+  --race-ink: #F3F4F6;
+  --race-muted: #A3ABB6;
+  --race-grid: rgba(243, 244, 246, 0.075);
+  --race-line: rgba(233, 185, 73, 0.28);
   background: var(--color-brand-bg);
 }
 
@@ -27,33 +50,322 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   margin: 0;
+  transition: background-color 220ms ease, color 220ms ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
 }
 
 ::selection {
-  background: #B7C6BD;
-  color: #1B2A26;
+  background: #F1D8DD;
+  color: #17191D;
 }
 
 :focus-visible {
-  outline: 2px solid #344F44;
+  outline: 2px solid var(--race-accent);
   outline-offset: 4px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+.race-micro {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.race-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.84;
+  text-transform: uppercase;
+}
+
+.race-rule {
+  border-color: var(--color-brand-border);
+}
+
+.race-grid {
+  background-image:
+    linear-gradient(var(--race-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--race-grid) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.race-telemetry {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--color-brand-border);
+  border-bottom: 1px solid var(--color-brand-border);
+}
+
+.race-telemetry__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-content: center;
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 3px;
+  min-width: 0;
+  padding: 14px 12px;
+  border-right: 1px solid var(--color-brand-border);
+}
+
+.race-telemetry__item:last-child {
+  border-right: 0;
+}
+
+.race-telemetry__item svg {
+  grid-row: span 2;
+  width: 15px;
+  height: 15px;
+  color: var(--race-accent);
+}
+
+.race-telemetry__item .race-micro {
+  color: var(--color-brand-muted);
+  font-size: 8px;
+}
+
+.race-telemetry__item strong {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 2vw, 25px);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.race-telemetry__item small {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.race-telemetry__item--action {
+  border-right: 0;
+}
+
+.race-telemetry__item--action strong {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.race-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--color-brand-border);
+  border-radius: 999px;
+  padding: 6px 9px;
+  color: var(--color-brand-muted);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.race-status > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9DA3AA;
+}
+
+.race-status--active > span {
+  background: var(--race-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--race-accent) 14%, transparent);
+}
+
+.racecar-console {
+  overflow: hidden;
+  border: 1px solid var(--color-brand-border);
+  background: var(--color-brand-card);
+  box-shadow: 0 25px 70px rgba(18, 23, 30, 0.1);
+}
+
+.racecar-console__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--color-brand-border);
+  padding: 15px 17px;
+}
+
+.racecar-console__title {
+  margin-top: 4px;
+  color: var(--color-brand-text);
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.racecar-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 280px;
+  background:
+    radial-gradient(ellipse at 52% 48%, color-mix(in srgb, var(--race-accent) 7%, transparent), transparent 55%),
+    var(--color-brand-bg);
+}
+
+.racecar-stage::before,
+.racecar-stage::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+}
+
+.racecar-stage::before {
+  inset: 0;
+  background-image:
+    linear-gradient(var(--race-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--race-grid) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+}
+
+.racecar-stage::after {
+  left: -10%;
+  right: -10%;
+  bottom: 18%;
+  height: 1px;
+  background: var(--race-line);
+  transform: rotate(-8deg);
+}
+
+.racecar-stage__orbit {
+  position: absolute;
+  z-index: -1;
+  border: 1px solid var(--color-brand-border);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.racecar-stage__orbit--one {
+  width: 80%;
+  height: 55%;
+  left: 12%;
+  top: 14%;
+  transform: rotate(-10deg);
+}
+
+.racecar-stage__orbit--two {
+  width: 60%;
+  height: 38%;
+  left: 22%;
+  top: 23%;
+  border-style: dashed;
+  opacity: 0.7;
+  transform: rotate(-10deg);
+}
+
+.racecar-stage__crosshair {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--race-accent);
+  border-radius: 50%;
+  opacity: 0.75;
+}
+
+.racecar-stage__crosshair--one {
+  left: 12%;
+  top: 24%;
+}
+
+.racecar-stage__crosshair--two {
+  right: 14%;
+  bottom: 29%;
+}
+
+.racecar-trigger {
+  position: absolute;
+  inset: 22% 0 10%;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0 1%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.racecar-art {
+  width: 100%;
+  overflow: visible;
+  color: var(--color-brand-text);
+  transition: transform 280ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  filter: drop-shadow(0 16px 16px rgba(20, 22, 26, 0.1));
+}
+
+.racecar-trigger:hover .racecar-art,
+.racecar-trigger:focus-visible .racecar-art {
+  transform: translateY(-4px);
+}
+
+.racecar-stage--revving .racecar-art {
+  animation: racecar-rev 500ms ease-in-out 2;
+}
+
+.racecar-badge {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  gap: 4px;
+  max-width: 54%;
+  border: 1px solid var(--color-brand-border);
+  background: color-mix(in srgb, var(--color-brand-card) 92%, transparent);
+  padding: 9px 11px;
+  box-shadow: 0 8px 24px rgba(18, 23, 30, 0.05);
+  backdrop-filter: blur(7px);
+}
+
+.racecar-badge strong {
+  color: var(--color-brand-text);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.racecar-badge--top {
+  top: 15px;
+  right: 15px;
+}
+
+.racecar-badge--bottom {
+  left: 16px;
+  bottom: 13px;
+}
+
+.racecar-hint {
+  margin: 0;
+  border-top: 1px solid var(--color-brand-border);
+  padding: 10px 16px 12px;
+  color: var(--color-brand-muted);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.03em;
+}
+
+@keyframes racecar-rev {
+  0%, 100% { transform: translateX(0); }
+  22%, 66% { transform: translateX(4px); }
+  44%, 88% { transform: translateX(-2px); }
 }
 
 .funnel-stage {
@@ -70,7 +382,7 @@ h1, h2, h3, h4, h5, h6 {
 .funnel-stage.is-active {
   opacity: 1;
   transform: translateX(2px);
-  box-shadow: 0 0 0 2px #344F44, 0 7px 18px rgba(27, 42, 38, 0.08);
+  box-shadow: 0 0 0 2px var(--race-accent), 0 7px 18px rgba(27, 42, 38, 0.08);
   filter: saturate(1.08);
 }
 
@@ -79,22 +391,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes funnel-panel-in {
-  from {
-    opacity: 0.25;
-    transform: translateY(7px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .funnel-stage,
-  .funnel-detail {
-    animation: none !important;
-    transition: none !important;
-  }
+  from { opacity: 0.25; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .funnel-journey {
@@ -116,44 +414,133 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 18px 45px rgba(27, 42, 38, 0.1);
 }
 
-.journey-panel--discover {
-  border-color: #D5DCD3;
-}
-
 .journey-panel--discover.journey-panel--active {
-  border-color: #9BAE9E;
-}
-
-.journey-panel--evaluate {
-  border-color: #CCD7CC;
+  border-color: var(--race-accent);
 }
 
 .journey-panel--evaluate.journey-panel--active {
-  border-color: #839A88;
-}
-
-.journey-panel--connect {
-  border-color: #263B32;
+  border-color: var(--race-accent);
 }
 
 .journey-panel--connect.journey-panel--active {
-  box-shadow: 0 20px 48px rgba(27, 42, 38, 0.2), 0 0 0 1px #71877A;
+  box-shadow: 0 20px 48px rgba(27, 42, 38, 0.2), 0 0 0 1px var(--race-accent);
 }
 
 .journey-rail-progress {
   transition: height 400ms cubic-bezier(0.2, 0.75, 0.25, 1);
 }
 
-@media (max-width: 1279px) {
-  .funnel-journey > svg path:nth-of-type(3),
-  .funnel-journey > svg path:nth-of-type(4) {
-    opacity: 0.45;
+[data-theme="night"] [class~="bg-[#F3F3F1]"],
+[data-theme="night"] [class~="bg-brand-bg"] {
+  background-color: #0B0D12 !important;
+}
+
+[data-theme="night"] [class~="bg-[#FFFFFF]"],
+[data-theme="night"] [class~="bg-brand-card"] {
+  background-color: #151920 !important;
+}
+
+[data-theme="night"] [class~="bg-[#F8F8F9]"],
+[data-theme="night"] [class~="bg-[#F0F1F3]"],
+[data-theme="night"] [class~="bg-[#E7E9EC]"],
+[data-theme="night"] [class~="bg-[#EBEDEF]"] {
+  background-color: #171C23 !important;
+}
+
+[data-theme="night"] [class~="bg-[#F1D8DD]"],
+[data-theme="night"] [class~="bg-[#F8EDEF]"] {
+  background-color: #302027 !important;
+}
+
+[data-theme="night"] [class~="bg-[#D4D7DB]"] {
+  background-color: #272D36 !important;
+}
+
+[data-theme="night"] [class~="bg-[#D90429]"] {
+  background-color: #D90429 !important;
+}
+
+[data-theme="night"] [class~="text-[#17191D]"] {
+  color: #F3F4F6 !important;
+}
+
+[data-theme="night"] [class~="text-[#626973]"],
+[data-theme="night"] [class~="text-[#6B727C]"],
+[data-theme="night"] [class~="text-[#858B93]"] {
+  color: #A3ABB6 !important;
+}
+
+[data-theme="night"] [class~="text-[#D90429]"],
+[data-theme="night"] [class~="text-brand-accent"] {
+  color: #E9B949 !important;
+}
+
+[data-theme="night"] [class~="border-[#D4D7DB]"] {
+  border-color: #303640 !important;
+}
+
+[data-theme="night"] [class~="border-[#17191D]"] {
+  border-color: #303640 !important;
+}
+
+[data-theme="night"] .funnel-journey {
+  background-color: #0B0D12;
+}
+
+[data-theme="night"] .funnel-journey > svg path:first-of-type {
+  fill: #151920;
+  fill-opacity: 0.9;
+}
+
+[data-theme="night"] .funnel-journey > svg path:not(:first-of-type) {
+  stroke: #343B47;
+}
+
+@media (max-width: 700px) {
+  .race-telemetry__item {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 5px;
+    padding: 12px 9px;
+  }
+
+  .race-telemetry__item svg {
+    grid-row: auto;
+  }
+
+  .race-telemetry__item--action {
+    border-right: 0;
+  }
+
+  .racecar-stage {
+    min-height: 230px;
+  }
+
+  .racecar-badge {
+    padding: 7px 8px;
+  }
+
+  .racecar-badge strong {
+    font-size: 11px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .funnel-stage,
+  .funnel-detail,
   .journey-panel,
-  .journey-rail-progress {
+  .journey-rail-progress,
+  .racecar-art {
+    animation: none !important;
     transition: none !important;
   }
 }
