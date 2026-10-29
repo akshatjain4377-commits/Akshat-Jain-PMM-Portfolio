@@ -12,7 +12,7 @@ const resources = [
     questions: [
       'Who is the specific customer and what situation are they in?',
       'What problem are they trying to solve, and why now?',
-      'What would they use, choose or do instead—including doing nothing?',
+      'What would they use, choose or do instead, including doing nothing?',
       'What do we help them do meaningfully better than those alternatives?',
       'What evidence would make that difference believable?',
       'What are we deliberately not trying to be?',
@@ -27,7 +27,7 @@ const resources = [
     icon: MessageSquareText,
     questions: [
       'Can the intended audience recognise their situation in the first few lines?',
-      'Is the promise about an outcome the customer values—not just a feature?',
+      'Is the promise about an outcome the customer values, not just a feature?',
       'Does the copy explain how the product delivers that outcome?',
       'Is there proof close to the claim: data, customer evidence, workflow or demonstration?',
       'Does the message address the biggest reason to hesitate?',
@@ -46,7 +46,7 @@ const resources = [
       'What do they compare us with: direct competitors, workarounds, internal tools or the status quo?',
       'What does each alternative do well from the customer’s point of view?',
       'Where does our product create a meaningful difference for a defined segment?',
-      'Which claims can we prove—and which are currently assumptions?',
+      'Which claims can we prove, and which are currently assumptions?',
       'What would make a sensible customer choose an alternative over us?',
     ],
   },
