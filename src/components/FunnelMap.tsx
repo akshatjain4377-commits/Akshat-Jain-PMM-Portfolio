@@ -18,8 +18,8 @@ const stages = [
     secondaryDestination: '/resources',
     secondaryLabel: 'Use a checklist',
     width: '100%',
-    surface: '#F8EDEF',
-    foreground: '#17191D',
+    surface: '#E4E9E3',
+    foreground: '#1B2A26',
     icon: BookOpen,
     sectionLabel: 'Jump to Discover',
   },
@@ -38,8 +38,8 @@ const stages = [
     secondaryDestination: '/work/business-standard',
     secondaryLabel: 'Open a case study',
     width: '84%',
-    surface: '#F1D8DD',
-    foreground: '#17191D',
+    surface: '#B7C6BD',
+    foreground: '#1B2A26',
     icon: BriefcaseBusiness,
     sectionLabel: 'Jump to Evaluate',
   },
@@ -58,8 +58,8 @@ const stages = [
     secondaryDestination: '/contact',
     secondaryLabel: 'Start a conversation',
     width: '68%',
-    surface: '#D90429',
-    foreground: '#FFFFFF',
+    surface: '#344F44',
+    foreground: '#FBFAF6',
     icon: Compass,
     sectionLabel: 'Jump to Connect',
   },
@@ -100,13 +100,13 @@ export default function FunnelMap() {
 
   return (
     <div className="w-full">
-      <div className="overflow-hidden rounded-[2rem] border border-[#D4D7DB] bg-[#FFFFFF] shadow-[0_22px_70px_rgba(27,42,38,0.08)]">
-        <div className="flex items-center justify-between gap-3 border-b border-[#D4D7DB] px-5 py-4 md:px-6">
+      <div className="overflow-hidden rounded-[2rem] border border-[#D5DCD3] bg-[#FBFAF6] shadow-[0_22px_70px_rgba(27,42,38,0.08)]">
+        <div className="flex items-center justify-between gap-3 border-b border-[#D5DCD3] px-5 py-4 md:px-6">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#6B727C]">An interactive portfolio</p>
-            <p className="mt-1 font-display text-lg text-[#17191D]">Where would you like to start?</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#718078]">An interactive portfolio</p>
+            <p className="mt-1 font-display text-lg text-[#1B2A26]">Where would you like to start?</p>
           </div>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#D4D7DB] text-[#D90429]" aria-hidden="true">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#D5DCD3] text-[#344F44]" aria-hidden="true">
             <Layers3 className="h-4 w-4" />
           </span>
         </div>
@@ -122,7 +122,7 @@ export default function FunnelMap() {
                   type="button"
                   onClick={() => setActive(stage.id)}
                   aria-pressed={isActive}
-                  className={`funnel-stage mx-auto flex min-h-[76px] items-center justify-between gap-3 rounded-xl px-4 py-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D90429] md:min-h-[84px] md:px-5 ${isActive ? 'is-active' : 'opacity-80 hover:opacity-100'}`}
+                  className={`funnel-stage mx-auto flex min-h-[76px] items-center justify-between gap-3 rounded-xl px-4 py-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#344F44] md:min-h-[84px] md:px-5 ${isActive ? 'is-active' : 'opacity-80 hover:opacity-100'}`}
                   style={{ width: stage.width, backgroundColor: stage.surface, color: stage.foreground }}
                 >
                   <span className="flex min-w-0 items-center gap-3">
@@ -138,53 +138,53 @@ export default function FunnelMap() {
             })}
           </div>
 
-          <div className="mx-auto mt-3 flex w-[68%] items-center justify-center gap-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#858B93]" aria-hidden="true">
-            <span className="h-px flex-1 bg-[#D4D7DB]" />
+          <div className="mx-auto mt-3 flex w-[68%] items-center justify-center gap-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#829187]" aria-hidden="true">
+            <span className="h-px flex-1 bg-[#D5DCD3]" />
             Your next step
-            <span className="h-px flex-1 bg-[#D4D7DB]" />
+            <span className="h-px flex-1 bg-[#D5DCD3]" />
           </div>
 
           <div key={selected.id} className="funnel-detail mt-5 rounded-2xl bg-white p-5 md:p-6" aria-live="polite">
             <div className="flex items-center justify-between gap-3">
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#6B727C] md:text-[10px]">{selected.eyebrow}</p>
-              <Icon className="h-4 w-4 shrink-0 text-[#D90429]" aria-hidden="true" />
+              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#718078] md:text-[10px]">{selected.eyebrow}</p>
+              <Icon className="h-4 w-4 shrink-0 text-[#344F44]" aria-hidden="true" />
             </div>
-            <p className="mt-5 text-[9px] font-bold uppercase tracking-[0.18em] text-[#D90429]">{selected.featureLabel}</p>
-            <h3 className="mt-2 font-display text-2xl leading-[1.08] tracking-[-0.035em] text-[#17191D] md:text-3xl">
+            <p className="mt-5 text-[9px] font-bold uppercase tracking-[0.18em] text-[#344F44]">{selected.featureLabel}</p>
+            <h3 className="mt-2 font-display text-2xl leading-[1.08] tracking-[-0.035em] text-[#1B2A26] md:text-3xl">
               {selected.featureTitle}
             </h3>
-            <p className="mt-3 text-sm leading-6 text-[#626973]">{selected.featureBody}</p>
-            <div className="mt-4 border-l-2 border-[#D90429] bg-[#F0F1F3] px-4 py-3 text-xs font-medium leading-5 text-[#D90429]">
+            <p className="mt-3 text-sm leading-6 text-[#596861]">{selected.featureBody}</p>
+            <div className="mt-4 border-l-2 border-[#344F44] bg-[#FBFAF6] px-4 py-3 text-xs font-medium leading-5 text-[#344F44]">
               {selected.signal}
             </div>
             {selected.id === 'connect' && (
-              <div className="mt-4 flex items-center gap-3 rounded-xl border border-[#D4D7DB] p-3">
+              <div className="mt-4 flex items-center gap-3 rounded-xl border border-[#D5DCD3] p-3">
                 <img
                   src="https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/akshat-jain-about-me.jpeg"
                   alt="Akshat Jain"
                   loading="lazy"
-                  className="h-12 w-12 rounded-full border border-[#D4D7DB] object-cover"
+                  className="h-12 w-12 rounded-full border border-[#D5DCD3] object-cover"
                 />
                 <div>
-                  <p className="font-display text-base text-[#17191D]">Akshat Jain</p>
-                  <p className="mt-0.5 text-xs text-[#6B727C]">Product marketing · Refrens</p>
+                  <p className="font-display text-base text-[#1B2A26]">Akshat Jain</p>
+                  <p className="mt-0.5 text-xs text-[#718078]">Product marketing · Refrens</p>
                 </div>
               </div>
             )}
             <div className="mt-5 flex flex-wrap gap-2">
-              <Link to={selected.destination} className="inline-flex items-center gap-2 rounded-full bg-[#17191D] px-4 py-3 text-xs font-semibold text-white transition hover:bg-[#B50021] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D90429]">
+              <Link to={selected.destination} className="inline-flex items-center gap-2 rounded-full bg-[#1B2A26] px-4 py-3 text-xs font-semibold text-white transition hover:bg-[#263B32] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#344F44]">
                 {selected.destinationLabel} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
-              <Link to={selected.secondaryDestination} className="inline-flex items-center gap-2 rounded-full border border-[#D4D7DB] px-4 py-3 text-xs font-semibold text-[#17191D] transition hover:bg-[#F8F8F9]">
+              <Link to={selected.secondaryDestination} className="inline-flex items-center gap-2 rounded-full border border-[#D5DCD3] px-4 py-3 text-xs font-semibold text-[#1B2A26] transition hover:bg-[#F8F8F9]">
                 {selected.secondaryLabel} <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-3 border-t border-[#D4D7DB] bg-[#F3F3F1] px-5 py-4 md:px-6">
-          <p className="max-w-[70%] text-[10px] leading-4 text-[#6B727C]">Choose a stage to change what you see. Scrolling the page updates the stage automatically.</p>
-          <button type="button" onClick={jumpToStage} className="inline-flex shrink-0 items-center gap-1.5 text-[10px] font-bold text-[#D90429] transition hover:text-[#D90429]">
+        <div className="flex items-center justify-between gap-3 border-t border-[#D5DCD3] bg-[#F4F2EB] px-5 py-4 md:px-6">
+          <p className="max-w-[70%] text-[10px] leading-4 text-[#718078]">Choose a stage to change what you see. Scrolling the page updates the stage automatically.</p>
+          <button type="button" onClick={jumpToStage} className="inline-flex shrink-0 items-center gap-1.5 text-[10px] font-bold text-[#344F44] transition hover:text-[#344F44]">
             {selected.sectionLabel} <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
           </button>
         </div>
