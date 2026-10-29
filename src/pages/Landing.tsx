@@ -86,10 +86,10 @@ function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: FunnelStage
       <p className="mt-8 max-w-[135px] text-[10px] leading-4 text-[#829187]">The path narrows as the questions become more specific.</p>
       <button
         type="button"
-        onClick={() => onSelect(activeStage)}
+        onClick={() => onSelect(nextStageId)}
         className="mt-5 inline-flex items-center gap-2 text-[10px] font-bold text-[#344F44] hover:text-[#344F44]"
       >
-        Continue down <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
+        {nextAction} <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
       </button>
     </aside>
   );
@@ -128,7 +128,7 @@ export default function Landing() {
   };
 
   return (
-    <div className="bg-brand-bg text-brand-text">
+    <div className="bg-brand-bg pb-12 text-brand-text">
       <section className="editorial-hero relative overflow-hidden">
         <div className="editorial-hero__texture pointer-events-none absolute inset-0" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 pb-12 pt-12 md:px-8 md:pb-16 md:pt-20">
