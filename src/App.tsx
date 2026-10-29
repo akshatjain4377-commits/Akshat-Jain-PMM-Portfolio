@@ -38,29 +38,29 @@ function useRouteMetadata() {
     const path = location.pathname;
     const studyId = path.split('/')[2];
     const studyTitle = caseStudyTitles[studyId];
-    let title = 'Akshat Jain, Product Marketing, Positioning & GTM';
+    let title = 'Akshat Jain | Product Marketing, Positioning and GTM';
     let description = 'Akshat Jain is a product marketer connecting customer insight, positioning, messaging and go-to-market.';
 
     if (path === '/work') {
-      title = 'Selected Work, Akshat Jain';
+      title = 'Selected Work | Akshat Jain';
       description = 'Explore selected product marketing, growth and independent brand-building case studies by Akshat Jain.';
     } else if (path.startsWith('/work/')) {
-      title = studyTitle ? `${studyTitle}, Case Study | Akshat Jain` : 'Case Study, Akshat Jain';
+      title = studyTitle ? `${studyTitle} | Case Study | Akshat Jain` : 'Case Study | Akshat Jain';
       description = studyTitle ? `The context, insight, strategic choices and learnings behind Akshat Jain’s ${studyTitle} case study.` : description;
     } else if (path === '/writing' || path.startsWith('/writing/')) {
-      title = 'The Second Draft, Writing on Product Marketing';
+      title = 'The Second Draft | Writing on Product Marketing';
       description = 'Essays and ideas on positioning, messaging, product marketing, competitive strategy and growth by Akshat Jain.';
     } else if (path === '/resources' || path.startsWith('/resources/')) {
-      title = 'PMM Resources & Checklists, Akshat Jain';
+      title = 'PMM Resources and Checklists | Akshat Jain';
       description = 'Practical prompts and checklists for positioning, messaging and competitor alternatives. Use them to guide better marketing decisions.';
     } else if (path === '/about') {
-      title = 'About Akshat Jain, Product Marketing';
+      title = 'About Akshat Jain | Product Marketing';
       description = 'Learn about Akshat Jain’s route from SEO and growth to product marketing, and the principles behind his work.';
     } else if (path === '/contact') {
       title = 'Contact Akshat Jain';
       description = 'Start a conversation with Akshat Jain about product marketing, positioning, messaging or go-to-market.';
     } else if (path !== '/') {
-      title = 'Page Not Found, Akshat Jain';
+      title = 'Page Not Found | Akshat Jain';
       description = 'The page could not be found. Return to Akshat Jain’s product marketing portfolio.';
     }
 
