@@ -542,6 +542,33 @@ h1, h2, h3, h4, h5, h6 {
   stroke: #39483D;
 }
 
+[data-theme="dark"] [class~="bg-[#EBEDEF]"],
+[data-theme="dark"] [class~="bg-[#F8F8F9]"] {
+  background-color: #151D17 !important;
+}
+
+[data-theme="dark"] [class~="bg-[#1B2A26]"] {
+  background-color: #0B110D !important;
+}
+
+[data-theme="dark"] [class~="bg-[#D5DCD3]"] {
+  background-color: #26352B !important;
+}
+
+[data-theme="dark"] [class~="text-[#829187]"] {
+  color: #AFC0B0 !important;
+}
+
+[data-theme="dark"] [class~="text-[#B7C6BD]"] {
+  color: #CFDACE !important;
+}
+
+[data-theme="dark"] [class~="border-[#B1B6BF]"],
+[data-theme="dark"] [class~="border-[#BECABE]"],
+[data-theme="dark"] [class~="border-[#9FB6A4]"] {
+  border-color: #3B473E !important;
+}
+
 @media (max-width: 767px) {
   .site-header__inner {
     min-height: 68px;
