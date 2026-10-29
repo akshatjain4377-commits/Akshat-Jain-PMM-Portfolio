@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, BriefcaseBusiness, Lightbulb } from 'lucide-react';
+import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FunnelMap from '../components/FunnelMap';
 
@@ -44,6 +44,8 @@ const funnelStages = [
 
 function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: string; onSelect: (id: string) => void }) {
   const activeIndex = funnelStages.findIndex((stage) => stage.id === activeStage);
+  const nextStageId = activeIndex >= 2 ? 'discover' : funnelStages[activeIndex + 1].id;
+  const nextAction = activeIndex >= 2 ? 'Climb back up' : 'Continue down';
 
   return (
     <aside className="journey-rail sticky top-28 hidden h-fit self-start pb-10 pt-12 xl:block" aria-label="Funnel journey progress">
