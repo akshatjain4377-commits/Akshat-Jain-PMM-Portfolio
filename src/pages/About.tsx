@@ -90,7 +90,7 @@ export default function About() {
 
       </section>
 
-      {/* ── STORY ── unchanged — this is the strongest section, leave it alone */}
+      {/* ── STORY ── unchanged, this is the strongest section, leave it alone */}
 
       <section className="border-t border-brand-border bg-brand-bg py-24">
 
@@ -124,13 +124,13 @@ export default function About() {
 
             <p>
 
-              That curiosity eventually led me to build <span className="text-brand-text font-medium">The Peak View Stories</span> — a satire news platform I launched as an experiment in narrative, audience psychology, and distribution.
+              That curiosity eventually led me to build <span className="text-brand-text font-medium">The Peak View Stories</span>, a satire news platform I launched as an experiment in narrative, audience psychology, and distribution.
 
             </p>
 
             <p>
 
-              What started as a creative project quickly became a learning lab. I was thinking about positioning, content loops, audience behaviour, and growth systems all at once. A couple of posts crossed <span className="text-brand-text font-medium">1.5M+ views organically</span>, and for the first time I could see how the entire growth loop worked — from idea to reach to engagement.
+              What started as a creative project quickly became a learning lab. I was thinking about positioning, content loops, audience behaviour, and growth systems all at once. A couple of posts crossed <span className="text-brand-text font-medium">1.5M+ views organically</span>, and for the first time I could see how the entire growth loop worked, from idea to reach to engagement.
 
             </p>
 
@@ -288,7 +288,7 @@ export default function About() {
 
                 year: "2023 – 2026",
 
-                role: "SEO Executive — Growth & GTM Strategy",
+                role: "SEO Executive, Growth & GTM Strategy",
 
                 company: "Business Standard",
 
@@ -304,7 +304,7 @@ export default function About() {
 
                 company: "The Peak View Stories",
 
-                desc: "Built and launched a satire news platform entirely from scratch — website, positioning, content system, and Instagram distribution. Grew a brand-new account to 1.5M+ organic reel views with zero paid spend. Secured personal earned media placements in Under30CEO, TechBullion, and CMO Times as Founder."
+                desc: "Built and launched a satire news platform entirely from scratch, website, positioning, content system, and Instagram distribution. Grew a brand-new account to 1.5M+ organic reel views with zero paid spend. Secured personal earned media placements in Under30CEO, TechBullion, and CMO Times as Founder."
 
               },
 
@@ -316,7 +316,7 @@ export default function About() {
 
                 company: "RankerzMedia",
 
-                desc: "Worked on affiliate website SEO — keyword research, on-page optimisation, and content strategy for high-intent commercial queries. Hands-on experimentation that directly informed the Business Standard role."
+                desc: "Worked on affiliate website SEO, keyword research, on-page optimisation, and content strategy for high-intent commercial queries. Hands-on experimentation that directly informed the Business Standard role."
 
               },
 
@@ -328,7 +328,7 @@ export default function About() {
 
                 company: "RankSoldier Digital",
 
-                desc: "Promoted from intern to Project Manager within 4 months. Built thought leadership pipelines for founders and CEOs using HARO, Qwoted, SourceBottle, and Terkel — securing a Forbes placement for a client, the team's first major earned media win. Managed a 10+ person cross-functional team across quality control, client management, and delivery."
+                desc: "Promoted from intern to Project Manager within 4 months. Built thought leadership pipelines for founders and CEOs using HARO, Qwoted, SourceBottle, and Terkel, securing a Forbes placement for a client, the team's first major earned media win. Managed a 10+ person cross-functional team across quality control, client management, and delivery."
 
               },
 
@@ -340,7 +340,7 @@ export default function About() {
 
                 company: "Explorra Design Institute",
 
-                desc: "Built contact intelligence databases for Tier 1/2 city colleges — mapping decision-makers across Deans, HODs, and Placement Cells. First exposure to structured market segmentation and outreach strategy."
+                desc: "Built contact intelligence databases for Tier 1/2 city colleges, mapping decision-makers across Deans, HODs, and Placement Cells. First exposure to structured market segmentation and outreach strategy."
 
               }
 
@@ -382,7 +382,7 @@ export default function About() {
 
       </section>
 
-      {/* ── EDUCATION ── added — missing from original */}
+      {/* ── EDUCATION ── added, missing from original */}
 
       <section className="border-t border-brand-border bg-brand-bg py-24">
 
@@ -402,7 +402,7 @@ export default function About() {
 
                 year: "2021 – 2023",
 
-                degree: "MBA — Marketing Management",
+                degree: "MBA, Marketing Management",
 
                 institution: "SVKM's NMIMS",
 
