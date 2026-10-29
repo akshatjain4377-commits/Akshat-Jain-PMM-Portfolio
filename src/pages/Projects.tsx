@@ -67,7 +67,7 @@ export default function Projects() {
           <div>
             <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">02 · Evaluate</p>
             <h1 className="max-w-3xl font-display text-5xl leading-[0.98] tracking-[-0.055em] md:text-7xl">
-              Strategy is the work<br /><span className="italic text-[#D90429]">behind the work.</span>
+              Strategy is the work<br /><span className="italic text-[#344F44]">behind the work.</span>
             </h1>
           </div>
           <div className="max-w-lg">
@@ -102,15 +102,15 @@ export default function Projects() {
                 to={`/work/${project.id}`}
                 className="group flex h-full flex-col overflow-hidden rounded-3xl border border-brand-border bg-brand-card transition duration-200 hover:-translate-y-1 hover:border-brand-accent/60"
               >
-                <div className="relative overflow-hidden bg-[#E7E9EC]">
+                <div className="relative overflow-hidden bg-[#E5E9E1]">
                   <img
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
                     className="aspect-[16/8] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-[#F3F3F1]/95 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.14em] text-[#D90429]">{project.type}</span>
-                  <span className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#F3F3F1]/95 text-[#D90429]">
+                  <span className="absolute left-4 top-4 rounded-full bg-[#F4F2EB]/95 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.14em] text-[#344F44]">{project.type}</span>
+                  <span className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#F4F2EB]/95 text-[#344F44]">
                     <Icon className="h-4 w-4" aria-hidden="true" />
                   </span>
                 </div>
@@ -121,7 +121,7 @@ export default function Projects() {
                     ))}
                   </div>
                   <h2 className="mt-5 font-display text-2xl leading-tight tracking-[-0.035em] md:text-3xl">{project.title}</h2>
-                  <p className="mt-2 text-sm text-[#D90429]">{project.subtitle}</p>
+                  <p className="mt-2 text-sm text-[#344F44]">{project.subtitle}</p>
                   <div className="mt-6 space-y-4">
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-brand-muted">The question</p>
@@ -132,9 +132,9 @@ export default function Projects() {
                       <p className="mt-1.5 text-sm leading-6 text-brand-muted">{project.contribution}</p>
                     </div>
                   </div>
-                  <div className="mt-6 border-l-2 border-brand-accent bg-[#E7E9EC] p-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-[#D90429]">Evidence / outcome</p>
-                    <p className="mt-1.5 text-sm leading-6 text-[#D90429]">{project.evidence}</p>
+                  <div className="mt-6 border-l-2 border-brand-accent bg-[#E5E9E1] p-4">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-[#344F44]">Evidence / outcome</p>
+                    <p className="mt-1.5 text-sm leading-6 text-[#344F44]">{project.evidence}</p>
                   </div>
                   <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brand-accent">
                     Open case study <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
@@ -149,11 +149,11 @@ export default function Projects() {
       <section className="border-t border-brand-border bg-[#EBEDEF]">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-12 md:flex-row md:items-center md:justify-between md:px-8 md:py-16">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#6B727C]">The next step</p>
-            <h2 className="mt-3 max-w-2xl font-display text-3xl leading-tight tracking-[-0.04em] text-[#17191D] md:text-4xl">Want to discuss the thinking behind a case?</h2>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-[#626973]">I’m happy to talk through a decision, trade-off or question that the case study couldn’t fit on the page.</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#718078]">The next step</p>
+            <h2 className="mt-3 max-w-2xl font-display text-3xl leading-tight tracking-[-0.04em] text-[#1B2A26] md:text-4xl">Want to discuss the thinking behind a case?</h2>
+            <p className="mt-3 max-w-xl text-sm leading-6 text-[#596861]">I’m happy to talk through a decision, trade-off or question that the case study couldn’t fit on the page.</p>
           </div>
-          <Link to="/contact" className="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-[#17191D] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#B50021] md:self-auto">
+          <Link to="/contact" className="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-[#1B2A26] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#263B32] md:self-auto">
             Start a conversation <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
