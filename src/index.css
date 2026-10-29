@@ -291,7 +291,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 50px;
+  height: 54px;
   border-top: 1px solid color-mix(in srgb, var(--color-brand-border) 82%, transparent);
   background: color-mix(in srgb, var(--color-brand-bg) 92%, transparent);
   opacity: 0;
@@ -316,7 +316,7 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-car-progress__track,
 .scroll-car-progress__fill {
   position: absolute;
-  top: 29px;
+  top: 38px;
   left: 7%;
   height: 2px;
 }
@@ -363,7 +363,7 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-car-progress__car {
   position: absolute;
   z-index: 2;
-  top: 3px;
+  top: 18px;
   width: 60px;
   height: 30px;
   transform: translateX(-50%);
@@ -570,20 +570,20 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .scroll-car-progress {
-    height: 45px;
+    height: 48px;
   }
 
   .scroll-car-progress__track,
   .scroll-car-progress__fill {
-    top: 27px;
+    top: 36px;
   }
 
   .scroll-car-progress__stop {
-    top: 23px;
+    top: 32px;
   }
 
   .scroll-car-progress__car {
-    top: 2px;
+    top: 16px;
     width: 50px;
     height: 27px;
   }
