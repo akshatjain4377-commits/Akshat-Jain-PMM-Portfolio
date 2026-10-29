@@ -61,7 +61,12 @@ export default function ScrollCarProgress() {
   return (
     <div
       className={`scroll-car-progress ${visible ? 'scroll-car-progress--visible' : ''}`}
-      aria-hidden="true"
+      role="progressbar"
+      aria-label="Journey through the marketing funnel"
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={Math.round(progress * 100)}
+      aria-valuetext={`${stage} stage`}
       data-stage={stage.toLowerCase()}
     >
       <div className="scroll-car-progress__inner">
