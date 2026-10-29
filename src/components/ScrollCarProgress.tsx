@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 
 function FunnelCar() {
   return (
@@ -60,7 +60,7 @@ export default function ScrollCarProgress() {
     <div
       className={`scroll-car-progress ${visible ? 'scroll-car-progress--visible' : ''}`}
       aria-hidden="true"
-      style={{ '--scroll-car-left': `${position}%` } as React.CSSProperties}
+      style={{ '--scroll-car-left': `${position}%` } as CSSProperties}
     >
       <div className="scroll-car-progress__inner">
         <div className="scroll-car-progress__track" />
