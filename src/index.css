@@ -333,7 +333,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .scroll-car-progress__stop {
   position: absolute;
-  top: 25px;
+  top: 34px;
   width: 9px;
   height: 9px;
   border: 2px solid var(--color-brand-bg);
@@ -345,6 +345,15 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-car-progress__stop--discover { left: 7%; }
 .scroll-car-progress__stop--evaluate { left: 50%; }
 .scroll-car-progress__stop--connect { right: 7%; }
+
+.scroll-car-progress[data-stage="discover"] .scroll-car-progress__stop--discover,
+.scroll-car-progress[data-stage="evaluate"] .scroll-car-progress__stop--discover,
+.scroll-car-progress[data-stage="evaluate"] .scroll-car-progress__stop--evaluate,
+.scroll-car-progress[data-stage="connect"] .scroll-car-progress__stop--discover,
+.scroll-car-progress[data-stage="connect"] .scroll-car-progress__stop--evaluate,
+.scroll-car-progress[data-stage="connect"] .scroll-car-progress__stop--connect {
+  background: var(--color-brand-accent);
+}
 
 .scroll-car-progress__label {
   position: absolute;
