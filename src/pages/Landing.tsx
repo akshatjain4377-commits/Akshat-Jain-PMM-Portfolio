@@ -284,7 +284,7 @@ export default function Landing() {
               </section>
 
               <section id="evaluate" className="scroll-mt-24 py-6 md:py-10">
-                <div className={`journey-panel journey-panel--evaluate mx-auto w-full md:w-[94%] max-w-[1070px] rounded-[2rem] border border-[#D5DCD3] bg-[#E5E9E1]/95 p-5 md:p-8 lg:p-10 ${activeStage === 'evaluate' ? 'journey-panel--active' : ''}`}>
+                <div className={`journey-panel journey-panel--evaluate mx-auto w-full md:w-[94%] max-w-[1070px] rounded-[2rem] border border-brand-border bg-[var(--funnel-panel-evaluate)] p-5 md:p-8 lg:p-10 ${activeStage === 'evaluate' ? 'journey-panel--active' : ''}`}>
                   <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
                     <div className="max-w-2xl">
                       <div className="flex items-center gap-3">
@@ -323,7 +323,7 @@ export default function Landing() {
               </section>
 
               <section id="connect" className="scroll-mt-24 py-6 pb-16 md:py-10 md:pb-24">
-                <div className={`journey-panel journey-panel--connect mx-auto w-full md:w-[86%] max-w-[930px] rounded-[2rem] border border-[#1B2A26] bg-[#1B2A26] p-5 text-white md:p-8 lg:p-10 ${activeStage === 'connect' ? 'journey-panel--active' : ''}`}>
+                <div className={`journey-panel journey-panel--connect mx-auto w-full md:w-[86%] max-w-[930px] rounded-[2rem] border border-brand-border bg-[var(--funnel-panel-connect)] p-5 text-[var(--funnel-connect-text)] md:p-8 lg:p-10 ${activeStage === 'connect' ? 'journey-panel--active' : ''}`}>
                   <div className="flex items-center gap-3">
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B7C6BD] font-display text-base text-[#1B2A26]">03</span>
                     <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/65">Connect · Bottom of funnel</p>
