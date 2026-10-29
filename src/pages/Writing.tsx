@@ -41,7 +41,7 @@ export default function Writing() {
             Marketing ideas,<br /><span className="text-[#71877A]">reconsidered.</span>
           </h1>
           <p className="max-w-lg text-base leading-7 text-[#596861] md:pb-1 md:text-lg">
-            The Second Draft is where I unpack the questions behind positioning, messaging, product marketing and growth. Not another list of best practices—just ideas worth thinking through properly.
+            The Second Draft is where I unpack the questions behind positioning, messaging, product marketing and growth. Not another list of best practices, just ideas worth thinking through properly.
           </p>
         </div>
 
