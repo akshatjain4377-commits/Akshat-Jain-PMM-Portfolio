@@ -166,7 +166,7 @@ export default function Contact() {
 
               <p className="text-brand-accent text-lg font-medium">
 
-                Thanks for reaching out — I'll get back to you shortly.
+                Thanks for reaching out, I'll get back to you shortly.
 
               </p>
 
