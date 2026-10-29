@@ -66,7 +66,7 @@ const stages = [
 ] as const;
 
 export default function FunnelMap() {
-  const [active, setActive] = useState('evaluate');
+  const [active, setActive] = useState('discover');
   const selected = stages.find((stage) => stage.id === active) ?? stages[1];
   const Icon = selected.icon;
 
