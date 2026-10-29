@@ -1067,3 +1067,34 @@ h1, h2, h3, h4, h5, h6 {
     animation: none !important;
   }
 }
+/* Night race mode: recolour common legacy surfaces as well as theme tokens. */
+[data-theme="night"] [class~="bg-white"],
+[data-theme="night"] [class~="bg-white/95"] {
+  background-color: #151920 !important;
+}
+
+[data-theme="night"] [class~="bg-white/60"] {
+  background-color: rgba(21, 25, 32, 0.6) !important;
+}
+
+[data-theme="night"] [class~="text-white/70"],
+[data-theme="night"] [class~="text-white/75"],
+[data-theme="night"] [class~="text-white/65"] {
+  color: #BEC5CF !important;
+}
+
+[data-theme="night"] [class~="border-white/30"] {
+  border-color: #4A515D !important;
+}
+
+[data-theme="night"] [class~="bg-[#17191D]"] {
+  background-color: #101318 !important;
+}
+
+[data-theme="night"] [class~="text-[#D90429]"] {
+  color: #E9B949 !important;
+}
+
+[data-theme="night"] [class~="ring-[#D90429]"] {
+  --tw-ring-color: #E9B949 !important;
+}
