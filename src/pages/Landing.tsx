@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import FunnelMap from '../components/FunnelMap';
+import RaceCar from '../components/RaceCar';
 
 const projects = [
   {
@@ -41,6 +41,42 @@ const funnelStages = [
   { id: 'evaluate', number: '02', label: 'Evaluate', descriptor: 'Work and evidence' },
   { id: 'connect', number: '03', label: 'Connect', descriptor: 'About and conversation' },
 ] as const;
+
+type FunnelStageId = typeof funnelStages[number]['id'];
+
+const stagePreviews: Record<FunnelStageId, {
+  code: string;
+  title: string;
+  detail: string;
+  primaryTo: string;
+  primaryLabel: string;
+  sectionLabel: string;
+}> = {
+  discover: {
+    code: 'TOFU / DISCOVER',
+    title: 'Ideas that earn attention.',
+    detail: 'Newsletter essays and practical resources for people who want to think more clearly about positioning, messaging and growth.',
+    primaryTo: '/writing',
+    primaryLabel: 'Read The Second Draft',
+    sectionLabel: 'Enter Discover',
+  },
+  evaluate: {
+    code: 'MOFU / EVALUATE',
+    title: 'Show the thinking behind the work.',
+    detail: 'Case studies that explain the problem, the insight, the choices made and the evidence behind the result.',
+    primaryTo: '/work',
+    primaryLabel: 'Explore case studies',
+    sectionLabel: 'Enter Evaluate',
+  },
+  connect: {
+    code: 'BOFU / CONNECT',
+    title: 'Make the next step easy.',
+    detail: 'A clear view of my experience, how I approach product marketing and the quickest route to a conversation.',
+    primaryTo: '/about',
+    primaryLabel: 'Meet the person behind the work',
+    sectionLabel: 'Enter Connect',
+  },
+};
 
 function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: string; onSelect: (id: string) => void }) {
   const activeIndex = funnelStages.findIndex((stage) => stage.id === activeStage);
@@ -93,7 +129,7 @@ function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: string; onS
 }
 
 export default function Landing() {
-  const [activeStage, setActiveStage] = useState('discover');
+  const [activeStage, setActiveStage] = useState<FunnelStageId>('discover');
 
   useEffect(() => {
     const targets = funnelStages
@@ -107,7 +143,7 @@ export default function Landing() {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActiveStage(visible.target.id);
+        if (visible) setActiveStage(visible.target.id as FunnelStageId);
       },
       { rootMargin: '-22% 0px -58% 0px', threshold: [0.05, 0.15, 0.35] },
     );
@@ -116,7 +152,7 @@ export default function Landing() {
     return () => observer.disconnect();
   }, []);
 
-  const jumpToStage = (id: string) => {
+  const jumpToStage = (id: FunnelStageId) => {
     setActiveStage(id);
     const section = document.getElementById(id);
     if (!section) return;
@@ -126,50 +162,98 @@ export default function Landing() {
 
   return (
     <div className="bg-brand-bg text-brand-text">
-      <section className="mx-auto max-w-7xl px-6 pb-12 pt-12 md:px-8 md:pb-16 md:pt-20">
-        <div className="grid items-start gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:gap-12">
-          <div>
-            <p className="mb-6 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">
-              <span className="h-px w-8 bg-brand-accent" />
-              Product marketing · Positioning · GTM
-            </p>
-            <h1 className="max-w-3xl font-display text-5xl leading-[0.99] tracking-[-0.055em] md:text-6xl lg:text-[5rem]">
-              I work on whether products are <span className="italic text-[#D90429]">worth finding.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl font-display text-xl leading-snug text-[#D90429] md:text-2xl">
-              I spent years understanding how buyers find products. Now I write about the stories that make the difference.
-            </p>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-brand-muted md:text-base">
-              Today, I work in product marketing at Refrens. My background in SEO and building a media brand from zero shapes how I approach positioning, messaging and go-to-market.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button type="button" onClick={() => jumpToStage('discover')} className="inline-flex items-center gap-2 rounded-full bg-brand-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D90429]">
-                Enter the funnel <ArrowDown className="h-4 w-4" aria-hidden="true" />
-              </button>
-              <Link to="/work" className="inline-flex items-center gap-2 rounded-full border border-brand-border px-6 py-3.5 text-sm font-semibold text-brand-text transition hover:border-brand-accent">
-                Browse case studies <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
+      <section className="race-hero relative overflow-hidden">
+        <div className="race-hero__grain pointer-events-none absolute inset-0" aria-hidden="true" />
+        <div className="relative mx-auto max-w-[1440px] px-5 pb-7 pt-10 md:px-8 md:pt-14 xl:px-12">
+          <div className="grid items-start gap-10 xl:grid-cols-[0.9fr_1.1fr] xl:items-center xl:gap-12">
+            <div className="race-hero__copy">
+              <p className="race-micro flex items-center gap-3 text-brand-accent">
+                <span className="h-px w-8 bg-brand-accent" />
+                AJ/07 · PRODUCT MARKETING CIRCUIT
+              </p>
+              <h1 className="race-heading mt-7 max-w-3xl text-6xl leading-[0.86] tracking-[-0.04em] md:text-7xl lg:text-[6.1rem]">
+                I work on whether products are <span className="race-hero__highlight">worth finding.</span>
+              </h1>
+              <p className="mt-7 max-w-xl font-display text-2xl font-semibold leading-tight tracking-[-0.01em] md:text-3xl">
+                I spent years understanding how buyers find products. Now I write about the stories that make the difference.
+              </p>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-brand-muted md:text-base">
+                Today, I work in product marketing at Refrens. My background in SEO and building a media brand from zero shapes how I approach positioning, messaging and go-to-market.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <button type="button" onClick={() => jumpToStage('discover')} className="race-action race-action--primary">
+                  Start the race <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </button>
+                <Link to="/work" className="race-action race-action--secondary">
+                  View the work <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+              <div className="race-hero__hint mt-6 flex items-center gap-3">
+                <span className="race-hero__hint-arrow" aria-hidden="true">↓</span>
+                <span className="race-micro">SCROLL TO DESCEND THE FUNNEL</span>
+              </div>
             </div>
-            <p className="mt-5 text-xs text-brand-muted">Ideas first. Evidence next. Conversation when it makes sense.</p>
+
+            <div className="min-w-0">
+              <RaceCar />
+
+              <div className="race-stage-selector mt-4">
+                <div className="race-stage-selector__head">
+                  <div>
+                    <p className="race-micro">ROUTE PLANNER // MARKETING FUNNEL</p>
+                    <h2 className="mt-1 font-display text-2xl font-extrabold uppercase leading-none">Choose your line.</h2>
+                  </div>
+                  <span className="race-stage-selector__progress">{funnelStages.findIndex((stage) => stage.id === activeStage) + 1} / 03</span>
+                </div>
+
+                <div className="race-stage-selector__steps" role="group" aria-label="Choose a funnel stage">
+                  {funnelStages.map((stage, index) => (
+                    <button
+                      key={stage.id}
+                      type="button"
+                      onClick={() => setActiveStage(stage.id)}
+                      aria-pressed={activeStage === stage.id}
+                      className={`race-stage-selector__step ${activeStage === stage.id ? 'is-selected' : ''}`}
+                      style={{ width: `${100 - index * 16}%` }}
+                    >
+                      <span className="race-stage-selector__number">{stage.number}</span>
+                      <span className="race-stage-selector__name">{stage.label}</span>
+                      <span className="race-stage-selector__descriptor">{stage.descriptor}</span>
+                    </button>
+                  ))}
+                </div>
+
+                <div key={activeStage} className="race-stage-selector__detail" aria-live="polite">
+                  <p className="race-micro">{stagePreviews[activeStage].code}</p>
+                  <h3 className="mt-2 font-display text-2xl font-extrabold uppercase leading-[0.98] md:text-3xl">{stagePreviews[activeStage].title}</h3>
+                  <p className="mt-2 max-w-2xl text-sm leading-6 text-brand-muted">{stagePreviews[activeStage].detail}</p>
+                  <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+                    <Link to={stagePreviews[activeStage].primaryTo} className="inline-flex items-center gap-2 text-sm font-bold text-brand-accent hover:underline">
+                      {stagePreviews[activeStage].primaryLabel} <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                    <button type="button" onClick={() => jumpToStage(activeStage)} className="race-stage-selector__jump">
+                      {stagePreviews[activeStage].sectionLabel} <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
-            <FunnelMap />
-          </div>
-        </div>
-
-        <div className="mt-14 grid grid-cols-1 border-y border-brand-border sm:grid-cols-3">
-          <div className="flex items-baseline gap-3 border-b border-brand-border py-5 sm:border-b-0 sm:border-r sm:pr-6 md:py-7">
-            <span className="font-display text-3xl tracking-tight md:text-4xl">1.5M+</span>
-            <span className="max-w-[130px] text-xs leading-5 text-brand-muted">organic reel views on an independent brand</span>
-          </div>
-          <div className="flex items-baseline gap-3 border-b border-brand-border py-5 sm:border-b-0 sm:border-r sm:px-6 md:py-7">
-            <span className="font-display text-3xl tracking-tight md:text-4xl">8.2 → 5.0</span>
-            <span className="max-w-[140px] text-xs leading-5 text-brand-muted">average ranking on priority search terms</span>
-          </div>
-          <div className="flex items-baseline gap-3 py-5 sm:pl-6 md:py-7">
-            <span className="font-display text-3xl tracking-tight md:text-4xl">2</span>
-            <span className="max-w-[160px] text-xs leading-5 text-brand-muted">cross-functional product proposals authored</span>
+          <div className="race-scoreboard mt-10 md:mt-14">
+            <div className="race-scoreboard__item">
+              <strong>1.5M<span>+</span></strong>
+              <div><p className="race-micro">ORGANIC REACH</p><p>Reel views on an independent brand</p></div>
+            </div>
+            <div className="race-scoreboard__item">
+              <strong>8.2 <span>→</span> 5.0</strong>
+              <div><p className="race-micro">SEARCH POSITION</p><p>Average ranking on priority terms</p></div>
+            </div>
+            <div className="race-scoreboard__item">
+              <strong>02</strong>
+              <div><p className="race-micro">PRODUCT PROPOSALS</p><p>Cross-functional proposals authored</p></div>
+            </div>
+            <div className="race-scoreboard__note race-micro">CRAFT. STRATEGY. MOMENTUM.</div>
           </div>
         </div>
       </section>
