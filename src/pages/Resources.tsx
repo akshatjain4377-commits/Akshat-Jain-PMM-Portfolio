@@ -77,23 +77,23 @@ export default function Resources() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F2EB] text-[#1B2A26]">
+    <div className="min-h-screen bg-[#F3F3F1] text-[#17191D]">
       <section className="mx-auto max-w-6xl px-6 pb-14 pt-16 md:pb-20 md:pt-24">
-        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#65766D]">The working shelf · Resources</p>
-        <div className="grid gap-8 border-b border-[#D5DCD3] pb-12 md:grid-cols-[1.1fr_0.9fr] md:items-end md:pb-16">
+        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#626973]">The working shelf · Resources</p>
+        <div className="grid gap-8 border-b border-[#D4D7DB] pb-12 md:grid-cols-[1.1fr_0.9fr] md:items-end md:pb-16">
           <h1 className="font-display text-5xl leading-[0.98] tracking-[-0.06em] md:text-7xl">
-            Tools for clearer<br /><span className="text-[#71877A]">marketing decisions.</span>
+            Tools for clearer<br /><span className="text-[#D90429]">marketing decisions.</span>
           </h1>
-          <p className="max-w-lg text-base leading-7 text-[#596861] md:pb-1 md:text-lg">
+          <p className="max-w-lg text-base leading-7 text-[#626973] md:pb-1 md:text-lg">
             Small, practical starting points for the messy bit between knowing there’s a problem and deciding what to do about it. Copy a checklist and adapt it to your team.
           </p>
         </div>
 
-        <div className="mt-8 flex items-start gap-3 rounded-2xl border border-[#D5DCD3] bg-[#FBFAF6] p-5 md:mt-10 md:p-6">
-          <span className="mt-0.5 rounded-full bg-[#E4EAE1] p-2 text-[#344F44]"><ArrowDownToLine className="h-4 w-4" aria-hidden="true" /></span>
+        <div className="mt-8 flex items-start gap-3 rounded-2xl border border-[#D4D7DB] bg-[#FFFFFF] p-5 md:mt-10 md:p-6">
+          <span className="mt-0.5 rounded-full bg-[#F0F1F3] p-2 text-[#D90429]"><ArrowDownToLine className="h-4 w-4" aria-hidden="true" /></span>
           <div>
             <p className="text-sm font-semibold">Use these as prompts, not verdicts.</p>
-            <p className="mt-1 text-sm leading-6 text-[#596861]">They’re working templates, not validated scoring systems. The questions should provoke useful discussion; they shouldn’t replace customer evidence or judgement.</p>
+            <p className="mt-1 text-sm leading-6 text-[#626973]">They’re working templates, not validated scoring systems. The questions should provoke useful discussion; they shouldn’t replace customer evidence or judgement.</p>
           </div>
         </div>
 
@@ -101,17 +101,17 @@ export default function Resources() {
           {resources.map((resource) => {
             const Icon = resource.icon;
             return (
-              <article key={resource.id} className="flex flex-col rounded-3xl border border-[#D5DCD3] bg-[#FBFAF6] p-6 md:p-8">
+              <article key={resource.id} className="flex flex-col rounded-3xl border border-[#D4D7DB] bg-[#FFFFFF] p-6 md:p-8">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#71877A]">{resource.number} / {resource.category}</span>
-                  <Icon className="h-5 w-5 text-[#71877A]" aria-hidden="true" />
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#D90429]">{resource.number} / {resource.category}</span>
+                  <Icon className="h-5 w-5 text-[#D90429]" aria-hidden="true" />
                 </div>
                 <h2 className="mt-5 font-display text-2xl leading-tight tracking-[-0.035em] md:text-3xl">{resource.title}</h2>
-                <p className="mt-3 text-sm leading-6 text-[#596861]">{resource.purpose}</p>
-                <ol className="mt-6 space-y-3 border-t border-[#D5DCD3] pt-5">
+                <p className="mt-3 text-sm leading-6 text-[#626973]">{resource.purpose}</p>
+                <ol className="mt-6 space-y-3 border-t border-[#D4D7DB] pt-5">
                   {resource.questions.map((question, index) => (
                     <li key={question} className="flex gap-3 text-sm leading-6">
-                      <span className="mt-0.5 text-xs font-semibold tabular-nums text-[#829187]">{String(index + 1).padStart(2, '0')}</span>
+                      <span className="mt-0.5 text-xs font-semibold tabular-nums text-[#858B93]">{String(index + 1).padStart(2, '0')}</span>
                       <span>{question}</span>
                     </li>
                   ))}
@@ -120,12 +120,12 @@ export default function Resources() {
                   <button
                     type="button"
                     onClick={() => void copyTemplate(resource)}
-                    className="inline-flex items-center gap-2 rounded-full bg-[#263B32] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#3A5548] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#344F44]"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#17191D] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#B50021] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D90429]"
                   >
                     {copiedId === resource.id ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
                     {copiedId === resource.id ? 'Copied to clipboard' : 'Copy checklist'}
                   </button>
-                  <p className="mt-2 min-h-5 text-xs text-[#718078]" aria-live="polite">
+                  <p className="mt-2 min-h-5 text-xs text-[#6B727C]" aria-live="polite">
                     {copiedId === resource.id ? 'Ready to paste into your working doc.' : copyError === resource.id ? 'Clipboard access was blocked. You can still select and copy the questions above.' : 'Includes the title, context and all questions.'}
                   </p>
                 </div>
@@ -134,8 +134,8 @@ export default function Resources() {
           })}
         </div>
 
-        <div className="mt-12 border-t border-[#D5DCD3] pt-7 text-sm leading-6 text-[#596861]">
-          Want the thinking behind the tools? <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="font-semibold text-[#263B32] underline decoration-[#A9B8AA] underline-offset-4">Read The Second Draft <span aria-hidden="true">↗</span></a>.
+        <div className="mt-12 border-t border-[#D4D7DB] pt-7 text-sm leading-6 text-[#626973]">
+          Want the thinking behind the tools? <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="font-semibold text-[#17191D] underline decoration-[#A9B8AA] underline-offset-4">Read The Second Draft <span aria-hidden="true">↗</span></a>.
         </div>
       </section>
     </div>
