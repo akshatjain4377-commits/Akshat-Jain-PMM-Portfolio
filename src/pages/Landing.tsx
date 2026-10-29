@@ -261,10 +261,10 @@ export default function Landing() {
       <div className="funnel-journey relative isolate overflow-hidden bg-[#EBEDEF]">
         <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 1000 2400" preserveAspectRatio="none" aria-hidden="true">
           <path d="M 25 0 L 975 0 L 760 2400 L 240 2400 Z" fill="#E5EAE2" fillOpacity="0.42" />
-          <path d="M 25 0 L 240 2400" fill="none" stroke="#B7C6BB" strokeWidth="2" vectorEffect="non-scaling-stroke" />
-          <path d="M 975 0 L 760 2400" fill="none" stroke="#B7C6BB" strokeWidth="2" vectorEffect="non-scaling-stroke" />
-          <path d="M 70 0 L 285 2400" fill="none" stroke="#CBD6CA" strokeWidth="1" strokeDasharray="4 12" vectorEffect="non-scaling-stroke" />
-          <path d="M 930 0 L 715 2400" fill="none" stroke="#CBD6CA" strokeWidth="1" strokeDasharray="4 12" vectorEffect="non-scaling-stroke" />
+          <path d="M 25 0 L 240 2400" fill="none" stroke="#D4D7DB" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+          <path d="M 975 0 L 760 2400" fill="none" stroke="#D4D7DB" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+          <path d="M 70 0 L 285 2400" fill="none" stroke="#C7CBD0" strokeWidth="1" strokeDasharray="4 12" vectorEffect="non-scaling-stroke" />
+          <path d="M 930 0 L 715 2400" fill="none" stroke="#C7CBD0" strokeWidth="1" strokeDasharray="4 12" vectorEffect="non-scaling-stroke" />
         </svg>
 
         <div className="relative mx-auto max-w-[1440px] px-3 md:px-6 xl:px-10">
