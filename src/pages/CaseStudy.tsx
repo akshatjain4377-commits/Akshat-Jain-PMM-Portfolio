@@ -26,9 +26,9 @@ export default function CaseStudy() {
 
       problem: "ACKO's growth model was misaligned with sustainability. Health insurance acquisition costs (~₹14k CAC) were prohibitive under IRDAI's 30% expense cap. Motor insurance was scalable but had lower lifetime value. Discovery was controlled by aggregators, limiting ACKO's pricing power and margin control. The strategic question: where does ACKO lead, and where does it selectively invest?",
 
-      insight: "Insurance decisions are not transactional — they are driven by trust built over time. Customer research revealed that users approach motor insurance as a low-risk, mandatory purchase, but treat health insurance as a high-trust, high-stakes decision requiring earned credibility. Critically, moments like claims, renewals, and financial stress events shape long-term brand perception far more than initial acquisition touchpoints. This meant retention and trust — not acquisition spend — were the real growth levers.",
+      insight: "Insurance decisions are not transactional, they are driven by trust built over time. Customer research revealed that users approach motor insurance as a low-risk, mandatory purchase, but treat health insurance as a high-trust, high-stakes decision requiring earned credibility. Critically, moments like claims, renewals, and financial stress events shape long-term brand perception far more than initial acquisition touchpoints. This meant retention and trust, not acquisition spend, were the real growth levers.",
 
-      strategy: "Developed a hybrid GTM framework that repositioned motor insurance as the low-friction acquisition layer and health insurance as the long-term LTV engine. Rather than treating them as separate products, the strategy used motor trust as a bridge to health cross-sell — bypassing the ₹14k CAC problem entirely. The framework included: a trust-first positioning model anchored on claims reliability; behavioral cross-sell triggers at renewal, challan, and valuation moments; a unified app ecosystem (ACKO Vault) for retention and lock-in; and a competitive landscape analysis mapping ACKO's positioning against HDFC ERGO, ICICI Lombard, Digit, and indirect players like Policybazaar and PhonePe.",
+      strategy: "Developed a hybrid GTM framework that repositioned motor insurance as the low-friction acquisition layer and health insurance as the long-term LTV engine. Rather than treating them as separate products, the strategy used motor trust as a bridge to health cross-sell, bypassing the ₹14k CAC problem entirely. The framework included: a trust-first positioning model anchored on claims reliability; behavioral cross-sell triggers at renewal, challan, and valuation moments; a unified app ecosystem (ACKO Vault) for retention and lock-in; and a competitive landscape analysis mapping ACKO's positioning against HDFC ERGO, ICICI Lombard, Digit, and indirect players like Policybazaar and PhonePe.",
 
       metrics: [
 
@@ -44,15 +44,15 @@ export default function CaseStudy() {
 
       learnings: [
 
-        "Retention is a stronger growth lever than acquisition in regulated markets — especially when expense caps limit what you can spend to acquire.",
+        "Retention is a stronger growth lever than acquisition in regulated markets, especially when expense caps limit what you can spend to acquire.",
 
         "Trust is built at the moment of claim, not at the moment of purchase. Claims experience is the real product.",
 
-        "Lifecycle thinking beats channel thinking in high-consideration categories. The right GTM doesn't ask 'which channel?' — it asks 'which moment in the customer's life?'",
+        "Lifecycle thinking beats channel thinking in high-consideration categories. The right GTM doesn't ask 'which channel?', it asks 'which moment in the customer's life?'",
 
         "The best positioning strategy uses a strength you already have (motor scale) to earn entry into a category you want to win (health trust).",
 
-        "Regulatory constraints — like IRDAI's EoM cap — can be reframed as competitive moats if your unit economics are designed around them."
+        "Regulatory constraints, like IRDAI's EoM cap, can be reframed as competitive moats if your unit economics are designed around them."
 
       ]
 
@@ -70,13 +70,13 @@ export default function CaseStudy() {
 
       heroImage: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/business-standard.jpg",
 
-      context: "Business Standard is one of India's most authoritative financial publications, with strong organic authority and high-intent audiences — retail investors, traders, and market professionals — arriving daily for IPO updates, earnings results, and company research. I owned SEO and GTM strategy for the Markets and Companies sections, working across editorial and product stakeholders.",
+      context: "Business Standard is one of India's most authoritative financial publications, with strong organic authority and high-intent audiences, retail investors, traders, and market professionals, arriving daily for IPO updates, earnings results, and company research. I owned SEO and GTM strategy for the Markets and Companies sections, working across editorial and product stakeholders.",
 
-      problem: "High-intent financial pages were functioning as information dead-ends. A user arriving to check an IPO or stock price would see the data they came for — and immediately leave. Pages were architecturally built for search crawlers, not for investor decision-making. There was no next step, no retention hook, no cross-navigation, and no reason to come back. This drove high drop-off rates and wasted the organic authority the platform had spent years building.",
+      problem: "High-intent financial pages were functioning as information dead-ends. A user arriving to check an IPO or stock price would see the data they came for, and immediately leave. Pages were architecturally built for search crawlers, not for investor decision-making. There was no next step, no retention hook, no cross-navigation, and no reason to come back. This drove high drop-off rates and wasted the organic authority the platform had spent years building.",
 
-      insight: "Users arriving on financial pages are not just looking for data — they are in the middle of a decision. They want to know: Is this IPO worth applying for? Is this stock undervalued? What are other investors doing? Raw data answers none of these questions. The insight was that repositioning these pages from 'data displays' to 'decision-support tools' would not only improve engagement but create entirely new SEO surface area for high-intent long-tail queries like 'Is [Stock] a good buy?' or '[Company] SWOT analysis'.",
+      insight: "Users arriving on financial pages are not just looking for data, they are in the middle of a decision. They want to know: Is this IPO worth applying for? Is this stock undervalued? What are other investors doing? Raw data answers none of these questions. The insight was that repositioning these pages from 'data displays' to 'decision-support tools' would not only improve engagement but create entirely new SEO surface area for high-intent long-tail queries like 'Is [Stock] a good buy?' or '[Company] SWOT analysis'.",
 
-      strategy: "Independently authored two cross-functional product proposals — one for the IPO Tracker page and one for individual Share Price/Company pages — and presented them to editorial and product stakeholders with phased implementation roadmaps. The IPO Tracker proposal recommended: segregation of Mainboard vs SME IPOs; expanded data fields (issue size, lot size, lead managers, listing date); sortable and filterable tables; dedicated IPO detail pages; and an IPO calendar and alert signup for repeat engagement. The Share Price proposal introduced the concept of a BS QGVT Stock Scorecard (Quality, Growth, Valuation, Technicals) — a weighted financial health rating modelled on CIBIL — plus a sticky navigation flow following a professional investor's research workflow, a 'Check Before You Buy' SWOT module, and FAQ sections targeting long-tail intent queries. Both proposals benchmarked competitor UX across Moneycontrol, Livemint, Chittorgarh, and Trendlyne.",
+      strategy: "Independently authored two cross-functional product proposals, one for the IPO Tracker page and one for individual Share Price/Company pages, and presented them to editorial and product stakeholders with phased implementation roadmaps. The IPO Tracker proposal recommended: segregation of Mainboard vs SME IPOs; expanded data fields (issue size, lot size, lead managers, listing date); sortable and filterable tables; dedicated IPO detail pages; and an IPO calendar and alert signup for repeat engagement. The Share Price proposal introduced the concept of a BS QGVT Stock Scorecard (Quality, Growth, Valuation, Technicals), a weighted financial health rating modelled on CIBIL, plus a sticky navigation flow following a professional investor's research workflow, a 'Check Before You Buy' SWOT module, and FAQ sections targeting long-tail intent queries. Both proposals benchmarked competitor UX across Moneycontrol, Livemint, Chittorgarh, and Trendlyne.",
 
       metrics: [
 
@@ -98,9 +98,9 @@ export default function CaseStudy() {
 
         "Cross-functional proposals need to speak the language of every stakeholder. For editorial, the pitch was content quality and SEO. For product, it was engagement and retention. The same proposal, framed two ways.",
 
-        "Competitor benchmarking is most useful when it reveals what users expect as a baseline — not what competitors are doing, but what users have been trained to expect from the category.",
+        "Competitor benchmarking is most useful when it reveals what users expect as a baseline, not what competitors are doing, but what users have been trained to expect from the category.",
 
-        "Independently spotting problems and proposing solutions — without being asked — is how you build credibility inside an organisation faster than any job title can."
+        "Independently spotting problems and proposing solutions, without being asked, is how you build credibility inside an organisation faster than any job title can."
 
       ]
 
@@ -118,13 +118,13 @@ export default function CaseStudy() {
 
       heroImage: "https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/the-peak-view-stories.jpg",
 
-      context: "The lifestyle and news content space is oversaturated with low-differentiation platforms competing on volume. Most new media brands lack a distinct voice, optimise for crawlers over shareability, and fail to build audience loyalty. The Peak View Stories was built as an independent experiment: could a strong positioning, a clear tone-of-voice, and distribution-first thinking break through — with zero budget and zero existing audience?",
+      context: "The lifestyle and news content space is oversaturated with low-differentiation platforms competing on volume. Most new media brands lack a distinct voice, optimise for crawlers over shareability, and fail to build audience loyalty. The Peak View Stories was built as an independent experiment: could a strong positioning, a clear tone-of-voice, and distribution-first thinking break through, with zero budget and zero existing audience?",
 
-      problem: "Breaking through in content is not a supply problem — it's a distribution and identity problem. Generic content doesn't get shared, SEO takes months without domain authority, and new platforms struggle to build recall in a crowded market. The challenge was to find a positioning angle that made sharing feel like self-expression, not just information passing.",
+      problem: "Breaking through in content is not a supply problem, it's a distribution and identity problem. Generic content doesn't get shared, SEO takes months without domain authority, and new platforms struggle to build recall in a crowded market. The challenge was to find a positioning angle that made sharing feel like self-expression, not just information passing.",
 
-      insight: "People don't share information — they share identity. Satire and opinion-driven content signal personality, which makes it far more likely to be shared, saved, and remembered than generic informational content. The insight: if the content makes someone feel like it says something about who they are, they'll share it without being asked.",
+      insight: "People don't share information, they share identity. Satire and opinion-driven content signal personality, which makes it far more likely to be shared, saved, and remembered than generic informational content. The insight: if the content makes someone feel like it says something about who they are, they'll share it without being asked.",
 
-      strategy: "Built the full platform independently — website designed and deployed using AI-assisted vibe coding, content produced and published, AI-generated visuals created for every post, and Instagram distribution owned end-to-end. Defined positioning and tone-of-voice from scratch: satirical, sharp, India-aware. Prioritised Instagram-first distribution to optimise for virality and social proof before investing in SEO. Applied the Digital PR playbook from RankSoldier to earn personal earned media placements as Founder — building third-party credibility for the brand through Under30CEO, TechBullion, and CMO Times features.",
+      strategy: "Built the full platform independently, website designed and deployed using AI-assisted vibe coding, content produced and published, AI-generated visuals created for every post, and Instagram distribution owned end-to-end. Defined positioning and tone-of-voice from scratch: satirical, sharp, India-aware. Prioritised Instagram-first distribution to optimise for virality and social proof before investing in SEO. Applied the Digital PR playbook from RankSoldier to earn personal earned media placements as Founder, building third-party credibility for the brand through Under30CEO, TechBullion, and CMO Times features.",
 
       metrics: [
 
@@ -146,11 +146,11 @@ export default function CaseStudy() {
 
         "Distribution-first thinking outperforms SEO-first for new platforms. Social proof and organic reach build the authority that SEO later amplifies.",
 
-        "Positioning and tone-of-voice are the product. In a content business, how you say things is the differentiation — not what you say.",
+        "Positioning and tone-of-voice are the product. In a content business, how you say things is the differentiation, not what you say.",
 
         "Founder-led storytelling accelerates brand authority. Being visible as the person behind the brand builds trust faster than any content calendar.",
 
-        "AI tools are a production multiplier — but positioning is what drives performance. The tool doesn't matter; the angle does."
+        "AI tools are a production multiplier, but positioning is what drives performance. The tool doesn't matter; the angle does."
 
       ]
 
@@ -170,11 +170,11 @@ export default function CaseStudy() {
 
       context: "At RankSoldier Digital, I was part of a team focused on building thought leadership and earned media authority for founders and CEOs. The core service: get clients featured in credible publications by positioning their expertise as media-ready insights rather than self-promotional pitches. I joined as a content writing intern and was promoted to Project Manager within 4 months, eventually managing a 30+ person cross-functional team.",
 
-      problem: "Founders and CEOs typically have genuine domain expertise — but zero third-party credibility outside their immediate networks. They struggle to get featured not because their knowledge isn't valuable, but because they don't know how to frame it for journalists, which platforms to use, or how to respond to media queries at the speed and relevance journalists need. The result: expertise stays invisible, and authority never compounds.",
+      problem: "Founders and CEOs typically have genuine domain expertise, but zero third-party credibility outside their immediate networks. They struggle to get featured not because their knowledge isn't valuable, but because they don't know how to frame it for journalists, which platforms to use, or how to respond to media queries at the speed and relevance journalists need. The result: expertise stays invisible, and authority never compounds.",
 
-      insight: "Journalists are not looking for pitches — they are looking for ready-to-publish expert opinions that make their stories better. The founders who get featured consistently are the ones who respond to the right query, with the right framing, faster than everyone else. The insight was that this is a system problem, not a talent problem: if you build a repeatable process for matching expertise to journalist needs, earned media becomes predictable rather than lucky.",
+      insight: "Journalists are not looking for pitches, they are looking for ready-to-publish expert opinions that make their stories better. The founders who get featured consistently are the ones who respond to the right query, with the right framing, faster than everyone else. The insight was that this is a system problem, not a talent problem: if you build a repeatable process for matching expertise to journalist needs, earned media becomes predictable rather than lucky.",
 
-      strategy: "Built systematic outreach pipelines across HARO, Qwoted, SourceBottle, and Terkel — monitoring journalist queries daily and matching them to the most relevant founder or CEO in our client roster. Developed messaging frameworks for each client that translated their domain expertise into tight, quotable insights journalists could drop directly into articles. Trained the team on response speed, relevance filtering, and framing — lead with the insight, not the credentials. The Forbes placement for a client came from this system, not from a lucky cold email. Separately applied the same playbook to my own brand as Founder of The Peak View Stories, earning placements in Under30CEO, TechBullion, and CMO Times.",
+      strategy: "Built systematic outreach pipelines across HARO, Qwoted, SourceBottle, and Terkel, monitoring journalist queries daily and matching them to the most relevant founder or CEO in our client roster. Developed messaging frameworks for each client that translated their domain expertise into tight, quotable insights journalists could drop directly into articles. Trained the team on response speed, relevance filtering, and framing, lead with the insight, not the credentials. The Forbes placement for a client came from this system, not from a lucky cold email. Separately applied the same playbook to my own brand as Founder of The Peak View Stories, earning placements in Under30CEO, TechBullion, and CMO Times.",
 
       metrics: [
 
@@ -192,7 +192,7 @@ export default function CaseStudy() {
 
       learnings: [
 
-        "Authority is a distribution problem, not a quality problem. Most founders have the expertise — they just don't have the system to get it in front of the right people at the right moment.",
+        "Authority is a distribution problem, not a quality problem. Most founders have the expertise, they just don't have the system to get it in front of the right people at the right moment.",
 
         "Narrative beats promotion every time. The founders who get featured most are the ones who lead with a genuine insight and let the credibility follow.",
 
@@ -200,7 +200,7 @@ export default function CaseStudy() {
 
         "Speed and relevance are the two variables that actually determine who gets featured. A good response sent fast beats a great response sent late.",
 
-        "The same framework that works for clients works for yourself. I used the exact same playbook to earn my own placements — which proved the system was replicable, not dependent on the client's brand."
+        "The same framework that works for clients works for yourself. I used the exact same playbook to earn my own placements, which proved the system was replicable, not dependent on the client's brand."
 
       ]
 
@@ -292,7 +292,7 @@ export default function CaseStudy() {
 
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
 
-          {/* ── Main content — IDs wired to navbar ── */}
+          {/* ── Main content, IDs wired to navbar ── */}
 
           <div className="lg:col-span-8 space-y-24">
 
