@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties } from 'react';
+import { useEffect, useState } from 'react';
 
 function FunnelCar() {
   return (
@@ -35,8 +35,10 @@ export default function ScrollCarProgress() {
     const update = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-        const next = Math.max(0, Math.min(1, window.scrollY / scrollable));
+        const funnel = document.querySelector<HTMLElement>('.funnel-journey');
+        const funnelTop = funnel ? funnel.getBoundingClientRect().top + window.scrollY : 0;
+        const funnelLength = funnel ? Math.max(1, funnel.offsetHeight - window.innerHeight * 0.65) : Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const next = Math.max(0, Math.min(1, (window.scrollY - funnelTop) / funnelLength));
         setProgress(next);
         setVisible(window.scrollY > 100);
       });
@@ -60,7 +62,7 @@ export default function ScrollCarProgress() {
     <div
       className={`scroll-car-progress ${visible ? 'scroll-car-progress--visible' : ''}`}
       aria-hidden="true"
-      style={{ '--scroll-car-left': `${position}%` } as CSSProperties}
+      data-stage={stage.toLowerCase()}
     >
       <div className="scroll-car-progress__inner">
         <div className="scroll-car-progress__track" />
@@ -71,7 +73,7 @@ export default function ScrollCarProgress() {
         <span className="scroll-car-progress__label scroll-car-progress__label--discover">Discover</span>
         <span className="scroll-car-progress__label scroll-car-progress__label--evaluate">Evaluate</span>
         <span className="scroll-car-progress__label scroll-car-progress__label--connect">Connect</span>
-        <div className="scroll-car-progress__car" style={{ left: `var(--scroll-car-left)` }}>
+        <div className="scroll-car-progress__car" style={{ left: `${position}%` }}>
           <FunnelCar />
         </div>
       </div>
