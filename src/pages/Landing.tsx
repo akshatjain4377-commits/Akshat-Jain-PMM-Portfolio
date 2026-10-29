@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FunnelMap from '../components/FunnelMap';
-import ThreeDFunnelScene from '../components/ThreeDFunnelScene';
+const ThreeDFunnelScene = lazy(() => import('../components/ThreeDFunnelScene'));
 
 const projects = [
   {
@@ -189,7 +189,9 @@ export default function Landing() {
       </section>
 
       <div className="funnel-journey relative isolate overflow-hidden bg-[var(--color-brand-bg)]">
-        <ThreeDFunnelScene activeStage={activeStage} />
+        <Suspense fallback={<div className="funnel-3d-scene funnel-3d-scene--fallback"><div className="funnel-3d-scene__fallback" /></div>}>
+          <ThreeDFunnelScene activeStage={activeStage} />
+        </Suspense>
 
         <div className="funnel-content-depth relative mx-auto max-w-[1440px] px-3 md:px-6 xl:px-10">
           <div className="grid xl:grid-cols-[150px_minmax(0,1fr)] xl:gap-8">
