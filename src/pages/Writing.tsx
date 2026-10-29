@@ -30,47 +30,47 @@ const essays = [
 
 export default function Writing() {
   return (
-    <div className="min-h-screen bg-[#F3F3F1] text-[#17191D]">
+    <div className="min-h-screen bg-[#F4F2EB] text-[#1B2A26]">
       <section className="mx-auto max-w-6xl px-6 pb-14 pt-16 md:pb-20 md:pt-24">
-        <p className="mb-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#626973]">
+        <p className="mb-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#596861]">
           <BookOpen className="h-4 w-4" aria-hidden="true" />
           The Second Draft · Writing
         </p>
-        <div className="grid gap-8 border-b border-[#D4D7DB] pb-12 md:grid-cols-[1.2fr_0.8fr] md:items-end md:pb-16">
+        <div className="grid gap-8 border-b border-[#D5DCD3] pb-12 md:grid-cols-[1.2fr_0.8fr] md:items-end md:pb-16">
           <h1 className="font-display text-5xl leading-[0.98] tracking-[-0.06em] md:text-7xl">
-            Marketing ideas,<br /><span className="text-[#D90429]">reconsidered.</span>
+            Marketing ideas,<br /><span className="text-[#344F44]">reconsidered.</span>
           </h1>
-          <p className="max-w-lg text-base leading-7 text-[#626973] md:pb-1 md:text-lg">
+          <p className="max-w-lg text-base leading-7 text-[#596861] md:pb-1 md:text-lg">
             The Second Draft is where I unpack the questions behind positioning, messaging, product marketing and growth. Not another list of best practices, just ideas worth thinking through properly.
           </p>
         </div>
 
         <div className="grid gap-10 py-12 md:grid-cols-[0.45fr_1fr] md:py-16">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6B727C]">The editorial lens</p>
-            <p className="mt-4 max-w-xs text-sm leading-6 text-[#626973]">Start with a problem. Question the obvious answer. Leave with something useful to try.</p>
-            <Link to="/resources" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#17191D] hover:text-[#D90429]">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#718078]">The editorial lens</p>
+            <p className="mt-4 max-w-xs text-sm leading-6 text-[#596861]">Start with a problem. Question the obvious answer. Leave with something useful to try.</p>
+            <Link to="/resources" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#1B2A26] hover:text-[#344F44]">
               Looking for tools? Browse resources <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
 
           <div className="space-y-0">
             {essays.map((essay) => (
-              <article key={essay.title} className="border-t border-[#D4D7DB] py-6 md:py-8">
+              <article key={essay.title} className="border-t border-[#D5DCD3] py-6 md:py-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D90429]">{essay.category}</p>
-                  <span className={`rounded-full border px-3 py-1 text-[11px] ${essay.published ? 'border-[#D9A0AB] bg-[#F0F1F3] text-[#D90429]' : 'border-[#D4D7DB] text-[#626973]'}`}>{essay.status}</span>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#344F44]">{essay.category}</p>
+                  <span className={`rounded-full border px-3 py-1 text-[11px] ${essay.published ? 'border-[#9FB6A4] bg-[#FBFAF6] text-[#344F44]' : 'border-[#D5DCD3] text-[#596861]'}`}>{essay.status}</span>
                 </div>
                 <h2 className="mt-4 max-w-3xl font-display text-2xl leading-tight tracking-[-0.035em] md:text-3xl">{essay.title}</h2>
-                <p className="mt-3 max-w-2xl text-sm leading-6 text-[#626973] md:text-base">{essay.summary}</p>
-                <div className="mt-5 flex flex-wrap items-center justify-between gap-4 text-xs text-[#6B727C]">
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-[#596861] md:text-base">{essay.summary}</p>
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-4 text-xs text-[#718078]">
                   <span className="flex items-center gap-2"><Clock3 className="h-3.5 w-3.5" aria-hidden="true" />{essay.meta}</span>
                   {essay.published ? (
-                    <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-semibold text-[#17191D] hover:text-[#D90429]">
+                    <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-semibold text-[#1B2A26] hover:text-[#344F44]">
                       Read edition <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </a>
                   ) : (
-                    <span className="text-[#858B93]">Not published</span>
+                    <span className="text-[#829187]">Not published</span>
                   )}
                 </div>
               </article>
@@ -78,11 +78,11 @@ export default function Writing() {
           </div>
         </div>
 
-        <div className="rounded-[1.5rem] bg-[#E7E9EC] p-6 md:p-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B727C]">A note on this publication</p>
+        <div className="rounded-[1.5rem] bg-[#E5E9E1] p-6 md:p-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#718078]">A note on this publication</p>
           <h2 className="mt-3 max-w-2xl font-display text-2xl leading-tight tracking-[-0.04em] md:text-3xl">The first draft is a thought. The second is the one worth sharing.</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-[#626973]">This redesign separates published pieces from ideas still in development. The long-term direction is to make the website the canonical home for each essay, then use shorter LinkedIn adaptations to bring readers back here.</p>
-          <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#17191D] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#B50021]">
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-[#596861]">This redesign separates published pieces from ideas still in development. The long-term direction is to make the website the canonical home for each essay, then use shorter LinkedIn adaptations to bring readers back here.</p>
+          <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#1B2A26] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#263B32]">
             Follow The Second Draft on LinkedIn <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
