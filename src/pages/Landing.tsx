@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FunnelMap from '../components/FunnelMap';
+import ThreeDFunnelScene from '../components/ThreeDFunnelScene';
 
 const projects = [
   {
@@ -118,36 +119,6 @@ export default function Landing() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const funnel = document.querySelector<HTMLElement>('.funnel-journey');
-    if (!funnel) return;
-
-    let frame = 0;
-    const updateDepth = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const rect = funnel.getBoundingClientRect();
-        const travel = Math.max(1, rect.height - window.innerHeight * 0.55);
-        const progress = Math.max(0, Math.min(1, (window.innerHeight * 0.28 - rect.top) / travel));
-
-        funnel.style.setProperty('--funnel-progress', String(progress));
-        funnel.style.setProperty('--funnel-depth-z', `${-progress * 180}px`);
-        funnel.style.setProperty('--funnel-floor-shift', `${-progress * 72}px`);
-        funnel.style.setProperty('--funnel-marker-y', `${8 + progress * 82}%`);
-      });
-    };
-
-    updateDepth();
-    window.addEventListener('scroll', updateDepth, { passive: true });
-    window.addEventListener('resize', updateDepth);
-
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener('scroll', updateDepth);
-      window.removeEventListener('resize', updateDepth);
-    };
-  }, []);
-
   const jumpToStage = (id: FunnelStageId) => {
     setActiveStage(id);
     const section = document.getElementById(id);
@@ -217,22 +188,8 @@ export default function Landing() {
         </div>
       </section>
 
-      <div className="funnel-journey relative isolate overflow-hidden bg-[#EBEDEF]">
-        <div className="funnel-depth-scene" aria-hidden="true">
-          <div className="funnel-depth-world">
-            <div className="funnel-depth-wall funnel-depth-wall--left" />
-            <div className="funnel-depth-wall funnel-depth-wall--right" />
-            <div className="funnel-depth-floor" />
-            <div className="funnel-depth-edge funnel-depth-edge--left" />
-            <div className="funnel-depth-edge funnel-depth-edge--right" />
-            <div className="funnel-depth-rim funnel-depth-rim--discover" />
-            <div className="funnel-depth-rim funnel-depth-rim--evaluate" />
-            <div className="funnel-depth-rim funnel-depth-rim--connect" />
-            <div className="funnel-depth-marker">
-              <span />
-            </div>
-          </div>
-        </div>
+      <div className="funnel-journey relative isolate overflow-hidden bg-[var(--color-brand-bg)]">
+        <ThreeDFunnelScene activeStage={activeStage} />
 
         <div className="funnel-content-depth relative mx-auto max-w-[1440px] px-3 md:px-6 xl:px-10">
           <div className="grid xl:grid-cols-[150px_minmax(0,1fr)] xl:gap-8">
