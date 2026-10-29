@@ -345,7 +345,7 @@ export default function ThreeDFunnelScene({ activeStage }: ThreeDFunnelSceneProp
       activeIndex = Math.max(0, STAGES.indexOf(activeStageRef.current));
       const reading = mode === 'reading';
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const cameraProgress = progress * (reading || reduced ? 0.48 : 1);
+      const cameraProgress = progress * (reading || reduced ? 0.78 : 1);
       const desiredZ = 10 - cameraProgress * 28;
       const follow = reduced ? 0.24 : reading ? 0.045 : 0.075;
       currentCameraX += (targetCameraX - currentCameraX) * follow;
