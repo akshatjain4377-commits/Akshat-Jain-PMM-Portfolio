@@ -342,9 +342,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 0 1px var(--funnel-line);
 }
 
-.scroll-car-progress__stop--discover { left: 7%; }
-.scroll-car-progress__stop--evaluate { left: 50%; }
-.scroll-car-progress__stop--connect { right: 7%; }
+
 
 .scroll-car-progress[data-stage="discover"] .scroll-car-progress__stop--discover,
 .scroll-car-progress[data-stage="evaluate"] .scroll-car-progress__stop--discover,
@@ -365,9 +363,13 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-.scroll-car-progress__label--discover { left: 7%; }
-.scroll-car-progress__label--evaluate { left: 50%; transform: translateX(-50%); }
-.scroll-car-progress__label--connect { right: 7%; }
+.scroll-car-progress__label--discover,
+.scroll-car-progress__label--evaluate,
+.scroll-car-progress__label--connect {
+  right: auto;
+  width: max-content;
+  transform: translateX(-50%);
+}
 
 .scroll-car-progress__car {
   position: absolute;
@@ -601,21 +603,10 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 7px;
   }
 
-  .scroll-car-progress__label--discover {
-    left: 4%;
-  }
-
-  .scroll-car-progress__label--connect {
-    right: 4%;
-  }
-
   .scroll-car-progress__track,
   .scroll-car-progress__fill {
-    left: 4%;
+    left: 7%;
   }
-
-  .scroll-car-progress__stop--discover { left: 4%; }
-  .scroll-car-progress__stop--connect { right: 4%; }
 }
 
 @media (max-width: 390px) {
