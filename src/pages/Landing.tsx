@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FunnelMap from '../components/FunnelMap';
@@ -92,6 +92,44 @@ function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: FunnelStage
         {nextAction} <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
       </button>
     </aside>
+  );
+}
+
+
+function DeferredThreeDFunnelScene({ activeStage }: { activeStage: FunnelStageId }) {
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const placeholderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = placeholderRef.current?.closest<HTMLElement>('.funnel-journey');
+    if (!section || !('IntersectionObserver' in window)) {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        setShouldLoad(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: '650px 0px' });
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  if (shouldLoad) {
+    return (
+      <Suspense fallback={<div className="funnel-3d-scene funnel-3d-scene--fallback"><div className="funnel-3d-scene__fallback" /></div>}>
+        <ThreeDFunnelScene activeStage={activeStage} />
+      </Suspense>
+    );
+  }
+
+  return (
+    <div ref={placeholderRef} className="funnel-3d-scene funnel-3d-scene--fallback" aria-hidden="true">
+      <div className="funnel-3d-scene__fallback" />
+    </div>
   );
 }
 
@@ -189,9 +227,7 @@ export default function Landing() {
       </section>
 
       <div className="funnel-journey relative isolate overflow-hidden bg-[var(--color-brand-bg)]">
-        <Suspense fallback={<div className="funnel-3d-scene funnel-3d-scene--fallback"><div className="funnel-3d-scene__fallback" /></div>}>
-          <ThreeDFunnelScene activeStage={activeStage} />
-        </Suspense>
+        <DeferredThreeDFunnelScene activeStage={activeStage} />
 
         <div className="funnel-content-depth relative mx-auto max-w-[1440px] px-3 md:px-6 xl:px-10">
           <div className="grid xl:grid-cols-[150px_minmax(0,1fr)] xl:gap-8">
