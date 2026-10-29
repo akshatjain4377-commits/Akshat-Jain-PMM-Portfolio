@@ -382,6 +382,8 @@ h1, h2, h3, h4, h5, h6 {
 .funnel-content-depth {
   position: relative;
   z-index: 1;
+  perspective: 1250px;
+  transform-style: preserve-3d;
 }
 
 .funnel-content-depth > .grid,
@@ -658,35 +660,26 @@ h1, h2, h3, h4, h5, h6 {
     height: 11px;
   }
 
-  .funnel-depth-scene {
-    perspective: 850px;
-    perspective-origin: 50% 20%;
+  .funnel-3d-scene {
+    top: 68px;
+    height: calc(100vh - 68px);
+    min-height: 360px;
+    margin-bottom: calc(-100vh + 68px);
   }
 
-  .funnel-depth-wall {
-    width: 72%;
+  .funnel-content-depth {
+    perspective: 900px;
   }
 
-  .funnel-depth-wall--left {
-    left: -19%;
-    transform: rotateY(25deg) translateZ(-100px);
+  .journey-panel {
+    backdrop-filter: blur(9px);
   }
 
-  .funnel-depth-wall--right {
-    right: -19%;
-    transform: rotateY(-25deg) translateZ(-100px);
+  .journey-panel--discover,
+  .journey-panel--evaluate,
+  .journey-panel--connect {
+    --panel-depth: 0px;
   }
-
-  .funnel-depth-floor {
-    left: -8%;
-    width: 116%;
-    top: 46%;
-    transform: rotateX(72deg) translate3d(0, var(--funnel-floor-shift), -140px);
-  }
-
-  .funnel-depth-rim--discover { width: 112%; }
-  .funnel-depth-rim--evaluate { width: 90%; }
-  .funnel-depth-rim--connect { width: 68%; }
 }
 
 @media (max-width: 390px) {
@@ -713,8 +706,7 @@ h1, h2, h3, h4, h5, h6 {
   .funnel-detail,
   .journey-panel,
   .journey-rail-progress,
-  .funnel-depth-world,
-  .funnel-depth-marker {
+  .funnel-3d-scene {
     animation: none !important;
     transition: none !important;
   }
