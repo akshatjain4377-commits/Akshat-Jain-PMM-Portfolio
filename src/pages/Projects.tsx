@@ -13,7 +13,7 @@ const projects = [
     type: 'Professional experience',
     discipline: ['Product proposals', 'GTM strategy', 'Positioning'],
     image: 'https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/business-standard.jpg',
-    question: 'How could high-intent financial pages become more useful to investors—not just search destinations?',
+    question: 'How could high-intent financial pages become more useful to investors, not just search destinations?',
     contribution: 'Independently authored two cross-functional proposals for IPO Tracker and Share Price/Company pages, including competitor benchmarking and phased roadmaps.',
     evidence: 'Average position improved from 8.2 to 5.0 on priority search terms.',
     icon: BriefcaseBusiness,
@@ -27,7 +27,7 @@ const projects = [
     image: 'https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/acko-insurance.png',
     question: 'How might ACKO use existing motor relationships to build trust and improve the economics of health insurance?',
     contribution: 'Developed a trust-centric positioning and hybrid GTM framework, using lifecycle triggers and cross-sell to connect the two categories.',
-    evidence: '4.1× LTV/CAC improvement was a modelled projection in the capstone—not a shipped or measured result.',
+    evidence: '4.1× LTV/CAC improvement was a modelled projection in the capstone, not a shipped or measured result.',
     icon: Layers3,
   },
   {
