@@ -60,11 +60,11 @@ export default function ScrollCarProgress() {
     <div
       className={`scroll-car-progress ${visible ? 'scroll-car-progress--visible' : ''}`}
       aria-hidden="true"
-      style={{ '--scroll-progress': progress, '--scroll-car-left': `${position}%` } as React.CSSProperties}
+      style={{ '--scroll-car-left': `${position}%` } as React.CSSProperties}
     >
       <div className="scroll-car-progress__inner">
         <div className="scroll-car-progress__track" />
-        <div className="scroll-car-progress__fill" />
+        <div className="scroll-car-progress__fill" style={{ width: `${progress * 86}%` }} />
         <span className="scroll-car-progress__stop scroll-car-progress__stop--discover" />
         <span className="scroll-car-progress__stop scroll-car-progress__stop--evaluate" />
         <span className="scroll-car-progress__stop scroll-car-progress__stop--connect" />
