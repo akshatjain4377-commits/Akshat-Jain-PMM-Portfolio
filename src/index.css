@@ -909,3 +909,108 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 10px;
   }
 }
+
+/* Mobile users get the same stage controls as desktop, kept within thumb reach. */
+.journey-mobile-nav {
+  position: sticky;
+  top: 68px;
+  z-index: 35;
+  width: min(calc(100% - 24px), 660px);
+  margin: 0 auto 12px;
+  padding-top: 8px;
+}
+
+.journey-mobile-nav__surface {
+  overflow: hidden;
+  border: 1px solid var(--color-brand-border);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--color-brand-card) 93%, transparent);
+  box-shadow: 0 10px 26px rgba(27, 42, 38, 0.1);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.journey-mobile-nav__button {
+  display: flex;
+  min-width: 0;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  padding: 0 5px;
+  background: transparent;
+  color: var(--color-brand-muted);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 650;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.journey-mobile-nav__button:active {
+  transform: scale(0.98);
+}
+
+.journey-mobile-nav__button.is-active {
+  border-color: var(--color-brand-accent);
+  background: var(--color-brand-accent);
+  color: var(--color-brand-bg);
+  box-shadow: 0 3px 10px color-mix(in srgb, var(--color-brand-accent) 22%, transparent);
+}
+
+.journey-mobile-nav__button.is-complete:not(.is-active) {
+  color: var(--color-brand-text);
+}
+
+.journey-mobile-nav__number {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  opacity: 0.72;
+}
+
+.journey-mobile-nav__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.journey-mobile-nav__track {
+  height: 3px;
+  overflow: hidden;
+  background: var(--funnel-track);
+}
+
+.journey-mobile-nav__track span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-brand-accent);
+  transition: width 240ms ease;
+}
+
+@media (max-width: 767px) {
+  .funnel-stage {
+    width: 100% !important;
+  }
+
+  .journey-mobile-nav__button {
+    min-height: 44px;
+  }
+
+  .journey-mobile-nav__surface {
+    border-radius: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-mobile-nav__button,
+  .journey-mobile-nav__track span {
+    transition: none !important;
+  }
+}
+
