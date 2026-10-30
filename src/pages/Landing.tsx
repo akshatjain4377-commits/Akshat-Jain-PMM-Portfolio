@@ -133,9 +133,21 @@ function FunnelMobileNavigation({ activeStage, onSelect }: { activeStage: Funnel
 
 function DeferredThreeDFunnelScene({ activeStage }: { activeStage: FunnelStageId }) {
   const [shouldLoad, setShouldLoad] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const placeholderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    // Mobile uses the lightweight interactive HTML funnel; do not initialise WebGL.
+    if (isMobile) return;
+
     const section = placeholderRef.current?.closest<HTMLElement>('.funnel-journey');
     if (!section || !('IntersectionObserver' in window)) {
       setShouldLoad(true);
@@ -151,7 +163,9 @@ function DeferredThreeDFunnelScene({ activeStage }: { activeStage: FunnelStageId
 
     observer.observe(section);
     return () => observer.disconnect();
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) return null;
 
   if (shouldLoad) {
     return (
