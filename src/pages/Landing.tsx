@@ -1,397 +1,309 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Lightbulb } from 'lucide-react';
+import { useRef, useState, type PointerEvent } from 'react';
+import {
+  ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Compass,
+  MessageSquareText, Radar, Rocket, Target, TrendingUp, type LucideIcon,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
-import FunnelMap, { type FunnelStageId } from '../components/FunnelMap';
-const ThreeDFunnelScene = lazy(() => import('../components/ThreeDFunnelScene'));
+
+type ModuleId = 'market' | 'positioning' | 'narrative' | 'gtm' | 'growth';
+
+type CapabilityModule = {
+  id: ModuleId;
+  number: string;
+  title: string;
+  short: string;
+  description: string;
+  approach: string;
+  areas: string[];
+  evidence: string;
+  icon: LucideIcon;
+  link: string;
+  linkLabel: string;
+  type: string;
+};
+
+const modules: CapabilityModule[] = [
+  {
+    id: 'market', number: '01', title: 'Market intelligence', short: 'Understand the market.',
+    description: 'Start with what customers are trying to do, the alternatives they already consider, and the signals that reveal where a product can matter.',
+    approach: 'I look for the behaviour behind the brief: search intent, customer language, competitor choices and the moments where expectations are not being met.',
+    areas: ['Customer and audience insight', 'Search behaviour', 'Competitive context', 'Market opportunity'],
+    evidence: 'Business Standard', icon: Radar, link: '/work/business-standard', linkLabel: 'See the Business Standard work', type: 'Signals before assumptions',
+  },
+  {
+    id: 'positioning', number: '02', title: 'Positioning', short: 'Find the reason to choose.',
+    description: 'Give a product a clear place in the market by connecting the audience, the problem, the alternatives and the value that makes the choice meaningful.',
+    approach: 'I work from customer context towards a defensible value proposition. The aim is not a clever line. It is a choice the product, marketing and sales teams can consistently explain.',
+    areas: ['Audience and ICP', 'Category and alternatives', 'Differentiation', 'Value proposition'],
+    evidence: 'ACKO capstone', icon: Target, link: '/work/acko', linkLabel: 'Explore the positioning capstone', type: 'The reason behind the choice',
+  },
+  {
+    id: 'narrative', number: '03', title: 'Product narrative', short: 'Make the value understandable.',
+    description: 'Translate product capability into a story customers can recognise, understand and repeat across the website, content and sales conversations.',
+    approach: 'I connect the product story to the customer problem, then carry that logic into messaging, landing pages, sales narratives and useful content.',
+    areas: ['Messaging architecture', 'Product storytelling', 'Website narrative', 'Sales enablement'],
+    evidence: 'Refrens experience', icon: MessageSquareText, link: '/about', linkLabel: 'See professional experience', type: 'A story people can use',
+  },
+  {
+    id: 'gtm', number: '04', title: 'Go-to-market', short: 'Take the product to market.',
+    description: 'Bring product, marketing and sales decisions together around a focused launch or market opportunity.',
+    approach: 'I think about the audience, the message, the route to market, the teams involved and the feedback loop before treating a launch as a list of assets.',
+    areas: ['Launch planning', 'Channel and campaign choices', 'Cross-functional alignment', 'Sales readiness'],
+    evidence: 'Refrens and Business Standard', icon: Rocket, link: '/about', linkLabel: 'Explore the experience', type: 'From strategy to execution',
+  },
+  {
+    id: 'growth', number: '05', title: 'Growth & adoption', short: 'Help the product keep earning attention.',
+    description: 'Connect discovery, conversion and ongoing use. Growth is stronger when the story, the experience and the channels reinforce each other.',
+    approach: 'My SEO and growth background helps me connect how people discover a product with what they find when they arrive, and what gives them a reason to continue.',
+    areas: ['Organic discovery', 'Acquisition and conversion', 'Content distribution', 'Adoption signals'],
+    evidence: 'Business Standard and The Peak View Stories', icon: TrendingUp, link: '/work', linkLabel: 'Explore selected work', type: 'Discovery through adoption',
+  },
+];
 
 const projects = [
   {
-    id: 'business-standard',
-    name: 'Business Standard',
-    kind: 'PROFESSIONAL EXPERIENCE',
-    discipline: 'Product proposals · Growth',
+    id: 'business-standard', name: 'Business Standard', kind: 'PROFESSIONAL EXPERIENCE',
+    discipline: 'Growth · Search intelligence · Product proposals',
     image: 'https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/business-standard.jpg',
     question: 'How could high-intent financial pages become more useful to investors?',
     signal: 'Priority search terms moved from an average position of 8.2 to 5.0.',
-    className: 'funnel-project-card',
   },
   {
-    id: 'acko',
-    name: 'ACKO Insurance',
-    kind: 'PMM CAPSTONE',
+    id: 'acko', name: 'ACKO Insurance', kind: 'PMM CAPSTONE',
     discipline: 'Positioning · GTM strategy',
     image: 'https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/acko-insurance.png',
     question: 'How might motor scale help ACKO earn trust in health insurance?',
     signal: 'A proposed retention-led cross-sell model. The economics are projections, not shipped results.',
-    className: 'funnel-project-card',
   },
   {
-    id: 'peak-view',
-    name: 'The Peak View Stories',
-    kind: 'INDEPENDENT BUILD',
-    discipline: '0 to 1 brand · Distribution',
+    id: 'peak-view', name: 'The Peak View Stories', kind: 'INDEPENDENT BUILD',
+    discipline: '0 to 1 brand · Content · Distribution',
     image: 'https://raw.githubusercontent.com/akshatjain4377-commits/Akshat-Jain-PMM-Portfolio/main/the-peak-view-stories.jpg',
-    question: 'Can a new media brand earn attention with no paid budget or existing audience?',
-    signal: '1.5M+ organic reel views and 7,600 website users via SEO.',
-    className: 'funnel-project-card',
+    question: 'Can a new media brand earn attention without paid spend or an existing audience?',
+    signal: '1.5M+ organic reel views and 7,600 website users through SEO.',
   },
 ];
 
-const funnelStages = [
-  { id: 'discover', number: '01', label: 'Discover', descriptor: 'Ideas and perspective' },
-  { id: 'evaluate', number: '02', label: 'Evaluate', descriptor: 'Work and evidence' },
-  { id: 'connect', number: '03', label: 'Connect', descriptor: 'About and conversation' },
-] as const;
-
-function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: FunnelStageId; onSelect: (id: FunnelStageId) => void }) {
-  const activeIndex = funnelStages.findIndex((stage) => stage.id === activeStage);
-  const nextStageId = activeIndex >= 2 ? 'discover' : funnelStages[activeIndex + 1].id;
-  const nextAction = activeIndex >= 2 ? 'Climb back up' : 'Continue down';
-
-  return (
-    <aside className="journey-rail sticky top-28 hidden h-fit self-start pb-10 pt-12 xl:block" aria-label="Funnel journey progress">
-      <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#718078]">Your journey</p>
-      <div className="relative mt-6 pl-1">
-        <span className="absolute bottom-4 left-[13px] top-4 w-px bg-[#D5DCD3]" aria-hidden="true" />
-        <span
-          className="journey-rail-progress absolute left-[12px] top-4 w-[3px] rounded-full bg-[#344F44]"
-          style={{ height: `${Math.max(0, activeIndex) * 50}%` }}
-          aria-hidden="true"
-        />
-        <div className="relative space-y-6">
-          {funnelStages.map((stage, index) => {
-            const active = stage.id === activeStage;
-            return (
-              <button
-                key={stage.id}
-                type="button"
-                onClick={() => onSelect(stage.id)}
-                aria-current={active ? 'step' : undefined}
-                className="group flex w-full items-start gap-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#344F44]"
-              >
-                <span className={`relative z-10 mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[8px] font-bold transition-colors ${active ? 'border-[#344F44] bg-[#344F44] text-white' : index < activeIndex ? 'border-[#B1B6BF] bg-[#B7C6BD] text-[#1B2A26]' : 'border-[#BECABE] bg-[#F4F2EB] text-[#718078]'}`}>
-                  {stage.number}
-                </span>
-                <span className="min-w-0 pb-1">
-                  <span className={`block text-xs font-semibold transition-colors ${active ? 'text-[#1B2A26]' : 'text-[#718078] group-hover:text-[#344F44]'}`}>{stage.label}</span>
-                  <span className="mt-1 block max-w-[115px] text-[10px] leading-4 text-[#829187]">{stage.descriptor}</span>
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-      <p className="mt-8 max-w-[135px] text-[10px] leading-4 text-[#829187]">The path narrows as the questions become more specific.</p>
-      <button
-        type="button"
-        onClick={() => onSelect(nextStageId)}
-        className="mt-5 inline-flex items-center gap-2 text-[10px] font-bold text-[#344F44] hover:text-[#344F44]"
-      >
-        {nextAction} <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
-      </button>
-    </aside>
-  );
-}
-
-
-function FunnelMobileNavigation({ activeStage, onSelect }: { activeStage: FunnelStageId; onSelect: (id: FunnelStageId) => void }) {
-  const activeIndex = funnelStages.findIndex((stage) => stage.id === activeStage);
-
-  return (
-    <nav className="journey-mobile-nav xl:hidden" aria-label="Choose a funnel stage">
-      <div className="journey-mobile-nav__surface">
-        <div className="flex items-center justify-between gap-3 px-3 pb-2 pt-3">
-          <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-muted">Explore the journey</span>
-          <span className="text-[10px] font-semibold tabular-nums text-brand-accent">{String(activeIndex + 1).padStart(2, '0')} / 03</span>
-        </div>
-        <div className="grid grid-cols-3 gap-1.5 px-2 pb-2" role="group">
-          {funnelStages.map((stage, index) => {
-            const active = stage.id === activeStage;
-            const completed = index < activeIndex;
-            return (
-              <button
-                key={stage.id}
-                type="button"
-                onClick={() => onSelect(stage.id)}
-                aria-current={active ? 'step' : undefined}
-                aria-label={`Go to stage ${stage.number}: ${stage.label}`}
-                className={`journey-mobile-nav__button ${active ? 'is-active' : ''} ${completed ? 'is-complete' : ''}`}
-              >
-                <span className="journey-mobile-nav__number">{stage.number}</span>
-                <span className="journey-mobile-nav__label">{stage.label}</span>
-              </button>
-            );
-          })}
-        </div>
-        <div className="journey-mobile-nav__track" aria-hidden="true">
-          <span style={{ width: `${((activeIndex + 1) / 3) * 100}%` }} />
-        </div>
-      </div>
-    </nav>
-  );
-}
-
-function DeferredThreeDFunnelScene({ activeStage }: { activeStage: FunnelStageId }) {
-  const [shouldLoad, setShouldLoad] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const placeholderRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const media = window.matchMedia('(max-width: 767px)');
-    const update = () => setIsMobile(media.matches);
-    update();
-    media.addEventListener('change', update);
-    return () => media.removeEventListener('change', update);
-  }, []);
-
-  useEffect(() => {
-    // Mobile uses the lightweight interactive HTML funnel; do not initialise WebGL.
-    if (isMobile) return;
-
-    const section = placeholderRef.current?.closest<HTMLElement>('.funnel-journey');
-    if (!section || !('IntersectionObserver' in window)) {
-      setShouldLoad(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        setShouldLoad(true);
-        observer.disconnect();
-      }
-    }, { rootMargin: '650px 0px' });
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, [isMobile]);
-
-  if (isMobile) return null;
-
-  if (shouldLoad) {
-    return (
-      <Suspense fallback={<div className="funnel-3d-scene funnel-3d-scene--fallback"><div className="funnel-3d-scene__fallback" /></div>}>
-        <ThreeDFunnelScene activeStage={activeStage} />
-      </Suspense>
-    );
-  }
-
-  return (
-    <div ref={placeholderRef} className="funnel-3d-scene funnel-3d-scene--fallback" aria-hidden="true">
-      <div className="funnel-3d-scene__fallback" />
-    </div>
-  );
+function ModuleIcon({ icon: Icon, size = 20 }: { icon: LucideIcon; size?: number }) {
+  return <Icon size={size} strokeWidth={1.7} aria-hidden="true" />;
 }
 
 export default function Landing() {
-  const [activeStage, setActiveStage] = useState<FunnelStageId>('discover');
+  const [activeModule, setActiveModule] = useState<ModuleId>('positioning');
+  const sceneRef = useRef<HTMLDivElement>(null);
+  const current = modules.find((item) => item.id === activeModule) ?? modules[1];
 
-  useEffect(() => {
-    const targets = funnelStages
-      .map((stage) => document.getElementById(stage.id))
-      .filter((element): element is HTMLElement => element instanceof HTMLElement);
+  const handleSceneMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === 'touch' || !sceneRef.current) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    sceneRef.current.style.setProperty('--scene-rotate-x', `${-y * 5}deg`);
+    sceneRef.current.style.setProperty('--scene-rotate-y', `${x * 6}deg`);
+  };
 
-    if (!('IntersectionObserver' in window) || targets.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActiveStage(visible.target.id as FunnelStageId);
-      },
-      { rootMargin: '-22% 0px -58% 0px', threshold: [0.05, 0.15, 0.35] },
-    );
-
-    targets.forEach((target) => observer.observe(target));
-    return () => observer.disconnect();
-  }, []);
-
-  const jumpToStage = (id: FunnelStageId) => {
-    setActiveStage(id);
-    const section = document.getElementById(id);
-    if (!section) return;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    section.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  const resetSceneMove = () => {
+    sceneRef.current?.style.setProperty('--scene-rotate-x', '0deg');
+    sceneRef.current?.style.setProperty('--scene-rotate-y', '0deg');
   };
 
   return (
-    <div className="bg-brand-bg pb-12 text-brand-text">
-      <section className="editorial-hero relative overflow-hidden">
-        <div className="editorial-hero__texture pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-12 pt-12 md:px-8 md:pb-16 md:pt-20">
-          <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.92fr] lg:items-center lg:gap-14">
-            <div className="relative z-10">
-              <p className="mb-6 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-accent">
-                <span className="h-px w-8 bg-brand-accent" />
-                Product marketing · Positioning · Product stories
-              </p>
-              <h1 className="max-w-3xl font-display text-5xl leading-[0.99] tracking-[-0.055em] md:text-6xl lg:text-[5.2rem]">
-                I work on whether products are <span className="editorial-hero__emphasis">worth finding.</span>
-              </h1>
-              <p className="mt-6 max-w-2xl font-display text-xl leading-snug text-brand-accent md:text-2xl">
-                I spent years understanding how buyers find products. Now I write about the stories that make the difference.
-              </p>
-              <p className="mt-5 max-w-xl text-sm leading-7 text-brand-muted md:text-base">
-                Today, I work in product marketing at Refrens. My background in SEO and building a media brand from zero shapes how I approach positioning, messaging and go-to-market.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <button type="button" onClick={() => jumpToStage('discover')} className="inline-flex items-center gap-2 rounded-full bg-brand-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">
-                  Explore the funnel <ArrowDown className="h-4 w-4" aria-hidden="true" />
-                </button>
-                <Link to="/work" className="inline-flex items-center gap-2 rounded-full border border-brand-border px-6 py-3.5 text-sm font-semibold text-brand-text transition hover:border-brand-accent">
-                  Browse case studies <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </div>
-              <p className="mt-5 text-xs text-brand-muted">Ideas first. Evidence next. Conversation when it makes sense.</p>
+    <main className="product-tour-page">
+      <section className="product-tour-hero" id="overview">
+        <div className="product-tour-hero__ambient" aria-hidden="true" />
+        <div className="product-tour-hero__inner">
+          <div className="product-tour-intro">
+            <p className="product-eyebrow"><span /> Product marketing portfolio</p>
+            <h1 className="product-tour-headline">I work on whether products are <em>worth finding.</em></h1>
+            <p className="product-tour-subhead">I spent years understanding how buyers find products. Now I write about the stories that make the difference.</p>
+            <p className="product-tour-summary">I’m a Product Marketing Manager at Refrens, working across the customer funnel for service businesses and traders. My background in SEO, audience insight and building a media brand shapes how I approach positioning, messaging and go-to-market.</p>
+            <div className="product-tour-actions">
+              <a className="product-button product-button--primary" href="#capabilities">Take the product tour <ArrowRight size={16} aria-hidden="true" /></a>
+              <Link className="product-button product-button--quiet" to="/work">View selected work <ArrowUpRight size={16} aria-hidden="true" /></Link>
+            </div>
+            <div className="product-tour-proof">
+              <div><strong>8.2 <span>→</span> 5.0</strong><small>Average search position</small></div>
+              <div><strong>1.5M<span>+</span></strong><small>Organic reel views</small></div>
+              <div><strong>0 <span>→</span> 1</strong><small>Independent media brand</small></div>
+            </div>
+            <a href="#capabilities" className="product-scroll-cue"><span className="product-scroll-cue__line" />Scroll to explore the system <ArrowDown size={13} aria-hidden="true" /></a>
+          </div>
 
-              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-brand-border pt-6">
-                <div>
-                  <p className="font-display text-3xl text-brand-text md:text-4xl">1.5M+</p>
-                  <p className="mt-1 max-w-[135px] text-xs leading-5 text-brand-muted">organic reel views on an independent brand</p>
-                </div>
-                <div>
-                  <p className="font-display text-3xl text-brand-text md:text-4xl">8.2 <span className="text-brand-accent">→</span> 5.0</p>
-                  <p className="mt-1 max-w-[135px] text-xs leading-5 text-brand-muted">average ranking on priority search terms</p>
-                </div>
-                <div>
-                  <p className="font-display text-3xl text-brand-text md:text-4xl">02</p>
-                  <p className="mt-1 max-w-[135px] text-xs leading-5 text-brand-muted">cross-functional product proposals authored</p>
-                </div>
+          <div className="product-tour-showcase">
+            <div className="product-showcase-heading">
+              <div><p className="product-eyebrow">The product marketing system</p><h2>Five connected capabilities.</h2></div>
+              <span className="product-showcase-index">01 / 05</span>
+            </div>
+
+            <div className="catalogue-scene" ref={sceneRef} onPointerMove={handleSceneMove} onPointerLeave={resetSceneMove}>
+              <div className="catalogue-scene__world">
+              <div className="catalogue-scene__backdrop" aria-hidden="true" />
+              <div className="catalogue-scene__orbit catalogue-scene__orbit--outer" aria-hidden="true" />
+              <div className="catalogue-scene__orbit catalogue-scene__orbit--inner" aria-hidden="true" />
+              <div className="catalogue-scene__platform catalogue-scene__platform--back" aria-hidden="true" />
+              <div className="catalogue-scene__platform catalogue-scene__platform--front" aria-hidden="true" />
+              <div className="catalogue-scene__core">
+                <div className="catalogue-scene__core-glow" />
+                <span className="catalogue-scene__core-kicker">Connected system</span>
+                <strong>PMM</strong><span>PRODUCT<br />MARKETING</span><i />
+              </div>
+
+              {modules.map((item) => {
+                const selected = activeModule === item.id;
+                return (
+                  <button type="button" key={item.id} className={`catalogue-module catalogue-module--${item.id} ${selected ? 'is-active' : ''}`}
+                    aria-pressed={selected} onClick={() => setActiveModule(item.id)} onFocus={() => setActiveModule(item.id)}>
+                    <span className="catalogue-module__topline"><span>{item.number}</span><span>{selected ? 'Selected' : 'Explore'}</span></span>
+                    <span className="catalogue-module__icon"><ModuleIcon icon={item.icon} size={20} /></span>
+                    <strong>{item.title}</strong><small>{item.short}</small>
+                    <span className="catalogue-module__shine" aria-hidden="true" />
+                  </button>
+                );
+              })}
+              <div className="catalogue-scene__annotation catalogue-scene__annotation--left">Customer context</div>
+              <div className="catalogue-scene__annotation catalogue-scene__annotation--right">Market to momentum</div>
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[620px] lg:max-w-none">
-              <div className="editorial-hero__orbit editorial-hero__orbit--one" aria-hidden="true" />
-              <div className="editorial-hero__orbit editorial-hero__orbit--two" aria-hidden="true" />
-              <div className="relative z-10">
-                <FunnelMap activeStage={activeStage} onSelectStage={setActiveStage} />
+            <div className="catalogue-inspector" aria-live="polite">
+              <div className="catalogue-inspector__icon"><ModuleIcon icon={current.icon} size={20} /></div>
+              <div className="catalogue-inspector__copy">
+                <p className="product-eyebrow">Module {current.number} / {current.type}</p>
+                <h3>{current.short}</h3><p>{current.description}</p>
               </div>
-              <div className="editorial-hero__caption">
-                <span className="editorial-hero__caption-dot" aria-hidden="true" />
-                <p>Explore by intent, not in a fixed order.</p>
-              </div>
+              <Link to={current.link} className="catalogue-inspector__link">{current.linkLabel} <ArrowUpRight size={15} aria-hidden="true" /></Link>
+            </div>
+            <p className="catalogue-instruction"><Compass size={13} aria-hidden="true" /> Select a capability to explore the thinking, work and writing behind it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="capability-catalogue" id="capabilities">
+        <div className="product-section-heading">
+          <div><p className="product-eyebrow">Inside the catalogue / 01—05</p><h2>What goes into making a product <em>matter.</em></h2></div>
+          <p>Explore each discipline. See the approach behind it, then follow the connections to actual work and ideas.</p>
+        </div>
+
+        <div className="capability-layout">
+          <div className="capability-selector" role="tablist" aria-label="Product marketing capabilities">
+            {modules.map((item) => {
+              const selected = activeModule === item.id;
+              return (
+                <button type="button" key={item.id} role="tab" aria-selected={selected} aria-controls="capability-panel"
+                  className={`capability-selector__item ${selected ? 'is-active' : ''}`} onClick={() => setActiveModule(item.id)}>
+                  <span className="capability-selector__number">{item.number}</span>
+                  <span className="capability-selector__icon"><ModuleIcon icon={item.icon} size={18} /></span>
+                  <span className="capability-selector__label">{item.title}</span><ArrowUpRight size={15} aria-hidden="true" />
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="capability-detail-panel" id="capability-panel" role="tabpanel">
+            <div className="capability-detail-panel__visual">
+              <div className="capability-detail-panel__orbit" aria-hidden="true" />
+              <div className="capability-detail-panel__visual-core"><ModuleIcon icon={current.icon} size={34} /><span>{current.number}</span></div>
+              <p>{current.type}</p>
+            </div>
+            <div className="capability-detail-panel__content">
+              <p className="product-eyebrow">Capability / {current.number}</p>
+              <h3>{current.title}</h3>
+              <p className="capability-detail-panel__lead">{current.description}</p>
+              <p>{current.approach}</p>
+              <div className="capability-tags">{current.areas.map((area) => <span key={area}>{area}</span>)}</div>
+              <div className="capability-detail-panel__evidence"><span>Connected experience</span><strong>{current.evidence}</strong></div>
+              <Link to={current.link} className="product-button product-button--primary">{current.linkLabel} <ArrowUpRight size={15} aria-hidden="true" /></Link>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="funnel-journey relative isolate overflow-clip bg-[var(--color-brand-bg)]">
-        <DeferredThreeDFunnelScene activeStage={activeStage} />
-        <FunnelMobileNavigation activeStage={activeStage} onSelect={jumpToStage} />
-
-        <div className="funnel-content-depth relative mx-auto max-w-[1440px] px-3 md:px-6 xl:px-10">
-          <div className="grid xl:grid-cols-[150px_minmax(0,1fr)] xl:gap-8">
-            <FunnelJourneyRail activeStage={activeStage} onSelect={jumpToStage} />
-
-            <div className="min-w-0">
-              <section id="discover" className="scroll-mt-[150px] xl:scroll-mt-24 py-5 md:py-7">
-                <div className={`journey-panel journey-panel--discover mx-auto w-full max-w-[920px] rounded-[1.5rem] border bg-[var(--funnel-panel-discover)] p-4 md:p-6 lg:p-7 ${activeStage === 'discover' ? 'journey-panel--active' : ''}`}>
-                  <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:gap-6">
-                    <div>
-                      <div className="flex items-center gap-3">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#E4E9E3] font-display text-base text-[#344F44]">01</span>
-                        <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#718078]">Discover · Top of funnel</p>
-                      </div>
-                      <h2 className="mt-4 max-w-md font-display text-3xl leading-[1.03] tracking-[-0.04em] md:text-4xl">Start with the question, not the answer.</h2>
-                      <p className="mt-3 max-w-md text-sm leading-6 text-brand-muted">
-                        Articles and newsletter essays help a reader recognise a problem, learn a useful idea and discover how I think about marketing.
-                      </p>
-                      <Link to="/writing" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-accent transition hover:text-brand-accent-hover">
-                        Explore The Second Draft <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                      </Link>
-                    </div>
-
-                    <div className="grid gap-3 md:grid-cols-[1.1fr_0.9fr]">
-                      <article className="flex flex-col rounded-2xl border border-brand-border bg-white p-5 md:p-6">
-                        <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-muted">
-                          <BookOpen className="h-4 w-4" aria-hidden="true" /> The Second Draft
-                        </div>
-                        <p className="mt-4 text-[9px] font-bold uppercase tracking-[0.2em] text-[#344F44]">Featured newsletter edition</p>
-                        <h3 className="mt-2 font-display text-xl leading-tight tracking-[-0.035em] md:text-2xl">Before You Rewrite That Landing Page, Ask These Four Questions</h3>
-                        <p className="mt-3 text-xs leading-5 text-brand-muted">A practical pause before opening the copy document. Check the problem, audience, promise and evidence first.</p>
-                        <a href="https://www.linkedin.com/newsletters/the-second-draft-7357808364178870273" target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-2 pt-4 text-xs font-semibold text-brand-accent">
-                          Read on LinkedIn <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                        </a>
-                      </article>
-
-                      <article className="flex flex-col rounded-2xl bg-[#FBFAF6] p-5 text-[#1B2A26] md:p-6">
-                        <Lightbulb className="h-5 w-5" aria-hidden="true" />
-                        <p className="mt-4 text-[9px] font-bold uppercase tracking-[0.2em] text-[#596861]">Take something useful</p>
-                        <h3 className="mt-3 font-display text-2xl leading-tight tracking-[-0.035em]">A better question changes the work.</h3>
-                        <p className="mt-3 text-xs leading-5 text-[#596861]">Copyable checklists and prompts for the messy bit between noticing a problem and deciding what to do.</p>
-                        <Link to="/resources" className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold text-[#1B2A26]">
-                          Browse resources <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                        </Link>
-                      </article>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <section id="evaluate" className="scroll-mt-[150px] xl:scroll-mt-24 py-3 md:py-5">
-                <div className={`journey-panel journey-panel--evaluate mx-auto w-full md:w-[94%] max-w-[880px] rounded-[1.5rem] border border-brand-border bg-[var(--funnel-panel-evaluate)] p-4 md:p-6 lg:p-7 ${activeStage === 'evaluate' ? 'journey-panel--active' : ''}`}>
-                  <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-                    <div className="max-w-2xl">
-                      <div className="flex items-center gap-3">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B7C6BD] font-display text-base text-[#1B2A26]">02</span>
-                        <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#596861]">Evaluate · Middle of funnel</p>
-                      </div>
-                      <h2 className="mt-4 font-display text-3xl leading-[1.03] tracking-[-0.04em] md:text-4xl">See the thinking behind the work.</h2>
-                      <p className="mt-3 max-w-xl text-sm leading-6 text-[#596861]">
-                        Case studies move from a problem to the insight, strategic choice, execution and evidence. Professional work, capstone thinking and independent projects are clearly labelled.
-                      </p>
-                    </div>
-                    <Link to="/work" className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-[#344F44] transition hover:text-[#344F44]">
-                      All case studies <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
-                  </div>
-
-                  <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
-                    {projects.map((project) => (
-                      <Link key={project.id} to={`/work/${project.id}`} className={`group flex flex-col overflow-hidden rounded-2xl border border-[#D5DCD3] bg-[#FBFAF6] transition duration-200 hover:-translate-y-1 hover:border-[#344F44] ${project.className}`}>
-                        <div className="relative overflow-hidden bg-brand-card">
-                          <img src={project.image} alt={project.name} loading="lazy" className="aspect-[16/6] w-full object-cover transition duration-500 group-hover:scale-[1.025]" />
-                          <span className="absolute left-2 top-2 rounded-full bg-[#F4F2EB]/95 px-2.5 py-1 text-[8px] font-bold tracking-[0.13em] text-[#344F44]">{project.kind}</span>
-                        </div>
-                        <div className="flex flex-1 flex-col p-3.5 md:p-4">
-                          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#344F44]">{project.discipline}</p>
-                          <h3 className="mt-2 font-display text-xl leading-tight tracking-[-0.035em]">{project.name}</h3>
-                          <p className="mt-2 text-xs leading-5 text-[#596861]">{project.question}</p>
-                          <p className="mt-3 border-l-2 border-brand-accent pl-2.5 text-[11px] leading-4 text-[#344F44]">{project.signal}</p>
-                          <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-[#344F44]">Read the case study <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" /></span>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                  <p className="mt-4 text-[9px] leading-4 text-[#596861]">ACKO is a capstone strategy exercise, and its unit-economics figures are projections. Business Standard ranking results are observed; product proposals are described as authored work, not shipped features.</p>
-                </div>
-              </section>
-
-              <section id="connect" className="scroll-mt-[150px] xl:scroll-mt-24 py-3 pb-10 md:py-5 md:pb-14">
-                <div className={`journey-panel journey-panel--connect mx-auto w-full md:w-[86%] max-w-[740px] rounded-[1.5rem] border border-brand-border bg-[var(--funnel-panel-connect)] p-5 text-[var(--funnel-connect-text)] md:p-7 lg:p-8 ${activeStage === 'connect' ? 'journey-panel--active' : ''}`}>
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B7C6BD] font-display text-base text-[#1B2A26]">03</span>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/65">Connect · Bottom of funnel</p>
-                  </div>
-                  <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#B7C6BD]">The person behind the perspective</p>
-                  <h2 className="mt-2 max-w-2xl font-display text-2xl leading-[1.05] tracking-[-0.04em] md:text-3xl">A career built around one question: why do people choose?</h2>
-                  <p className="mt-3 max-w-2xl text-sm leading-6 text-white/75">
-                    My route into product marketing crossed audience research, search, earned media and building a media brand from zero. Today, I bring that perspective to positioning, messaging and go-to-market, and keep writing about the decisions behind the discipline.
-                  </p>
-                  <div className="mt-5 flex flex-wrap gap-3">
-                    <Link to="/about" className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-                      More about me <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
-                    <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-[var(--funnel-connect-cta-bg)] px-5 py-3 text-sm font-semibold text-[var(--funnel-connect-cta-text)] transition hover:opacity-90">
-                      Start a conversation <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </div>
+      <section className="product-work-section" id="work">
+        <div className="product-section-heading">
+          <div><p className="product-eyebrow">Selected work / Proof in practice</p><h2>Ideas are interesting.<br /><em>Evidence is better.</em></h2></div>
+          <Link to="/work" className="product-text-link">All selected work <ArrowUpRight size={15} aria-hidden="true" /></Link>
         </div>
-      </div>
-    </div>
+        <div className="product-project-grid">
+          {projects.map((project, index) => (
+            <article className="product-project-card" key={project.id}>
+              <Link to={`/work/${project.id}`} className="product-project-card__image">
+                <img src={project.image} alt={`${project.name} project preview`} loading="lazy" />
+                <span className="product-project-card__index">0{index + 1}</span><span className="product-project-card__open"><ArrowUpRight size={17} aria-hidden="true" /></span>
+              </Link>
+              <div className="product-project-card__body">
+                <p className="product-eyebrow">{project.kind}</p><h3><Link to={`/work/${project.id}`}>{project.name}</Link></h3>
+                <p className="product-project-card__discipline">{project.discipline}</p><p>{project.question}</p>
+                <div className="product-project-card__signal">{project.signal}</div>
+                <Link to={`/work/${project.id}`} className="product-text-link">Explore project <ArrowRight size={14} aria-hidden="true" /></Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="product-experience-section" id="experience">
+        <div className="product-experience-section__intro">
+          <p className="product-eyebrow">The person behind the system</p>
+          <h2>Experience shaped by <em>building and learning.</em></h2>
+          <p>Product marketing is the current chapter. Search, audience insight and building something from zero shaped the way I got here.</p>
+          <Link to="/about" className="product-button product-button--outline">Explore my story <ArrowUpRight size={15} aria-hidden="true" /></Link>
+        </div>
+        <div className="product-experience-list">
+          <article className="product-experience-item product-experience-item--current">
+            <span className="product-experience-item__number">01</span>
+            <div><p className="product-eyebrow">Current experience</p><h3>Refrens</h3><strong>Product Marketing Manager</strong>
+              <p>Working across the customer funnel for service businesses and traders, connecting positioning, messaging and go-to-market execution with product and customer needs.</p>
+              <span className="product-experience-item__note">Professional experience · Case studies to follow</span>
+            </div><span className="product-experience-item__status">Current</span>
+          </article>
+          <article className="product-experience-item">
+            <span className="product-experience-item__number">02</span>
+            <div><p className="product-eyebrow">Growth and search intelligence</p><h3>Business Standard</h3><strong>SEO Executive · Growth & GTM Strategy</strong>
+              <p>Worked across high-intent financial categories, GTM initiatives and cross-functional product proposals. Improved average position on priority terms from 8.2 to 5.0.</p>
+            </div><span className="product-experience-item__status">2023–2026</span>
+          </article>
+          <article className="product-experience-item">
+            <span className="product-experience-item__number">03</span>
+            <div><p className="product-eyebrow">Independent build</p><h3>The Peak View Stories</h3><strong>Founder</strong>
+              <p>Built a media brand from zero across positioning, content, website and Instagram distribution. Grew to 1.5M+ organic reel views.</p>
+            </div><span className="product-experience-item__status">0 to 1</span>
+          </article>
+        </div>
+      </section>
+
+      <section className="product-field-notes" id="field-notes">
+        <div className="product-field-notes__heading">
+          <div><p className="product-eyebrow"><BookOpen size={14} aria-hidden="true" /> The Second Draft / Field notes</p><h2>Ideas, frameworks and marketing observations.</h2></div>
+          <Link to="/writing" className="product-text-link">All writing <ArrowUpRight size={15} aria-hidden="true" /></Link>
+        </div>
+        <div className="product-article-grid">
+          <article className="product-article-card product-article-card--featured">
+            <span className="product-article-card__type">Published newsletter</span><h3>Before You Rewrite That Landing Page, Ask These Four Questions</h3>
+            <p>A practical pause before opening the copy document: check the problem, audience, promise and evidence first.</p>
+            <Link to="/writing" className="product-text-link">Read the field notes <ArrowRight size={14} aria-hidden="true" /></Link>
+          </article>
+          <article className="product-article-card">
+            <span className="product-article-card__type">In development</span><h3>Is Your Brand Running Without a Positioning?</h3>
+            <p>When a documented positioning statement is missing, customers still form a perception. The question is whether your teams tell one coherent story.</p>
+            <Link to="/writing" className="product-text-link">Explore The Second Draft <ArrowRight size={14} aria-hidden="true" /></Link>
+          </article>
+          <article className="product-article-card product-article-card--dark">
+            <span className="product-article-card__type">Useful resources</span><h3>Tools for thinking more clearly.</h3>
+            <p>Practical checklists, audits and working documents for positioning, messaging and go-to-market.</p>
+            <Link to="/resources" className="product-button product-button--light">Explore resources <ArrowUpRight size={14} aria-hidden="true" /></Link>
+          </article>
+        </div>
+      </section>
+
+      <section className="product-tour-cta">
+        <div><p className="product-eyebrow">Have a product story to figure out?</p><h2>Let's connect the dots.</h2>
+          <p>For a conversation about product marketing, positioning, go-to-market or a good question worth exploring.</p>
+        </div>
+        <div className="product-tour-cta__actions">
+          <Link to="/contact" className="product-button product-button--light">Start a conversation <ArrowUpRight size={15} aria-hidden="true" /></Link>
+          <a href="https://www.linkedin.com/in/akshatjain1102/" target="_blank" rel="noreferrer" className="product-cta-link">Find me on LinkedIn <ArrowUpRight size={14} aria-hidden="true" /></a>
+        </div>
+      </section>
+    </main>
   );
 }
