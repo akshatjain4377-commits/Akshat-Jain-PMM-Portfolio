@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import FunnelMap from '../components/FunnelMap';
+import FunnelMap, { type FunnelStageId } from '../components/FunnelMap';
 const ThreeDFunnelScene = lazy(() => import('../components/ThreeDFunnelScene'));
 
 const projects = [
@@ -42,8 +42,6 @@ const funnelStages = [
   { id: 'evaluate', number: '02', label: 'Evaluate', descriptor: 'Work and evidence' },
   { id: 'connect', number: '03', label: 'Connect', descriptor: 'About and conversation' },
 ] as const;
-
-type FunnelStageId = typeof funnelStages[number]['id'];
 
 function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: FunnelStageId; onSelect: (id: FunnelStageId) => void }) {
   const activeIndex = funnelStages.findIndex((stage) => stage.id === activeStage);
@@ -95,6 +93,43 @@ function FunnelJourneyRail({ activeStage, onSelect }: { activeStage: FunnelStage
   );
 }
 
+
+function FunnelMobileNavigation({ activeStage, onSelect }: { activeStage: FunnelStageId; onSelect: (id: FunnelStageId) => void }) {
+  const activeIndex = funnelStages.findIndex((stage) => stage.id === activeStage);
+
+  return (
+    <nav className="journey-mobile-nav xl:hidden" aria-label="Choose a funnel stage">
+      <div className="journey-mobile-nav__surface">
+        <div className="flex items-center justify-between gap-3 px-3 pb-2 pt-3">
+          <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-muted">Explore the journey</span>
+          <span className="text-[10px] font-semibold tabular-nums text-brand-accent">{String(activeIndex + 1).padStart(2, '0')} / 03</span>
+        </div>
+        <div className="grid grid-cols-3 gap-1.5 px-2 pb-2" role="group">
+          {funnelStages.map((stage, index) => {
+            const active = stage.id === activeStage;
+            const completed = index < activeIndex;
+            return (
+              <button
+                key={stage.id}
+                type="button"
+                onClick={() => onSelect(stage.id)}
+                aria-current={active ? 'step' : undefined}
+                aria-label={`Go to stage ${stage.number}: ${stage.label}`}
+                className={`journey-mobile-nav__button ${active ? 'is-active' : ''} ${completed ? 'is-complete' : ''}`}
+              >
+                <span className="journey-mobile-nav__number">{stage.number}</span>
+                <span className="journey-mobile-nav__label">{stage.label}</span>
+              </button>
+            );
+          })}
+        </div>
+        <div className="journey-mobile-nav__track" aria-hidden="true">
+          <span style={{ width: `${((activeIndex + 1) / 3) * 100}%` }} />
+        </div>
+      </div>
+    </nav>
+  );
+}
 
 function DeferredThreeDFunnelScene({ activeStage }: { activeStage: FunnelStageId }) {
   const [shouldLoad, setShouldLoad] = useState(false);
@@ -215,7 +250,7 @@ export default function Landing() {
               <div className="editorial-hero__orbit editorial-hero__orbit--one" aria-hidden="true" />
               <div className="editorial-hero__orbit editorial-hero__orbit--two" aria-hidden="true" />
               <div className="relative z-10">
-                <FunnelMap />
+                <FunnelMap activeStage={activeStage} onSelectStage={setActiveStage} />
               </div>
               <div className="editorial-hero__caption">
                 <span className="editorial-hero__caption-dot" aria-hidden="true" />
@@ -226,15 +261,16 @@ export default function Landing() {
         </div>
       </section>
 
-      <div className="funnel-journey relative isolate overflow-hidden bg-[var(--color-brand-bg)]">
+      <div className="funnel-journey relative isolate overflow-clip bg-[var(--color-brand-bg)]">
         <DeferredThreeDFunnelScene activeStage={activeStage} />
+        <FunnelMobileNavigation activeStage={activeStage} onSelect={jumpToStage} />
 
         <div className="funnel-content-depth relative mx-auto max-w-[1440px] px-3 md:px-6 xl:px-10">
           <div className="grid xl:grid-cols-[150px_minmax(0,1fr)] xl:gap-8">
             <FunnelJourneyRail activeStage={activeStage} onSelect={jumpToStage} />
 
             <div className="min-w-0">
-              <section id="discover" className="scroll-mt-24 py-5 md:py-7">
+              <section id="discover" className="scroll-mt-[150px] xl:scroll-mt-24 py-5 md:py-7">
                 <div className={`journey-panel journey-panel--discover mx-auto w-full max-w-[920px] rounded-[1.5rem] border bg-[var(--funnel-panel-discover)] p-4 md:p-6 lg:p-7 ${activeStage === 'discover' ? 'journey-panel--active' : ''}`}>
                   <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:gap-6">
                     <div>
@@ -278,7 +314,7 @@ export default function Landing() {
                 </div>
               </section>
 
-              <section id="evaluate" className="scroll-mt-24 py-3 md:py-5">
+              <section id="evaluate" className="scroll-mt-[150px] xl:scroll-mt-24 py-3 md:py-5">
                 <div className={`journey-panel journey-panel--evaluate mx-auto w-full md:w-[94%] max-w-[880px] rounded-[1.5rem] border border-brand-border bg-[var(--funnel-panel-evaluate)] p-4 md:p-6 lg:p-7 ${activeStage === 'evaluate' ? 'journey-panel--active' : ''}`}>
                   <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
                     <div className="max-w-2xl">
@@ -317,7 +353,7 @@ export default function Landing() {
                 </div>
               </section>
 
-              <section id="connect" className="scroll-mt-24 py-3 pb-10 md:py-5 md:pb-14">
+              <section id="connect" className="scroll-mt-[150px] xl:scroll-mt-24 py-3 pb-10 md:py-5 md:pb-14">
                 <div className={`journey-panel journey-panel--connect mx-auto w-full md:w-[86%] max-w-[740px] rounded-[1.5rem] border border-brand-border bg-[var(--funnel-panel-connect)] p-5 text-[var(--funnel-connect-text)] md:p-7 lg:p-8 ${activeStage === 'connect' ? 'journey-panel--active' : ''}`}>
                   <div className="flex items-center gap-3">
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B7C6BD] font-display text-base text-[#1B2A26]">03</span>
