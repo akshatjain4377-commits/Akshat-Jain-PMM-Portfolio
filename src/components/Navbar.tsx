@@ -4,6 +4,17 @@ import { ArrowUpRight, BookOpen, Compass, Menu, X } from 'lucide-react';
 
 type Mode = 'journey' | 'reading';
 
+function getInitialMode(): Mode {
+  if (typeof window === 'undefined') return 'journey';
+
+  try {
+    return window.localStorage.getItem('aj-portfolio-mode') === 'reading' ? 'reading' : 'journey';
+  } catch {
+    // Private browsing and embedded browsers can deny storage access.
+    return 'journey';
+  }
+}
+
 const links = [
   { label: 'Work', to: '/work' },
   { label: 'Writing', to: '/writing' },
@@ -14,14 +25,16 @@ const links = [
 export default function Navbar() {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mode, setMode] = useState<Mode>(() => {
-    if (typeof window === 'undefined') return 'journey';
-    return window.localStorage.getItem('aj-portfolio-mode') === 'reading' ? 'reading' : 'journey';
-  });
+  const [mode, setMode] = useState<Mode>(getInitialMode);
 
   useEffect(() => {
     document.documentElement.dataset.mode = mode;
-    window.localStorage.setItem('aj-portfolio-mode', mode);
+
+    try {
+      window.localStorage.setItem('aj-portfolio-mode', mode);
+    } catch {
+      // The page still works normally when persistent preferences are unavailable.
+    }
   }, [mode]);
 
   const isActive = (to: string) => {
