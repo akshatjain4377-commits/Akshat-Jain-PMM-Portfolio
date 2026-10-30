@@ -9,6 +9,12 @@ class AppErrorBoundary extends Component<
   { hasError: boolean }
 > {
   state = { hasError: false };
+  private readonly appContent: ReactNode;
+
+  constructor(props: { children: ReactNode }) {
+    super(props);
+    this.appContent = props.children;
+  }
 
   static getDerivedStateFromError() {
     return { hasError: true };
@@ -64,7 +70,7 @@ class AppErrorBoundary extends Component<
       );
     }
 
-    return this.props.children;
+    return this.appContent;
   }
 }
 
