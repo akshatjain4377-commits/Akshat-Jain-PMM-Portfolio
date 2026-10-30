@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, BriefcaseBusiness, Compass, Layers3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -65,35 +64,21 @@ const stages = [
   },
 ] as const;
 
-export default function FunnelMap() {
-  const [active, setActive] = useState('discover');
-  const selected = stages.find((stage) => stage.id === active) ?? stages[1];
+export type FunnelStageId = typeof stages[number]['id'];
+
+type FunnelMapProps = {
+  activeStage: FunnelStageId;
+  onSelectStage: (stage: FunnelStageId) => void;
+};
+
+export default function FunnelMap({ activeStage, onSelectStage }: FunnelMapProps) {
+  const selected = stages.find((stage) => stage.id === activeStage) ?? stages[1];
   const Icon = selected.icon;
-
-  useEffect(() => {
-    const targets = stages
-      .map((stage) => document.getElementById(stage.id))
-      .filter((element): element is HTMLElement => element instanceof HTMLElement);
-
-    if (!('IntersectionObserver' in window) || targets.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { rootMargin: '-22% 0px -58% 0px', threshold: [0, 0.15, 0.4] },
-    );
-
-    targets.forEach((target) => observer.observe(target));
-    return () => observer.disconnect();
-  }, []);
 
   const jumpToStage = () => {
     const section = document.getElementById(selected.id);
     if (!section) return;
+    onSelectStage(selected.id);
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     section.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   };
@@ -120,7 +105,7 @@ export default function FunnelMap() {
                 <button
                   key={stage.id}
                   type="button"
-                  onClick={() => setActive(stage.id)}
+                  onClick={() => onSelectStage(stage.id)}
                   aria-pressed={isActive}
                   className={`funnel-stage mx-auto flex min-h-[76px] items-center justify-between gap-3 rounded-xl px-4 py-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#344F44] md:min-h-[84px] md:px-5 ${isActive ? 'is-active' : 'opacity-80 hover:opacity-100'}`}
                   style={{ width: stage.width, backgroundColor: stage.surface, color: stage.foreground }}
