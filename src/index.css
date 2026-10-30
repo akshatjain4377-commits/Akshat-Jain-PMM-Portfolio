@@ -994,10 +994,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
-  .funnel-stage {
-    width: 100% !important;
-  }
-
   .journey-mobile-nav__button {
     min-height: 44px;
   }
@@ -1038,6 +1034,97 @@ h1, h2, h3, h4, h5, h6 {
   .journey-panel {
     transform: none !important;
     backface-visibility: visible;
+  }
+}
+
+/* The stage selector is a literal, connected inverted funnel at every breakpoint. */
+.funnel-shape {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-bottom: 2px;
+}
+
+.funnel-stage {
+  position: relative;
+  flex-shrink: 0;
+  border: 0;
+  transform-origin: center top;
+  transition: opacity 200ms ease, width 280ms cubic-bezier(0.2, 0.75, 0.25, 1), transform 200ms ease, filter 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.funnel-stage:not(.is-active) {
+  opacity: 0.88;
+}
+
+.funnel-stage.is-active {
+  z-index: 2;
+  opacity: 1;
+  transform: translateY(-1px);
+  filter: drop-shadow(0 5px 7px rgba(27, 42, 38, 0.22));
+}
+
+.funnel-stage:focus-visible {
+  outline: 3px solid var(--color-brand-accent);
+  outline-offset: 3px;
+}
+
+.funnel-outlet {
+  position: relative;
+  display: flex;
+  width: 50.3%;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: -1px auto 0;
+  color: var(--color-brand-accent);
+}
+
+.funnel-outlet::before {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 1px;
+  height: 5px;
+  background: var(--color-brand-accent);
+  content: "";
+}
+
+.funnel-outlet span {
+  height: 1px;
+  flex: 1;
+  background: var(--color-brand-border);
+}
+
+@media (max-width: 767px) {
+  .funnel-shape {
+    gap: 2px;
+  }
+
+  .funnel-stage {
+    min-height: 72px;
+    padding-right: clamp(14px, 5vw, 21px);
+    padding-left: clamp(14px, 5vw, 21px);
+  }
+
+  .funnel-stage.is-active {
+    transform: translateY(-1px) scale(1.015);
+  }
+
+  .funnel-outlet {
+    width: 50.3%;
+    margin-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .funnel-stage {
+    transition: none !important;
   }
 }
 
