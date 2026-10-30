@@ -100,7 +100,7 @@ export default function FunnelMap({ activeStage, onSelectStage }: FunnelMapProps
           <div className="space-y-2" role="group" aria-label="Choose a portfolio funnel stage">
             {stages.map((stage) => {
               const StageIcon = stage.icon;
-              const isActive = active === stage.id;
+              const isActive = activeStage === stage.id;
               return (
                 <button
                   key={stage.id}
